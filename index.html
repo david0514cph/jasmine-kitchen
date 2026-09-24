@@ -2,9 +2,16 @@
 <html lang="zh-Hant">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="以日常為靈感，提供團隊體驗、場地租借、季節選物與身材管理服務。">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="description" content="茉莉花廚房 Jasmine Kitchen｜新竹竹東。提供團隊凝聚體驗、一對一身材管理、場地租借、季節限定選物與會員手作課程。">
+	<meta name="theme-color" content="#f8f5ef">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="茉莉花廚房 Jasmine Kitchen｜把喜歡的日子，過得更好">
+	<meta property="og:description" content="一起做事、一起吃飯，在每一次相遇裡，找到更靠近自己的日常。">
+	<meta property="og:image" content="./門口.jpg">
 	<title>茉莉花廚房 Jasmine Kitchen｜把喜歡的日子，過得更好</title>
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23272522'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23b47a32' font-family='serif'%3E茉%3C/text%3E%3C/svg%3E">
+	<script>document.documentElement.classList.add('js');</script>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<script>
 		tailwind.config = {
@@ -34,231 +41,722 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
 	<style>
-		html { scroll-behavior: smooth; }
+		html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
 		body { background: #f8f5ef; color: #272522; }
-		.section-rule { border-top: 1px solid rgba(39, 37, 34, 0.14); }
-		.eyebrow::before { content: ''; display: inline-block; width: 2.5rem; height: 1px; margin: 0 0.75rem 0.25rem 0; background: #b47a32; }
-		summary::-webkit-details-marker { display: none; }
-		summary::after { content: '+'; color: #b47a32; font-size: 1.25rem; }
-		details[open] summary::after { content: '−'; }
-		.reveal { animation: reveal 0.8s ease both; }
-		@keyframes reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-		.carousel { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px solid rgba(231, 229, 228, 0.8); background: #f5f5f4; box-shadow: 0 4px 12px rgba(39, 37, 34, 0.08); }
-		.carousel-slide { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.55s ease; pointer-events: none; }
-		.carousel-slide.is-active { opacity: 1; pointer-events: auto; }
-		.carousel-control { position: absolute; top: 50%; z-index: 10; display: flex; height: 2.75rem; width: 2.75rem; transform: translateY(-50%); align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.45); border-radius: 9999px; background: rgba(39,37,34,0.42); color: white; backdrop-filter: blur(6px); transition: background 0.2s ease, transform 0.2s ease; }
-		.carousel-control:hover { background: rgba(180,122,50,0.85); transform: translateY(-50%) scale(1.06); }
-		.carousel-control.prev { left: 1rem; }
-		.carousel-control.next { right: 1rem; }
-		.carousel-dots { position: absolute; bottom: 1rem; left: 50%; z-index: 10; display: flex; gap: 0.45rem; transform: translateX(-50%); }
-		.carousel-dot { height: 0.5rem; width: 0.5rem; border-radius: 9999px; background: rgba(255,255,255,0.55); transition: width 0.25s ease, background 0.25s ease; }
-		.carousel-dot.is-active { width: 1.35rem; background: white; }
-		img.object-cover { object-fit: contain !important; background: #f5f5f4; border: 1px solid rgba(231, 229, 228, 0.8); box-shadow: 0 4px 12px rgba(39, 37, 34, 0.08); }
 		h1, h2, h3, h4 { text-wrap: balance; }
-		p { text-wrap: pretty; line-height: 1.75; }
-		p, span, li, a { word-break: keep-all; overflow-wrap: break-word; line-height: 1.8; }
-		.text-copy { width: 100%; max-width: 36rem; }
+		p { text-wrap: pretty; }
+		p, span, li, a, label { overflow-wrap: break-word; line-break: strict; }
+
+		/* 標題前的細線 */
+		.eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; }
+		.eyebrow::before { content: ''; width: 2.5rem; height: 1px; background: currentColor; opacity: 0.8; }
+
+		/* 按鈕 */
+		.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 9999px; padding: 0.8rem 1.5rem; font-size: 0.875rem; font-weight: 700; line-height: 1.2; transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease; }
+		.btn:hover { transform: translateY(-3px); }
+		.btn:active { transform: translateY(0); }
+		.btn-dark { background: #272522; color: #fff; }
+		.btn-dark:hover { background: #b47a32; box-shadow: 0 10px 24px rgba(180, 122, 50, 0.28); }
+		.btn-amber { background: #b47a32; color: #fff; }
+		.btn-amber:hover { background: #8c5e43; box-shadow: 0 10px 24px rgba(140, 94, 67, 0.28); }
+		.btn-line { border: 1px solid rgba(39, 37, 34, 0.2); }
+		.btn-line:hover { border-color: #b47a32; color: #b47a32; }
+		.btn-line-light { border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; }
+		.btn-line-light:hover { border-color: #b47a32; color: #e7c08a; }
+		.btn .arrow { transition: transform 0.25s ease; }
+		.btn:hover .arrow { transform: translateX(3px); }
+		a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 2px solid #b47a32; outline-offset: 3px; }
+
+		/* 導覽列 */
+		#siteHeader { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+		#siteHeader.is-scrolled { background: rgba(248, 245, 239, 0.94); box-shadow: 0 8px 30px rgba(39, 37, 34, 0.07); border-color: rgba(39, 37, 34, 0.08); }
+		.nav-link { position: relative; padding: 0.25rem 0; transition: color 0.2s ease; }
+		.nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -0.2rem; height: 1px; background: #b47a32; transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+		.nav-link:hover, .nav-link.is-active { color: #b47a32; }
+		.nav-link.is-active::after { transform: scaleX(1); }
+		#mobileMenu { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+		#mobileMenu.is-open { grid-template-rows: 1fr; }
+		#mobileMenu > div { overflow: hidden; }
+		.menu-icon span { display: block; height: 1.5px; width: 1.1rem; background: currentColor; transition: transform 0.3s ease, opacity 0.2s ease; }
+		.menu-icon span + span { margin-top: 5px; }
+		[aria-expanded="true"] .menu-icon span:first-child { transform: translateY(6.5px) rotate(45deg); }
+		[aria-expanded="true"] .menu-icon span:nth-child(2) { opacity: 0; }
+		[aria-expanded="true"] .menu-icon span:last-child { transform: translateY(-6.5px) rotate(-45deg); }
+
+		/* 圖片框：完整呈現照片，空白處用同一張照片的模糊背景補滿 */
+		.media { position: relative; overflow: hidden; background: #e7ded1; }
+		.media > .media-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(22px) saturate(1.1); transform: scale(1.2); opacity: 0.6; }
+		.media > .media-img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+
+		/* 輪播 */
+		.carousel { position: relative; overflow: hidden; background: #e7ded1; touch-action: pan-y; box-shadow: 0 20px 50px rgba(39, 37, 34, 0.10); }
+		.carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.7s ease; pointer-events: none; }
+		.carousel-slide.is-active { opacity: 1; pointer-events: auto; }
+		.carousel-slide .media-img { transform: scale(1.03); transition: transform 5s ease; }
+		.carousel-slide.is-active .media-img { transform: scale(1); }
+		.carousel-control { position: absolute; top: 50%; z-index: 10; display: flex; height: 2.75rem; width: 2.75rem; transform: translateY(-50%); align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 9999px; background: rgba(39, 37, 34, 0.42); color: #fff; backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease, background 0.2s ease, transform 0.2s ease; }
+		.carousel:hover .carousel-control, .carousel:focus-within .carousel-control { opacity: 1; }
+		@media (hover: none) { .carousel-control { opacity: 1; height: 2.25rem; width: 2.25rem; } }
+		.carousel-control:hover { background: rgba(180, 122, 50, 0.9); transform: translateY(-50%) scale(1.06); }
+		.carousel-control.prev { left: 0.85rem; }
+		.carousel-control.next { right: 0.85rem; }
+		.carousel-dots { position: absolute; bottom: 0.9rem; left: 50%; z-index: 10; display: flex; gap: 0.45rem; transform: translateX(-50%); padding: 0.4rem 0.6rem; border-radius: 9999px; background: rgba(39, 37, 34, 0.25); backdrop-filter: blur(6px); }
+		.carousel-dot { height: 0.45rem; width: 0.45rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.55); transition: width 0.3s ease, background 0.3s ease; }
+		.carousel-dot.is-active { width: 1.35rem; background: #fff; }
+		.carousel-count { position: absolute; top: 0.9rem; right: 0.9rem; z-index: 10; border-radius: 9999px; background: rgba(39, 37, 34, 0.45); padding: 0.2rem 0.65rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: #fff; backdrop-filter: blur(6px); }
+		.zoomable { cursor: zoom-in; }
+
+		/* 燈箱 */
+		#lightbox { max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; margin: 0; padding: 0; border: 0; background: transparent; }
+		#lightbox::backdrop { background: rgba(20, 18, 16, 0.92); }
+		#lightbox[open] { display: flex; align-items: center; justify-content: center; animation: fade 0.25s ease; }
+		#lightboxImg { max-width: min(92vw, 1400px); max-height: 84vh; object-fit: contain; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
+		.lb-btn { position: absolute; display: flex; height: 3rem; width: 3rem; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; background: rgba(255, 255, 255, 0.06); transition: background 0.2s ease; }
+		.lb-btn:hover { background: rgba(180, 122, 50, 0.9); }
+		@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+		/* 手風琴 */
+		summary { list-style: none; }
+		summary::-webkit-details-marker { display: none; }
+		summary .plus { position: relative; width: 0.8rem; height: 0.8rem; flex: none; }
+		summary .plus::before, summary .plus::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; background: #b47a32; transition: transform 0.3s ease; }
+		summary .plus::after { transform: rotate(90deg); }
+		details[open] summary .plus::after { transform: rotate(0deg); }
+		details .details-body { animation: drop 0.35s ease; }
+		@keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+		/* 方案卡片 */
+		.plan-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+		.plan-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(39, 37, 34, 0.14); }
+
+		/* 服務索引 */
+		.service-link { transition: background-color 0.3s ease, color 0.3s ease; }
+		.service-link:hover { background: #272522; color: #fff; }
+		.service-link:hover .service-en { color: rgba(255, 255, 255, 0.5); }
+		.service-link .service-arrow { transition: transform 0.3s ease, color 0.3s ease; }
+		.service-link:hover .service-arrow { transform: translate(3px, -3px); color: #b47a32; }
+
+		/* 捲動進場 */
+		.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--delay, 0s); }
+		.js .reveal.is-visible { opacity: 1; transform: none; }
+
+		/* 表單 */
 		.form-field { display: grid; gap: 0.45rem; }
 		.form-field label { font-size: 0.875rem; font-weight: 700; }
-		.form-field input, .form-field select, .form-field textarea { width: 100%; border: 1px solid rgba(39, 37, 34, 0.16); background: rgba(255,255,255,0.72); padding: 0.8rem 0.9rem; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+		.form-field input, .form-field select, .form-field textarea { width: 100%; border: 1px solid rgba(39, 37, 34, 0.16); border-radius: 0.5rem; background: rgba(255, 255, 255, 0.8); padding: 0.8rem 0.9rem; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
 		.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: #b47a32; box-shadow: 0 0 0 3px rgba(180, 122, 50, 0.14); }
+		.form-field input[aria-invalid="true"] { border-color: #b42318; }
 		.form-error { min-height: 1.1rem; color: #b42318; font-size: 0.75rem; }
-		.form-status { padding: 0.9rem 1rem; font-size: 0.875rem; line-height: 1.6; }
+		.form-status { border-radius: 0.5rem; padding: 0.9rem 1rem; font-size: 0.875rem; line-height: 1.6; }
+		.chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+		.chip-group input { position: absolute; opacity: 0; pointer-events: none; }
+		.chip-group label { cursor: pointer; border: 1px solid rgba(39, 37, 34, 0.16); border-radius: 9999px; background: rgba(255, 255, 255, 0.8); padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 500; transition: all 0.2s ease; }
+		.chip-group label:hover { border-color: #b47a32; color: #b47a32; }
+		.chip-group input:checked + label { border-color: #272522; background: #272522; color: #fff; }
+		.chip-group input:focus-visible + label { outline: 2px solid #b47a32; outline-offset: 2px; }
+		.flash { animation: flash 1.2s ease; }
+		@keyframes flash { 0%, 100% { box-shadow: 0 20px 50px rgba(39, 37, 34, 0.10); } 30% { box-shadow: 0 0 0 4px rgba(180, 122, 50, 0.35), 0 20px 50px rgba(39, 37, 34, 0.10); } }
+
+		/* 手機底部快捷列 */
+		#quickBar { transform: translateY(110%); transition: transform 0.35s ease; }
+		#quickBar.is-visible { transform: translateY(0); }
+		#toTop { opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease; }
+		#toTop.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			*, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+			.js .reveal { opacity: 1; transform: none; }
+		}
 	</style>
 </head>
 <body class="font-sans antialiased selection:bg-amber selection:text-white">
-	<header class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur-md">
-		<nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-10" aria-label="主要導覽">
-			<a href="#top" class="flex items-baseline gap-2 font-display text-xl font-bold tracking-[0.14em]" aria-label="茉莉花廚房 Jasmine Kitchen 回到頂部"><span>茉莉花廚房</span><span class="font-sans text-[0.65rem] font-medium tracking-[0.12em] text-amber">Jasmine Kitchen</span><span class="text-amber">．</span></a>
-			<div class="hidden items-center gap-6 text-sm text-ink/70 lg:flex">
-				<a class="transition hover:text-amber" href="#team">團隊凝聚</a>
-				<a class="transition hover:text-amber" href="#venue">場地租借</a>
-				<a class="transition hover:text-amber" href="#seasonal">季節選物</a>
-				<a class="transition hover:text-amber" href="#vip">會員福利</a>
-				<a class="transition hover:text-amber" href="#body">身材管理</a>
-				<a class="transition hover:text-amber" href="#books">精選好書</a>
+	<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white">跳到主要內容</a>
+
+	<header id="siteHeader" class="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-paper/80 backdrop-blur-md">
+		<nav class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 lg:px-10" aria-label="主要導覽">
+			<a href="#top" class="flex items-baseline gap-2 font-display text-xl font-bold tracking-[0.14em]" aria-label="茉莉花廚房 Jasmine Kitchen 回到頂部"><span>茉莉花廚房</span><span class="hidden font-sans text-[0.65rem] font-medium tracking-[0.12em] text-amber sm:inline">Jasmine Kitchen</span><span class="text-amber">．</span></a>
+			<div class="hidden items-center gap-7 text-sm text-ink/70 lg:flex">
+				<a class="nav-link" href="#team">團隊凝聚</a>
+				<a class="nav-link" href="#body">身材管理</a>
+				<a class="nav-link" href="#venue">場地租借</a>
+				<a class="nav-link" href="#seasonal">季節選物</a>
+				<a class="nav-link" href="#vip">會員福利</a>
+				<a class="nav-link" href="#books">精選好書</a>
 			</div>
-			<a href="tel:0963380508" class="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-amber lg:block">立即電話預約</a>
-			<button id="menuButton" class="rounded-full border border-ink/15 px-3 py-2 text-sm lg:hidden" aria-expanded="false" aria-controls="mobileMenu">選單</button>
+			<div class="flex items-center gap-2">
+				<a href="#contact" class="btn btn-line hidden !py-2.5 lg:inline-flex">填表洽詢</a>
+				<a href="tel:0963380508" class="btn btn-dark hidden !py-2.5 lg:inline-flex">立即電話預約</a>
+				<button id="menuButton" class="flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2 text-sm lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="開啟選單">
+					<span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>選單
+				</button>
+			</div>
 		</nav>
-		<div id="mobileMenu" class="hidden border-t border-ink/10 bg-paper px-5 pb-5 lg:hidden">
-			<div class="grid gap-3 pt-4 text-sm">
-				<a href="#team">團隊凝聚</a><a href="#venue">場地租借</a><a href="#seasonal">季節選物</a><a href="#vip">會員福利</a><a href="#body">身材管理</a><a href="#books">精選好書</a>
+		<div id="mobileMenu" class="border-ink/10 lg:hidden">
+			<div>
+				<div class="grid gap-1 border-t border-ink/10 px-5 pb-6 pt-3">
+					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#team">團隊凝聚<span class="font-sans text-xs text-amber">01</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#body">身材管理<span class="font-sans text-xs text-amber">02</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#venue">場地租借<span class="font-sans text-xs text-amber">03</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#seasonal">季節選物<span class="font-sans text-xs text-amber">04</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#vip">會員福利<span class="font-sans text-xs text-amber">05</span></a>
+					<a class="flex items-baseline justify-between py-3 font-display text-lg" href="#books">精選好書<span class="font-sans text-xs text-amber">06</span></a>
+					<div class="mt-3 grid grid-cols-2 gap-2"><a href="tel:0963380508" class="btn btn-dark">電話預約</a><a href="#contact" class="btn btn-line">填表洽詢</a></div>
+				</div>
 			</div>
 		</div>
 	</header>
 
-	<main id="top">
-		<section class="relative flex min-h-[calc(100vh-80px)] items-center overflow-hidden px-5 py-16 lg:px-10 lg:py-20">
-			<div class="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1fr_0.88fr]">
-				<div class="reveal max-w-2xl">
-					<p class="eyebrow mb-6 text-xs font-bold tracking-[0.28em] text-amber">A PLACE FOR EVERYDAY GOODNESS</p>
-					<h1 class="text-3xl font-bold tracking-tight text-ink leading-tight sm:text-4xl md:text-5xl">把喜歡的日子，過得更好</h1>
-					<p class="mt-4 max-w-lg text-base leading-relaxed text-ink/80 md:text-lg">一個讓人重新感受生活的地方。一起做事、一起吃飯，也在每一次相遇裡，找到更靠近自己的日常。</p>
+	<main id="main">
+		<!-- 首頁主視覺 -->
+		<section id="top" class="relative overflow-hidden px-5 pb-16 pt-28 lg:px-10 lg:pb-20 lg:pt-36">
+			<div class="pointer-events-none absolute -right-32 top-24 h-[28rem] w-[28rem] rounded-full bg-sand/60 blur-3xl" aria-hidden="true"></div>
+			<div class="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-16">
+				<div class="reveal max-w-xl">
+					<p class="eyebrow text-xs font-bold tracking-[0.28em] text-amber">A PLACE FOR EVERYDAY GOODNESS</p>
+					<h1 class="mt-6 font-display text-4xl font-bold leading-[1.25] tracking-tight sm:text-5xl lg:text-[3.6rem]">把喜歡的日子，<br><span class="text-clay">過得更好。</span></h1>
+					<p class="mt-6 max-w-lg text-base leading-8 text-ink/70 md:text-lg md:leading-9">一個讓人重新感受生活的地方。一起做事、一起吃飯，也在每一次相遇裡，找到更靠近自己的日常。</p>
 					<div class="mt-9 flex flex-wrap gap-3">
-						<a href="#team" class="rounded-full bg-amber px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-clay">探索服務 <span class="ml-2">↘</span></a>
-						<a href="#contact" class="rounded-full border border-ink/20 px-6 py-3 text-sm font-bold transition hover:-translate-y-1 hover:border-amber hover:text-amber">與我們聊聊</a>
+						<a href="#services" class="btn btn-amber">探索服務 <span class="arrow" aria-hidden="true">↘</span></a>
+						<a href="#contact" class="btn btn-line">與我們聊聊</a>
 					</div>
+					<p class="mt-10 flex items-center gap-2 text-sm text-ink/50"><svg class="h-4 w-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>新竹縣竹東鎮富榮街 99 號</p>
 				</div>
-				<div class="relative lg:pl-8">
-					<div class="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-amber/30"></div>
-					<img src="./tb-activity.jpg" alt="團隊在溫暖空間裡交流" class="relative aspect-[4/5] h-full w-full object-contain bg-stone-100 shadow-soft lg:aspect-[4/4.5]">
-					<p class="absolute -bottom-5 -left-4 bg-paper px-5 py-4 font-display text-lg shadow-soft">留一點時間，給真正重要的事。</p>
+				<div class="reveal relative pb-10 lg:pb-0 lg:pl-6" style="--delay: 0.15s">
+					<div class="absolute -right-6 -top-8 h-36 w-36 rounded-full border border-amber/30 lg:-right-10" aria-hidden="true"></div>
+					<img src="./門口.jpg" alt="茉莉花廚房門口，掛著店名招牌與綠意盆栽" class="zoomable relative aspect-[4/3] w-full rounded-2xl object-cover object-[30%_50%] shadow-soft" fetchpriority="high" data-group="hero">
+					<figure class="absolute -bottom-2 left-4 w-[46%] rounded-xl bg-paper p-2 shadow-soft sm:-left-6 lg:-bottom-10">
+						<img src="./tb-activity.jpg" alt="大家圍著料理台一起下廚" class="zoomable aspect-[3/2] w-full rounded-lg object-cover" data-group="hero">
+						<figcaption class="px-2 pb-1 pt-3 font-display text-sm sm:text-base">留一點時間，給真正重要的事。</figcaption>
+					</figure>
 				</div>
 			</div>
+
+			<!-- 服務索引 -->
+			<nav id="services" class="reveal relative mx-auto mt-20 max-w-7xl lg:mt-28" aria-label="服務項目" style="--delay: 0.25s">
+				<p class="mb-5 text-xs font-bold tracking-[0.25em] text-ink/40">OUR SERVICES</p>
+				<div class="grid grid-cols-2 border-l border-t border-ink/10 sm:grid-cols-3 lg:grid-cols-6">
+					<a href="#team" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">01<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">團隊凝聚</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">TEAM BUILDING</span></span></a>
+					<a href="#body" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">02<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">身材管理</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">BODY MANAGEMENT</span></span></a>
+					<a href="#venue" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">03<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">場地租借</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">VENUE RENTAL</span></span></a>
+					<a href="#seasonal" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">04<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">季節選物</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">SEASONAL</span></span></a>
+					<a href="#vip" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">05<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">會員福利</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">VIP CLUB</span></span></a>
+					<a href="#books" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">06<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">精選好書</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">BOOKSTORE</span></span></a>
+				</div>
+			</nav>
 		</section>
 
-		<section id="team" class="section-rule px-5 py-20 lg:px-10 lg:py-28">
+		<!-- 01 團隊凝聚 -->
+		<section id="team" data-section class="border-t border-ink/10 px-5 py-20 lg:px-10 lg:py-28">
 			<div class="mx-auto max-w-7xl">
-				<div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
-					<div class="lg:col-span-5">
-					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">01 / TEAM BUILDING</p>
-					<h2 class="mt-5 text-3xl font-bold tracking-tight text-ink lg:text-4xl">讓團隊一起有感前進</h2>
-					<span class="mt-5 inline-flex rounded-full border border-amber/25 bg-amber/10 px-4 py-2 text-sm font-bold text-clay">15 - 20 人專屬客製</span>
-					<p class="mt-3 max-w-2xl text-base leading-relaxed text-stone-600">專屬客製化團隊體驗，從 15 至 20 人的小型聚會開始，依照團隊節奏設計能留下記憶的共同時光。</p>
-					<div class="mt-8 flex flex-wrap gap-3"><a href="#" class="rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-amber">填表洽詢</a><a href="tel:0963380508" class="rounded-full border border-ink/20 px-6 py-3 text-sm font-bold transition hover:-translate-y-1 hover:border-amber hover:text-amber">電話預約</a></div>
+				<div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+					<div class="reveal lg:col-span-5">
+						<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">01 / TEAM BUILDING</p>
+						<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">讓團隊一起<br>有感前進。</h2>
+						<span class="mt-6 inline-flex rounded-full border border-amber/25 bg-amber/10 px-4 py-2 text-sm font-bold text-clay">15 – 20 人專屬客製</span>
+						<p class="mt-5 max-w-md leading-8 text-ink/65">專屬客製化團隊體驗，從 15 至 20 人的小型聚會開始，依照團隊節奏設計能留下記憶的共同時光。</p>
+						<div class="mt-8 flex flex-wrap gap-3"><a href="#contact" data-service="團隊凝聚" class="btn btn-dark">填表洽詢 <span class="arrow" aria-hidden="true">→</span></a><a href="tel:0963380508" class="btn btn-line">電話預約</a></div>
 					</div>
-					<div class="lg:col-span-7">
-					<div class="carousel h-72 w-full rounded-2xl sm:h-80 md:h-[420px]" data-carousel="team"><div class="carousel-slide is-active"><img src="./tb-activity.jpg" alt="團隊活動花絮 1" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./tb-activity2.jpg" alt="團隊活動花絮 2" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./tb-activity3.jpg" alt="團隊活動花絮 3" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./tb-activity4.jpg" alt="團隊活動花絮 4" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./tb-activity5.jpg" alt="團隊活動花絮 5" class="h-full w-full object-contain"></div><button class="carousel-control prev" type="button" aria-label="上一張">&lt;</button><button class="carousel-control next" type="button" aria-label="下一張">&gt;</button><div class="carousel-dots" aria-label="團隊活動照片選擇"></div></div>
+					<div class="reveal lg:col-span-7" style="--delay: 0.1s">
+						<div class="carousel aspect-[4/3] w-full rounded-2xl sm:aspect-[3/2]" data-carousel aria-roledescription="carousel" aria-label="團隊活動照片">
+							<div class="carousel-slide is-active"><div class="media h-full"><img src="./tb-activity.jpg" alt="團隊活動花絮：一起下廚" class="media-img zoomable"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity2.jpg" alt="團隊活動花絮 2" class="media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity3.jpg" alt="團隊活動花絮 3" class="media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity4.jpg" alt="團隊活動花絮 4" class="media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity5.jpg" alt="團隊活動花絮 5" class="media-img zoomable" loading="lazy"></div></div>
+						</div>
 					</div>
 				</div>
-				<div class="mt-14 grid gap-4 md:grid-cols-3">
-					<article class="group bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2"><span class="text-sm text-amber">方案 A</span><h3 class="mt-10 font-display text-2xl font-bold">日常初見</h3><p class="text-copy mt-3 text-sm text-ink/60">適合第一次相聚的團隊。</p><p class="mt-2 text-sm text-ink/60">內容細節待討論。</p><p class="mt-8 border-t border-ink/10 pt-5 text-sm font-bold">價格待定 <span class="float-right text-ink/30">01</span></p></article>
-					<article class="group bg-ink p-7 text-white shadow-soft transition duration-300 hover:-translate-y-2"><span class="text-sm text-amber">方案 B</span><h3 class="mt-10 font-display text-2xl font-bold">共同創作</h3><p class="text-copy mt-3 text-sm text-white/60">適合想一起完成一件事的團隊。</p><p class="mt-2 text-sm text-white/60">內容細節待討論。</p><p class="mt-8 border-t border-white/15 pt-5 text-sm font-bold">價格待定 <span class="float-right text-white/30">02</span></p></article>
-					<article class="group bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-2"><span class="text-sm text-amber">方案 C</span><h3 class="mt-10 font-display text-2xl font-bold">深度連結</h3><p class="text-copy mt-3 text-sm text-ink/60">適合建立默契與信任的團隊。</p><p class="mt-2 text-sm text-ink/60">內容細節待討論。</p><p class="mt-8 border-t border-ink/10 pt-5 text-sm font-bold">價格待定 <span class="float-right text-ink/30">03</span></p></article>
+				<div class="mt-16 grid gap-5 md:grid-cols-3">
+					<article class="plan-card reveal flex flex-col rounded-2xl bg-white p-7 shadow-soft"><div class="flex items-center justify-between"><span class="text-sm font-bold text-amber">方案 A</span><span class="font-display text-3xl text-ink/10">01</span></div><h3 class="mt-8 font-display text-2xl font-bold">日常初見</h3><p class="mt-3 text-sm leading-7 text-ink/60">適合第一次相聚的團隊。</p><p class="text-sm leading-7 text-ink/60">內容細節待討論。</p><div class="mt-auto flex items-center justify-between border-t border-ink/10 pt-5 text-sm font-bold"><span>價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 A｜日常初見" class="text-amber transition hover:text-clay">洽詢此方案 →</a></div></article>
+					<article class="plan-card reveal flex flex-col rounded-2xl bg-ink p-7 text-white shadow-soft" style="--delay: 0.1s"><div class="flex items-center justify-between"><span class="text-sm font-bold text-amber">方案 B</span><span class="rounded-full bg-amber px-3 py-1 text-[0.7rem] font-bold">推薦</span></div><h3 class="mt-8 font-display text-2xl font-bold">共同創作</h3><p class="mt-3 text-sm leading-7 text-white/60">適合想一起完成一件事的團隊。</p><p class="text-sm leading-7 text-white/60">內容細節待討論。</p><div class="mt-10 flex items-center justify-between border-t border-white/15 pt-5 text-sm font-bold"><span>價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 B｜共同創作" class="text-amber transition hover:text-white">洽詢此方案 →</a></div></article>
+					<article class="plan-card reveal flex flex-col rounded-2xl bg-white p-7 shadow-soft" style="--delay: 0.2s"><div class="flex items-center justify-between"><span class="text-sm font-bold text-amber">方案 C</span><span class="font-display text-3xl text-ink/10">03</span></div><h3 class="mt-8 font-display text-2xl font-bold">深度連結</h3><p class="mt-3 text-sm leading-7 text-ink/60">適合建立默契與信任的團隊。</p><p class="text-sm leading-7 text-ink/60">內容細節待討論。</p><div class="mt-auto flex items-center justify-between border-t border-ink/10 pt-5 text-sm font-bold"><span>價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 C｜深度連結" class="text-amber transition hover:text-clay">洽詢此方案 →</a></div></article>
 				</div>
 			</div>
 		</section>
 
-		<section id="venue" class="bg-sand/50 px-5 py-20 lg:px-10 lg:py-28">
-			<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-				<div><p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">02 / VENUE RENTAL</p><h2 class="mt-5 font-display text-4xl font-bold sm:text-5xl">一個空間，容納各種可能。</h2><p class="text-copy mt-6 text-ink/65">把場地留給你的聚會、課程或小型活動。</p><p class="text-copy mt-2 text-ink/65">自在的尺度與剛好的光，讓每一個計畫自然發生。</p><div class="mt-9 flex items-end gap-3"><span class="font-display text-4xl font-bold text-clay sm:text-5xl">NT$ 3,500</span><span class="pb-1 text-sm text-ink/55">每小時，至少租借 3 小時。</span></div>
-					<div class="mt-9 divide-y divide-ink/10 border-y border-ink/10"> <details open class="py-4"><summary class="flex cursor-pointer list-none justify-between text-sm font-bold">設備愛護<span></span></summary><p class="mt-3 pr-8 text-sm leading-7 text-ink/60">使用空間設備前請先確認操作方式，活動結束後一併歸位。</p></details><details class="py-4"><summary class="flex cursor-pointer list-none justify-between text-sm font-bold">場地復原與垃圾處理<span></span></summary><p class="mt-3 pr-8 text-sm leading-7 text-ink/60">請將使用過的桌椅、器具與垃圾恢復至原狀。</p></details><details class="py-4"><summary class="flex cursor-pointer list-none justify-between text-sm font-bold">預約取消規範<span></span></summary><p class="mt-3 pr-8 text-sm leading-7 text-ink/60">取消與改期規則將於預約確認時提供完整說明。</p></details></div>
-					<div class="mt-8 flex flex-wrap gap-3"><a href="#" class="rounded-full bg-amber px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-clay">填表洽詢</a><a href="tel:0963380508" class="rounded-full border border-ink/20 px-6 py-3 text-sm font-bold transition hover:-translate-y-1 hover:border-amber hover:text-amber">電話聯絡</a></div>
+		<!-- 02 身材管理 -->
+		<section id="body" data-section class="bg-sand/50 px-5 py-20 lg:px-10 lg:py-28">
+			<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+				<div class="reveal relative order-2 lg:order-1">
+					<div class="media aspect-[4/5] w-full rounded-2xl shadow-soft"><img src="./consulting-hero.jpg" alt="身材管理顧問" class="media-img zoomable" loading="lazy" data-group="body"></div>
+					<div class="absolute -right-3 bottom-8 rounded-xl bg-paper px-5 py-4 shadow-soft sm:-right-8">
+						<p class="text-xs font-bold tracking-[0.2em] text-amber">1 ON 1</p>
+						<p class="mt-1 font-display text-lg font-bold">一對一專屬陪伴</p>
+					</div>
 				</div>
-				<div class="carousel aspect-[4/5] w-full" data-carousel="venue"><div class="carousel-slide is-active"><img src="./venue-main.jpg" alt="場地環境" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./venue-2.jpg" alt="場地氛圍" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./venue-3.jpg" alt="空間細節" class="h-full w-full object-contain"></div><button class="carousel-control prev" type="button" aria-label="上一張">&lt;</button><button class="carousel-control next" type="button" aria-label="下一張">&gt;</button><div class="carousel-dots" aria-label="場地照片選擇"></div></div>
+				<div class="reveal order-1 lg:order-2" style="--delay: 0.1s">
+					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">02 / BODY MANAGEMENT</p>
+					<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">照顧身體，<br>從理解開始。</h2>
+					<p class="mt-6 max-w-lg leading-8 text-ink/65">一對一專業身材管理，陪你找到適合自己的生活方法。</p>
+					<ol class="mt-8 grid gap-4">
+						<li class="flex gap-5 rounded-xl bg-white/70 p-5"><span class="font-display text-2xl font-bold text-amber">01</span><div><h3 class="font-bold">健康飲食</h3><p class="mt-1 text-sm leading-7 text-ink/60">從日常選擇建立穩定習慣。</p></div></li>
+						<li class="flex gap-5 rounded-xl bg-white/70 p-5"><span class="font-display text-2xl font-bold text-amber">02</span><div><h3 class="font-bold">體態諮詢</h3><p class="mt-1 text-sm leading-7 text-ink/60">依照你的狀態規劃可執行的方向。</p></div></li>
+						<li class="flex gap-5 rounded-xl bg-white/70 p-5"><span class="font-display text-2xl font-bold text-amber">03</span><div><h3 class="font-bold">更懂自己</h3><p class="mt-1 text-sm leading-7 text-ink/60">不追趕標準，只練習更懂自己的身體。</p></div></li>
+					</ol>
+					<div class="mt-9 flex flex-wrap gap-3">
+						<a href="#contact" data-service="身材管理諮詢" class="btn btn-dark">填表預約諮詢 <span class="arrow" aria-hidden="true">→</span></a>
+						<a href="tel:0963380508" class="btn btn-line">電話預約</a>
+						<button id="videoButton" type="button" class="btn btn-line" aria-expanded="false" aria-controls="videoMessage"><span class="flex h-5 w-5 items-center justify-center rounded-full bg-amber text-[0.55rem] text-white" aria-hidden="true">▶</span>觀看短影音介紹</button>
+					</div>
+					<p id="videoMessage" class="mt-4 hidden text-sm text-clay" role="status">影音連結即將上線，歡迎先與我們聯絡。</p>
+				</div>
 			</div>
 		</section>
 
-		<section id="seasonal" class="px-5 py-20 lg:px-10 lg:py-28"><div class="mx-auto max-w-7xl"><div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">03 / SEASONAL PRODUCTS</p><h2 class="mt-5 font-display text-4xl font-bold sm:text-5xl">把季節，帶回家。</h2></div><div class="text-copy text-sm text-ink/60"><p>全品項皆為季節性限量販售。</p><p>提前一個月公告，會員群內優先選購。</p></div></div><div class="mt-12 grid gap-5 md:grid-cols-3">
-			<article class="group"><div class="carousel aspect-square" data-carousel="bagel"><div class="carousel-slide is-active"><img src="./product-bagel.jpg" alt="低升糖貝果 1" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./product-bagel2.jpg" alt="低升糖貝果 2" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./product-bagel3.jpg" alt="低升糖貝果 3" class="h-full w-full object-contain"></div><button class="carousel-control prev" type="button" aria-label="上一張">&lt;</button><button class="carousel-control next" type="button" aria-label="下一張">&gt;</button><div class="carousel-dots" aria-label="貝果照片選擇"></div></div><div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider text-amber"><span>季節限定</span><span>會員優先</span></div><h3 class="mt-3 font-display text-2xl font-bold">低升糖貝果</h3><p class="mt-2 text-sm leading-6 text-ink/60">日常也能放心享用的柔韌口感。</p></article>
-			<article class="group"><div class="carousel aspect-square" data-carousel="pastry"><div class="carousel-slide is-active"><img src="./product-pastry.jpg" alt="經典蛋黃酥 1" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./product-pastry2.jpg" alt="經典蛋黃酥 2" class="h-full w-full object-contain"></div><button class="carousel-control prev" type="button" aria-label="上一張">&lt;</button><button class="carousel-control next" type="button" aria-label="下一張">&gt;</button><div class="carousel-dots" aria-label="蛋黃酥照片選擇"></div></div><div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider text-amber"><span>季節限定</span><span>會員優先</span></div><h3 class="mt-3 font-display text-2xl font-bold">經典蛋黃酥</h3><p class="mt-2 text-sm leading-6 text-ink/60">酥香與鹹蛋黃，寫給節日的老派浪漫。</p></article>
-			<article class="group"><div class="flex aspect-square items-center justify-center overflow-hidden border border-stone-200/60 bg-stone-100 shadow-md"><img src="./product-nougat.jpg" alt="手作牛軋糖" class="h-full w-full object-contain transition duration-500"></div><div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider text-amber"><span>季節限定</span><span>會員優先</span></div><h3 class="mt-3 font-display text-2xl font-bold">手作牛軋糖</h3><p class="mt-2 text-sm leading-6 text-ink/60">一口咬下，是堅果、奶香與手作的溫度。</p></article>
-		</div></div></section>
+		<!-- 03 場地租借 -->
+		<section id="venue" data-section class="px-5 py-20 lg:px-10 lg:py-28">
+			<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
+				<div class="reveal">
+					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">03 / VENUE RENTAL</p>
+					<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">一個空間，<br>容納各種可能。</h2>
+					<p class="mt-6 max-w-lg leading-8 text-ink/65">把場地留給你的聚會、課程或小型活動。自在的尺度與剛好的光，讓每一個計畫自然發生。</p>
+					<div class="mt-8 flex flex-wrap gap-2 text-sm">
+						<span class="rounded-full border border-ink/15 px-4 py-1.5">私人聚會</span><span class="rounded-full border border-ink/15 px-4 py-1.5">料理課程</span><span class="rounded-full border border-ink/15 px-4 py-1.5">工作坊</span><span class="rounded-full border border-ink/15 px-4 py-1.5">小型活動</span>
+					</div>
+					<div class="mt-9 flex flex-wrap items-end gap-x-4 gap-y-2 border-l-2 border-amber pl-5">
+						<span class="font-display text-4xl font-bold text-clay sm:text-5xl">NT$ 3,500</span>
+						<span class="pb-1.5 text-sm text-ink/55">／小時・至少租借 3 小時</span>
+					</div>
+					<div class="mt-9 divide-y divide-ink/10 border-y border-ink/10">
+						<details open class="group py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-bold">設備愛護<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/60">使用空間設備前請先確認操作方式，活動結束後一併歸位。</p></details>
+						<details class="group py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-bold">場地復原與垃圾處理<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/60">請將使用過的桌椅、器具與垃圾恢復至原狀。</p></details>
+						<details class="group py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-bold">預約取消規範<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/60">取消與改期規則將於預約確認時提供完整說明。</p></details>
+					</div>
+					<div class="mt-8 flex flex-wrap gap-3"><a href="#contact" data-service="場地租借" class="btn btn-amber">填表洽詢 <span class="arrow" aria-hidden="true">→</span></a><a href="tel:0963380508" class="btn btn-line">電話聯絡</a></div>
+				</div>
+				<div class="reveal" style="--delay: 0.1s">
+					<div class="carousel aspect-[4/5] w-full rounded-2xl" data-carousel aria-roledescription="carousel" aria-label="場地照片">
+						<div class="carousel-slide is-active"><div class="media h-full"><img src="./venue-main.jpg" alt="場地環境" class="media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img src="./venue-2.jpg" alt="場地氛圍" class="media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img src="./venue-3.jpg" alt="空間細節" class="media-img zoomable" loading="lazy"></div></div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-		<section id="vip" class="bg-ink px-5 py-20 text-white lg:px-10 lg:py-28"><div class="mx-auto max-w-7xl"><div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"><div><p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">04 / VIP CLUB</p><h2 class="mt-5 font-display text-4xl font-bold sm:text-5xl">加入喜歡生活的同一個群組。</h2><p class="mt-6 text-white/60">留下 Google 五星好評，就能加入會員群。</p><p class="mt-2 text-white/60">通過真實評論後，享有季節選物與活動優先權。</p><a href="#contact" class="mt-8 inline-block rounded-full bg-amber px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-clay">五星好評並加入會員</a></div><div><div class="grid gap-5 sm:grid-cols-2"><div class="border-l border-amber pl-5"><p class="text-sm font-bold text-amber">01 / 季節限定甜點</p><h3 class="mt-4 font-display text-2xl font-bold">優先搶購權</h3><p class="mt-3 text-white/55">提前知道下一季的味道，把喜歡的留給自己。</p></div><div class="border-l border-amber pl-5"><p class="text-sm font-bold text-amber">02 / 節慶手作體驗</p><h3 class="mt-4 font-display text-2xl font-bold">會員專屬報名資格</h3><p class="mt-3 text-white/55">中秋蛋黃酥課、聖誕手作麵包課，享超值親民學員價。</p></div></div><div class="mt-12"><div class="carousel aspect-video" data-carousel="vip"><div class="carousel-slide is-active"><img src="./vip-class.jpg" alt="會員手作課程花絮 1" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./vip-class2.jpg" alt="會員手作課程花絮 2" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./vip-class3.jpg" alt="會員手作課程花絮 3" class="h-full w-full object-contain"></div><div class="carousel-slide"><img src="./vip-class4.jpg" alt="會員手作課程花絮 4" class="h-full w-full object-contain"></div><button class="carousel-control prev" type="button" aria-label="上一張">&lt;</button><button class="carousel-control next" type="button" aria-label="下一張">&gt;</button><div class="carousel-dots" aria-label="會員課程照片選擇"></div></div></div></div></div></section>
+		<!-- 04 季節選物 -->
+		<section id="seasonal" data-section class="bg-sand/50 px-5 py-20 lg:px-10 lg:py-28">
+			<div class="mx-auto max-w-7xl">
+				<div class="reveal flex flex-col justify-between gap-6 md:flex-row md:items-end">
+					<div>
+						<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">04 / SEASONAL PRODUCTS</p>
+						<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">把季節，帶回家。</h2>
+					</div>
+					<div class="max-w-sm border-l border-amber/40 pl-5 text-sm leading-7 text-ink/60">
+						<p>全品項皆為季節性限量販售。</p>
+						<p>提前一個月公告，<a href="#vip" class="font-bold text-clay underline decoration-amber/40 underline-offset-4 hover:text-amber">會員群</a>內優先選購。</p>
+					</div>
+				</div>
+				<div class="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
+					<article class="reveal group">
+						<div class="carousel aspect-square rounded-2xl" data-carousel aria-roledescription="carousel" aria-label="低升糖貝果照片">
+							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-bagel.jpg" alt="低升糖貝果 1" class="media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./product-bagel2.jpg" alt="低升糖貝果 2" class="media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./product-bagel3.jpg" alt="低升糖貝果 3" class="media-img zoomable" loading="lazy"></div></div>
+						</div>
+						<div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider"><span class="rounded-full bg-amber/10 px-2.5 py-1 text-clay">季節限定</span><span class="rounded-full bg-ink/5 px-2.5 py-1 text-ink/60">會員優先</span></div>
+						<h3 class="mt-3 font-display text-2xl font-bold">低升糖貝果</h3>
+						<p class="mt-2 text-sm leading-7 text-ink/60">日常也能放心享用的柔韌口感。</p>
+					</article>
+					<article class="reveal group" style="--delay: 0.1s">
+						<div class="carousel aspect-square rounded-2xl" data-carousel aria-roledescription="carousel" aria-label="經典蛋黃酥照片">
+							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-pastry.jpg" alt="經典蛋黃酥 1" class="media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./product-pastry2.jpg" alt="經典蛋黃酥 2" class="media-img zoomable" loading="lazy"></div></div>
+						</div>
+						<div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider"><span class="rounded-full bg-amber/10 px-2.5 py-1 text-clay">季節限定</span><span class="rounded-full bg-ink/5 px-2.5 py-1 text-ink/60">會員優先</span></div>
+						<h3 class="mt-3 font-display text-2xl font-bold">經典蛋黃酥</h3>
+						<p class="mt-2 text-sm leading-7 text-ink/60">酥香與鹹蛋黃，寫給節日的老派浪漫。</p>
+					</article>
+					<article class="reveal group" style="--delay: 0.2s">
+						<div class="media aspect-square overflow-hidden rounded-2xl shadow-soft"><img src="./product-nougat.jpg" alt="手作牛軋糖" class="media-img zoomable transition duration-700 group-hover:scale-105" loading="lazy"></div>
+						<div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider"><span class="rounded-full bg-amber/10 px-2.5 py-1 text-clay">季節限定</span><span class="rounded-full bg-ink/5 px-2.5 py-1 text-ink/60">會員優先</span></div>
+						<h3 class="mt-3 font-display text-2xl font-bold">手作牛軋糖</h3>
+						<p class="mt-2 text-sm leading-7 text-ink/60">一口咬下，是堅果、奶香與手作的溫度。</p>
+					</article>
+				</div>
+			</div>
+		</section>
 
-		<section id="body" class="px-5 py-20 lg:px-10 lg:py-28"><div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr] lg:items-center"><img src="./consulting-hero.jpg" alt="身材管理諮詢" class="aspect-[4/5] w-full object-cover lg:aspect-[5/4]"><div><p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">05 / BODY MANAGEMENT</p><h2 class="mt-5 font-display text-4xl font-bold sm:text-5xl">照顧身體，從理解開始。</h2><p class="text-copy mt-6 text-ink/65">一對一專業身材管理，陪你找到適合自己的生活方法。</p><ul class="mt-5 grid gap-2 text-sm text-ink/65"><li>健康飲食：從日常選擇建立穩定習慣。</li><li>體態諮詢：依照你的狀態規劃可執行的方向。</li><li>不追趕標準，只練習更懂自己的身體。</li></ul><div class="mt-9 flex flex-wrap gap-3"><a href="#" class="rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-amber">填表預約諮詢</a><a href="tel:0963380508" class="rounded-full border border-ink/20 px-6 py-3 text-sm font-bold transition hover:-translate-y-1 hover:border-amber hover:text-amber">電話預約</a><button id="videoButton" class="rounded-full border border-ink/20 px-6 py-3 text-sm font-bold transition hover:-translate-y-1 hover:border-amber hover:text-amber">觀看短影音介紹 <span class="ml-2">▶</span></button></div><div id="videoMessage" class="mt-4 hidden text-sm text-amber">影音連結即將上線，歡迎先與我們聯絡。</div></div></div></section>
+		<!-- 05 會員福利 -->
+		<section id="vip" data-section class="relative overflow-hidden bg-ink px-5 py-20 text-white lg:px-10 lg:py-28">
+			<div class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-amber/15 blur-3xl" aria-hidden="true"></div>
+			<div class="relative mx-auto max-w-7xl">
+				<div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
+					<div class="reveal lg:sticky lg:top-28">
+						<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">05 / VIP CLUB</p>
+						<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">加入喜歡生活的<br>同一個群組。</h2>
+						<ol class="mt-8 grid gap-4 text-sm text-white/70">
+							<li class="flex items-center gap-4"><span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-amber/60 text-xs font-bold text-amber">1</span>留下 Google 五星好評</li>
+							<li class="flex items-center gap-4"><span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-amber/60 text-xs font-bold text-amber">2</span>通過真實評論確認</li>
+							<li class="flex items-center gap-4"><span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-amber/60 text-xs font-bold text-amber">3</span>加入會員群，享季節選物與活動優先權</li>
+						</ol>
+						<a href="#contact" data-service="其他" data-note="我想加入會員群" class="btn btn-amber mt-9">五星好評並加入會員 <span class="arrow" aria-hidden="true">→</span></a>
+					</div>
+					<div>
+						<div class="grid gap-5 sm:grid-cols-2">
+							<div class="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6"><p class="text-sm font-bold text-amber">01 / 季節限定甜點</p><h3 class="mt-4 font-display text-2xl font-bold">優先搶購權</h3><p class="mt-3 text-sm leading-7 text-white/55">提前知道下一季的味道，把喜歡的留給自己。</p></div>
+							<div class="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6" style="--delay: 0.1s"><p class="text-sm font-bold text-amber">02 / 節慶手作體驗</p><h3 class="mt-4 font-display text-2xl font-bold">會員專屬報名資格</h3><p class="mt-3 text-sm leading-7 text-white/55">中秋蛋黃酥課、聖誕手作麵包課，享超值親民學員價。</p></div>
+						</div>
+						<div class="reveal mt-8" style="--delay: 0.15s">
+							<div class="carousel aspect-[4/3] rounded-2xl sm:aspect-video" data-carousel aria-roledescription="carousel" aria-label="會員手作課程照片">
+								<div class="carousel-slide is-active"><div class="media h-full"><img src="./vip-class.jpg" alt="會員手作課程花絮 1" class="media-img zoomable" loading="lazy"></div></div>
+								<div class="carousel-slide"><div class="media h-full"><img src="./vip-class2.jpg" alt="會員手作課程花絮 2" class="media-img zoomable" loading="lazy"></div></div>
+								<div class="carousel-slide"><div class="media h-full"><img src="./vip-class3.jpg" alt="會員手作課程花絮 3" class="media-img zoomable" loading="lazy"></div></div>
+								<div class="carousel-slide"><div class="media h-full"><img src="./vip-class4.jpg" alt="會員手作課程花絮 4" class="media-img zoomable" loading="lazy"></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-		<section id="books" class="bg-sand/60 px-5 py-20 lg:px-10 lg:py-28"><div class="mx-auto grid max-w-5xl gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:items-center"><div class="mx-auto"><img src="./book-cover.jpeg" alt="《家宴》書籍封面" class="aspect-[2/3] w-64 object-cover shadow-book"></div><div><p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">06 / BOOKSTORE</p><h2 class="mt-5 font-display text-4xl font-bold sm:text-5xl">《家宴》</h2><p class="mt-2 text-sm font-bold text-amber">黃文倩 Sunny｜從家常料理到私房款待的餐桌美學</p><p class="mt-5 font-display text-xl leading-8 text-clay">餐桌上的溫度，就是家的記憶。</p><p class="mt-6 text-lg leading-9 text-ink/75">這是一本把料理、生活與情感放在同一張餐桌上的書，陪你用一桌好菜款待身邊重要的人。從家宴備料、時間管理到上桌節奏，將複雜的準備拆成清楚步驟，即使是第一次辦家宴，也能自在地把家變成最溫暖的餐館。</p><div class="mt-6 flex flex-wrap gap-2 text-sm font-bold text-amber"><span>#私房家宴</span><span>#餐桌美學</span><span>#新手不慌張</span></div><a href="https://www.books.com.tw/products/0010978123?srsltid=AU7gw4XgX7sEhwTccvwBhpYasnYnHf3Z0AcTGgsWYvg3x6B8fMuRhdxm" target="_blank" rel="noopener noreferrer" class="mt-9 inline-block rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-amber">前往博客來購書 ↗</a></div></div></section>
+		<!-- 06 精選好書 -->
+		<section id="books" data-section class="bg-sand/60 px-5 py-20 lg:px-10 lg:py-28">
+			<div class="mx-auto grid max-w-5xl gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+				<div class="reveal mx-auto w-full max-w-xs">
+					<img src="./book-cover.jpeg" alt="《家宴》書籍封面" class="zoomable w-full shadow-book transition duration-500 hover:-translate-y-2 hover:rotate-[-1deg]" loading="lazy" data-group="book">
+				</div>
+				<div class="reveal" style="--delay: 0.1s">
+					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">06 / BOOKSTORE</p>
+					<h2 class="mt-5 font-display text-4xl font-bold sm:text-5xl">《家宴》</h2>
+					<p class="mt-3 text-sm font-bold text-amber">黃文倩 Sunny｜從家常料理到私房款待的餐桌美學</p>
+					<blockquote class="mt-6 border-l-2 border-clay pl-5 font-display text-xl leading-9 text-clay">餐桌上的溫度，就是家的記憶。</blockquote>
+					<p class="mt-6 leading-8 text-ink/70">這是一本把料理、生活與情感放在同一張餐桌上的書，陪你用一桌好菜款待身邊重要的人。從家宴備料、時間管理到上桌節奏，將複雜的準備拆成清楚步驟，即使是第一次辦家宴，也能自在地把家變成最溫暖的餐館。</p>
+					<div class="mt-6 flex flex-wrap gap-2 text-sm font-bold text-clay"><span class="rounded-full bg-white/60 px-3 py-1">#私房家宴</span><span class="rounded-full bg-white/60 px-3 py-1">#餐桌美學</span><span class="rounded-full bg-white/60 px-3 py-1">#新手不慌張</span></div>
+					<a href="https://www.books.com.tw/products/0010978123" target="_blank" rel="noopener noreferrer" class="btn btn-dark mt-9">前往博客來購書 <span class="arrow" aria-hidden="true">↗</span></a>
+				</div>
+			</div>
+		</section>
 
-		<section id="contact" class="px-5 py-20 lg:px-10 lg:py-28"><div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]"><div><p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">LET'S MAKE A GOOD DAY</p><h2 class="mt-5 font-display text-4xl font-bold sm:text-6xl">想一起做點<br><span class="text-clay">不一樣的事？</span></h2><p class="mt-6 leading-8 text-ink/65">無論是團隊活動、場地租借、課程報名或身材管理服務，歡迎留下需求，我們會盡快與你聯繫。</p><div class="mt-8 grid gap-3 text-sm text-ink/70"><a href="tel:0963380508" class="w-fit font-bold text-amber transition hover:text-clay">電話｜0963380508</a><a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="w-fit font-bold text-amber transition hover:text-clay">Line ID｜hwc.sunny ↗</a><span>地址｜新竹縣竹東鎮富榮街99號</span><div class="flex gap-4"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="font-bold text-amber transition hover:text-clay">Instagram ↗</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="font-bold text-amber transition hover:text-clay">Facebook ↗</a></div></div></div><div class="bg-white/70 p-6 shadow-soft sm:p-8"><div id="formStatus" class="mb-5 hidden form-status" role="status" aria-live="polite"></div><form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate><!-- TODO: 將 YOUR_FORM_ID 替換為實際 Formspree 專屬 ID --><div class="grid gap-5 sm:grid-cols-2"><div class="form-field"><label for="name">姓名 <span class="text-amber">*</span></label><input id="name" name="name" type="text" required autocomplete="name" placeholder="請輸入姓名"><p id="nameError" class="form-error"></p></div><div class="form-field"><label for="company">公司 / 團體名稱</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="個人或公司名稱"><p class="form-error"></p></div><div class="form-field"><label for="phone">聯絡電話 <span class="text-amber">*</span></label><input id="phone" name="phone" type="tel" required inputmode="numeric" pattern="^09[0-9]{8}$" autocomplete="tel" placeholder="09xxxxxxxx"><p id="phoneError" class="form-error"></p></div><div class="form-field"><label for="email">電子郵件 Email <span class="text-amber">*</span></label><input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com"><p id="emailError" class="form-error"></p></div><div class="form-field sm:col-span-2"><label for="serviceType">感興趣的項目</label><select id="serviceType" name="service_type"><option value="團隊凝聚">團隊凝聚</option><option value="場地租借">場地租借</option><option value="季節限定選物">季節限定選物</option><option value="手作課程報名">手作課程報名</option><option value="身材管理諮詢">身材管理諮詢</option><option value="其他">其他</option></select></div><div class="form-field sm:col-span-2"><label for="message">需求說明 / 備註</label><textarea id="message" name="message" rows="4" placeholder="請告訴我們你的需求（選填）"></textarea><p class="form-error"></p></div></div><button type="submit" id="submitBtn" class="mt-6 rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-amber disabled:cursor-not-allowed disabled:opacity-60">確認送出資料</button></form></div></div></section>
+		<!-- 聯絡 -->
+		<section id="contact" data-section class="px-5 py-20 lg:px-10 lg:py-28">
+			<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+				<div class="reveal">
+					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">LET'S MAKE A GOOD DAY</p>
+					<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-6xl">想一起做點<br><span class="text-clay">不一樣的事？</span></h2>
+					<p class="mt-6 max-w-md leading-8 text-ink/65">無論是團隊活動、身材管理、場地租借或課程報名，歡迎留下需求，我們會盡快與你聯繫。</p>
+					<div class="mt-9 grid gap-3">
+						<a href="tel:0963380508" class="group flex items-center justify-between rounded-xl border border-ink/10 bg-white/60 px-5 py-4 transition hover:border-amber"><span><span class="block text-xs text-ink/50">電話</span><span class="font-bold">0963-380-508</span></span><span class="text-amber transition group-hover:translate-x-1" aria-hidden="true">→</span></a>
+						<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between rounded-xl border border-ink/10 bg-white/60 px-5 py-4 transition hover:border-amber"><span><span class="block text-xs text-ink/50">LINE ID</span><span class="font-bold">hwc.sunny</span></span><span class="text-amber transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
+						<a href="https://www.google.com/maps/search/?api=1&query=新竹縣竹東鎮富榮街99號" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between rounded-xl border border-ink/10 bg-white/60 px-5 py-4 transition hover:border-amber"><span><span class="block text-xs text-ink/50">地址・開啟地圖</span><span class="font-bold">新竹縣竹東鎮富榮街 99 號</span></span><span class="text-amber transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
+					</div>
+					<div class="mt-6 flex gap-5 text-sm font-bold"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="text-amber transition hover:text-clay">Instagram ↗</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="text-amber transition hover:text-clay">Facebook ↗</a></div>
+				</div>
+				<div id="formCard" class="reveal rounded-2xl bg-white/80 p-6 shadow-soft sm:p-10" style="--delay: 0.1s">
+					<div id="formStatus" class="form-status mb-5 hidden" role="status" aria-live="polite"></div>
+					<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate><!-- TODO: 將 YOUR_FORM_ID 替換為實際 Formspree 專屬 ID -->
+						<fieldset>
+							<legend class="mb-3 text-sm font-bold">感興趣的項目</legend>
+							<div class="chip-group">
+								<input type="radio" name="service_type" id="st1" value="團隊凝聚" checked><label for="st1">團隊凝聚</label>
+								<input type="radio" name="service_type" id="st2" value="身材管理諮詢"><label for="st2">身材管理諮詢</label>
+								<input type="radio" name="service_type" id="st3" value="場地租借"><label for="st3">場地租借</label>
+								<input type="radio" name="service_type" id="st4" value="季節限定選物"><label for="st4">季節限定選物</label>
+								<input type="radio" name="service_type" id="st5" value="手作課程報名"><label for="st5">手作課程報名</label>
+								<input type="radio" name="service_type" id="st6" value="其他"><label for="st6">其他</label>
+							</div>
+						</fieldset>
+						<div class="mt-7 grid gap-5 sm:grid-cols-2">
+							<div class="form-field"><label for="name">姓名 <span class="text-amber">*</span></label><input id="name" name="name" type="text" required autocomplete="name" placeholder="請輸入姓名" aria-describedby="nameError"><p id="nameError" class="form-error"></p></div>
+							<div class="form-field"><label for="company">公司 / 團體名稱</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="個人或公司名稱"><p class="form-error"></p></div>
+							<div class="form-field"><label for="phone">聯絡電話 <span class="text-amber">*</span></label><input id="phone" name="phone" type="tel" required inputmode="numeric" maxlength="12" autocomplete="tel" placeholder="09xxxxxxxx" aria-describedby="phoneError"><p id="phoneError" class="form-error"></p></div>
+							<div class="form-field"><label for="email">電子郵件 Email <span class="text-amber">*</span></label><input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" aria-describedby="emailError"><p id="emailError" class="form-error"></p></div>
+							<div class="form-field sm:col-span-2"><label for="message">需求說明 / 備註</label><textarea id="message" name="message" rows="4" placeholder="例如：人數、希望日期、想了解的內容（選填）"></textarea></div>
+						</div>
+						<div class="mt-4 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
+							<p class="text-xs text-ink/45">送出後我們會在 1–2 個工作天內與你聯繫。</p>
+							<button type="submit" id="submitBtn" class="btn btn-dark disabled:cursor-not-allowed disabled:opacity-60">確認送出資料 <span class="arrow" aria-hidden="true">→</span></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
 	</main>
 
-	<footer class="bg-ink px-5 py-10 text-white lg:px-10"><div class="mx-auto flex max-w-7xl flex-col justify-between gap-8 sm:flex-row sm:items-end"><div><p class="flex flex-wrap items-baseline gap-2 font-display text-xl font-bold tracking-[0.14em]">茉莉花廚房 <span class="font-sans text-xs font-medium tracking-[0.12em] text-amber">Jasmine Kitchen</span><span class="text-amber">．</span></p><p class="mt-4 text-sm leading-7 text-white/50">地址｜新竹縣竹東鎮富榮街99號<br>電話｜0963380508<br>Line ID｜<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="text-white/75 transition hover:text-amber">hwc.sunny ↗</a></p><div class="mt-5 flex flex-wrap gap-4 text-sm"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="text-white/70 transition hover:text-amber">Instagram ↗</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="text-white/70 transition hover:text-amber">Facebook ↗</a></div></div><p class="text-xs text-white/40">© <span id="year"></span> 茉莉花廚房 Jasmine Kitchen. All rights reserved.</p></div></footer>
+	<footer class="bg-ink px-5 pb-28 pt-14 text-white lg:px-10 lg:pb-12">
+		<div class="mx-auto max-w-7xl">
+			<div class="flex flex-col justify-between gap-10 border-b border-white/10 pb-10 md:flex-row">
+				<div>
+					<p class="flex flex-wrap items-baseline gap-2 font-display text-2xl font-bold tracking-[0.14em]">茉莉花廚房 <span class="font-sans text-xs font-medium tracking-[0.12em] text-amber">Jasmine Kitchen</span><span class="text-amber">．</span></p>
+					<p class="mt-3 font-display text-white/50">把喜歡的日子，過得更好。</p>
+				</div>
+				<div class="grid grid-cols-2 gap-x-12 gap-y-2 text-sm text-white/60 sm:grid-cols-3">
+					<a class="transition hover:text-amber" href="#team">團隊凝聚</a><a class="transition hover:text-amber" href="#body">身材管理</a><a class="transition hover:text-amber" href="#venue">場地租借</a><a class="transition hover:text-amber" href="#seasonal">季節選物</a><a class="transition hover:text-amber" href="#vip">會員福利</a><a class="transition hover:text-amber" href="#books">精選好書</a>
+				</div>
+			</div>
+			<div class="flex flex-col justify-between gap-6 pt-8 text-sm sm:flex-row sm:items-end">
+				<p class="leading-7 text-white/50">地址｜新竹縣竹東鎮富榮街 99 號<br>電話｜<a href="tel:0963380508" class="text-white/75 transition hover:text-amber">0963-380-508</a>　Line ID｜<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="text-white/75 transition hover:text-amber">hwc.sunny ↗</a></p>
+				<div class="flex flex-col gap-3 sm:items-end">
+					<div class="flex gap-4"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="text-white/70 transition hover:text-amber">Instagram ↗</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="text-white/70 transition hover:text-amber">Facebook ↗</a></div>
+					<p class="text-xs text-white/40">© <span id="year"></span> 茉莉花廚房 Jasmine Kitchen. All rights reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- 手機底部快捷列 -->
+	<div id="quickBar" class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-paper/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-md lg:hidden">
+		<div class="grid grid-cols-3 gap-2 text-sm font-bold">
+			<a href="tel:0963380508" class="btn btn-dark !px-2">電話</a>
+			<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="btn btn-line !px-2">LINE</a>
+			<a href="#contact" class="btn btn-amber !px-2">填表洽詢</a>
+		</div>
+	</div>
+	<a id="toTop" href="#top" class="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-ink text-white shadow-soft hover:bg-amber lg:flex" aria-label="回到頂部">↑</a>
+
+	<!-- 燈箱 -->
+	<dialog id="lightbox" aria-label="照片檢視">
+		<img id="lightboxImg" src="" alt="">
+		<p id="lightboxCount" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs font-bold tracking-[0.15em] text-white/60"></p>
+		<button class="lb-btn right-5 top-5" type="button" data-lb="close" aria-label="關閉">✕</button>
+		<button class="lb-btn left-4 top-1/2 -translate-y-1/2" type="button" data-lb="prev" aria-label="上一張">←</button>
+		<button class="lb-btn right-4 top-1/2 -translate-y-1/2" type="button" data-lb="next" aria-label="下一張">→</button>
+	</dialog>
 
 	<script>
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		// 導覽列：捲動後加陰影、手機快捷列與回頂按鈕
+		const header = document.querySelector('#siteHeader');
+		const quickBar = document.querySelector('#quickBar');
+		const toTop = document.querySelector('#toTop');
+		const contactSection = document.querySelector('#contact');
+		let contactInView = false;
+		function onScroll() {
+			const y = window.scrollY;
+			header.classList.toggle('is-scrolled', y > 10);
+			quickBar.classList.toggle('is-visible', y > 500 && !contactInView);
+			toTop.classList.toggle('is-visible', y > 900);
+		}
+		window.addEventListener('scroll', onScroll, { passive: true });
+		onScroll();
+
+		// 手機選單
 		const menuButton = document.querySelector('#menuButton');
 		const mobileMenu = document.querySelector('#mobileMenu');
-		menuButton.addEventListener('click', () => {
-			const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-			menuButton.setAttribute('aria-expanded', String(!isOpen));
-			mobileMenu.classList.toggle('hidden', isOpen);
+		function setMenu(open) {
+			menuButton.setAttribute('aria-expanded', String(open));
+			menuButton.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+			mobileMenu.classList.toggle('is-open', open);
+		}
+		menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+		mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+		document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setMenu(false); });
+
+		// 目前所在區塊：導覽列高亮
+		const navLinks = document.querySelectorAll('.nav-link');
+		const spy = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.target.id === 'contact') { contactInView = entry.isIntersecting; onScroll(); }
+				if (!entry.isIntersecting) return;
+				navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
+			});
+		}, { rootMargin: '-45% 0px -50% 0px' });
+		document.querySelectorAll('[data-section]').forEach((section) => spy.observe(section));
+
+		// 捲動進場動畫
+		const revealObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) return;
+				entry.target.classList.add('is-visible');
+				revealObserver.unobserve(entry.target);
+			});
+		}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+		document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+		// 圖片框：加上同一張照片的模糊背景，讓直式 / 橫式照片都能完整呈現
+		document.querySelectorAll('.media > .media-img').forEach((image) => {
+			const backdrop = document.createElement('img');
+			backdrop.className = 'media-bg';
+			backdrop.src = image.getAttribute('src');
+			backdrop.alt = '';
+			backdrop.setAttribute('aria-hidden', 'true');
+			backdrop.loading = 'lazy';
+			image.before(backdrop);
 		});
-		mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-			menuButton.setAttribute('aria-expanded', 'false');
-			mobileMenu.classList.add('hidden');
-		}));
-		document.querySelectorAll('h1, h2, h3, h4').forEach((heading) => heading.classList.add('text-balance'));
-		document.querySelectorAll('br').forEach((breakTag) => breakTag.replaceWith(' '));
-		document.querySelectorAll('p').forEach((paragraph) => paragraph.classList.add('text-pretty', 'leading-relaxed'));
-		document.querySelectorAll('img.object-cover').forEach((image) => image.classList.replace('object-cover', 'object-contain'));
+
+		// 輪播
 		document.querySelectorAll('[data-carousel]').forEach((carousel) => {
 			const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
-			const dots = carousel.querySelector('.carousel-dots');
-			const previous = carousel.querySelector('.carousel-control.prev');
-			const next = carousel.querySelector('.carousel-control.next');
 			let current = 0;
 			let timer;
+			let hovered = false;
+			let visible = false;
+
+			carousel.insertAdjacentHTML('beforeend', `
+				<button class="carousel-control prev" type="button" aria-label="上一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+				<button class="carousel-control next" type="button" aria-label="下一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+				<div class="carousel-dots"></div>
+				<span class="carousel-count" aria-live="polite"></span>`);
+			const dots = carousel.querySelector('.carousel-dots');
+			const count = carousel.querySelector('.carousel-count');
 
 			slides.forEach((slide, index) => {
+				slide.setAttribute('role', 'group');
+				slide.setAttribute('aria-roledescription', 'slide');
 				const dot = document.createElement('button');
 				dot.type = 'button';
-				dot.className = 'carousel-dot' + (index === 0 ? ' is-active' : '');
+				dot.className = 'carousel-dot';
 				dot.setAttribute('aria-label', `切換至第 ${index + 1} 張`);
 				dot.addEventListener('click', () => showSlide(index));
 				dots.appendChild(dot);
+				slide.querySelector('.media-img').addEventListener('click', () => openLightbox(slides.map((s) => s.querySelector('.media-img')), index));
 			});
 
 			function showSlide(index) {
 				current = (index + slides.length) % slides.length;
-				slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === current));
-				dots.querySelectorAll('.carousel-dot').forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === current));
-				startAutoPlay();
+				slides.forEach((slide, i) => {
+					slide.classList.toggle('is-active', i === current);
+					slide.setAttribute('aria-hidden', String(i !== current));
+				});
+				dots.querySelectorAll('.carousel-dot').forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+				count.textContent = `${current + 1} / ${slides.length}`;
+				restart();
 			}
-
-			function startAutoPlay() {
+			function restart() {
 				clearInterval(timer);
-				timer = setInterval(() => showSlide(current + 1), 3500);
+				if (reduceMotion || hovered || !visible || document.hidden) return;
+				timer = setInterval(() => showSlide(current + 1), 4500);
 			}
 
-			previous.addEventListener('click', () => showSlide(current - 1));
-			next.addEventListener('click', () => showSlide(current + 1));
-			carousel.addEventListener('mouseenter', () => clearInterval(timer));
-			carousel.addEventListener('mouseleave', startAutoPlay);
-			startAutoPlay();
+			carousel.querySelector('.prev').addEventListener('click', () => showSlide(current - 1));
+			carousel.querySelector('.next').addEventListener('click', () => showSlide(current + 1));
+			carousel.addEventListener('mouseenter', () => { hovered = true; restart(); });
+			carousel.addEventListener('mouseleave', () => { hovered = false; restart(); });
+			carousel.tabIndex = 0;
+			carousel.addEventListener('keydown', (event) => {
+				if (event.key === 'ArrowLeft') showSlide(current - 1);
+				if (event.key === 'ArrowRight') showSlide(current + 1);
+			});
+
+			// 手機滑動切換
+			let startX = null;
+			carousel.addEventListener('pointerdown', (event) => { startX = event.clientX; });
+			carousel.addEventListener('pointerup', (event) => {
+				if (startX === null) return;
+				const delta = event.clientX - startX;
+				startX = null;
+				if (Math.abs(delta) > 40) showSlide(current + (delta < 0 ? 1 : -1));
+			});
+			// 滑動後不要觸發點擊放大
+			carousel.addEventListener('click', (event) => { if (carousel.dataset.swiped) { event.stopPropagation(); delete carousel.dataset.swiped; } }, true);
+			carousel.addEventListener('pointermove', (event) => { if (startX !== null && Math.abs(event.clientX - startX) > 10) carousel.dataset.swiped = '1'; });
+
+			// 不在畫面上時暫停自動播放
+			new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; restart(); }, { threshold: 0.3 }).observe(carousel);
+			document.addEventListener('visibilitychange', restart);
+			showSlide(0);
 		});
-		const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // TODO: 替換為實際 Formspree 專屬 ID
+
+		// 燈箱
+		const lightbox = document.querySelector('#lightbox');
+		const lightboxImg = document.querySelector('#lightboxImg');
+		const lightboxCount = document.querySelector('#lightboxCount');
+		let lbImages = [];
+		let lbIndex = 0;
+		function renderLightbox() {
+			const image = lbImages[lbIndex];
+			lightboxImg.src = image.getAttribute('src');
+			lightboxImg.alt = image.alt;
+			lightboxCount.textContent = lbImages.length > 1 ? `${lbIndex + 1} / ${lbImages.length}` : '';
+			lightbox.querySelectorAll('[data-lb="prev"], [data-lb="next"]').forEach((button) => button.classList.toggle('hidden', lbImages.length < 2));
+		}
+		function openLightbox(images, index) {
+			lbImages = images;
+			lbIndex = index;
+			renderLightbox();
+			lightbox.showModal();
+		}
+		function stepLightbox(step) { lbIndex = (lbIndex + step + lbImages.length) % lbImages.length; renderLightbox(); }
+		lightbox.addEventListener('click', (event) => {
+			const action = event.target.closest('[data-lb]')?.dataset.lb;
+			if (action === 'prev') stepLightbox(-1);
+			else if (action === 'next') stepLightbox(1);
+			else if (action === 'close' || event.target === lightbox) lightbox.close();
+		});
+		lightbox.addEventListener('keydown', (event) => {
+			if (event.key === 'ArrowLeft') stepLightbox(-1);
+			if (event.key === 'ArrowRight') stepLightbox(1);
+		});
+		document.querySelectorAll('.zoomable').forEach((image) => {
+			if (image.closest('[data-carousel]')) return;
+			image.addEventListener('click', () => {
+				const group = image.dataset.group ? Array.from(document.querySelectorAll(`.zoomable[data-group="${image.dataset.group}"]`)) : [image];
+				openLightbox(group, group.indexOf(image));
+			});
+		});
+
+		// 點擊「填表洽詢」時自動帶入服務項目
 		const contactForm = document.querySelector('#contactForm');
+		const messageInput = document.querySelector('#message');
+		document.querySelectorAll('a[data-service]').forEach((link) => link.addEventListener('click', () => {
+			const option = contactForm.querySelector(`input[name="service_type"][value="${link.dataset.service}"]`);
+			if (option) option.checked = true;
+			if (link.dataset.note && !messageInput.value.trim()) messageInput.value = link.dataset.note;
+			const card = document.querySelector('#formCard');
+			card.classList.remove('flash');
+			void card.offsetWidth;
+			card.classList.add('flash');
+			setTimeout(() => document.querySelector('#name').focus({ preventScroll: true }), 700);
+		}));
+
+		// 表單驗證與送出
+		const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // TODO: 替換為實際 Formspree 專屬 ID
 		const formStatus = document.querySelector('#formStatus');
 		const submitButton = document.querySelector('#submitBtn');
-		const nameInput = document.querySelector('#name');
-		const phoneInput = document.querySelector('#phone');
-		const emailInput = document.querySelector('#email');
-		const nameError = document.querySelector('#nameError');
-		const phoneError = document.querySelector('#phoneError');
-		const emailError = document.querySelector('#emailError');
-
+		const fields = {
+			name: { input: document.querySelector('#name'), error: document.querySelector('#nameError'), check: (v) => v.length > 0, message: '請填寫姓名' },
+			phone: { input: document.querySelector('#phone'), error: document.querySelector('#phoneError'), check: (v) => /^09\d{8}$/.test(v.replace(/[\s-]/g, '')), message: '請輸入正確的 09 開頭 10 碼手機號碼' },
+			email: { input: document.querySelector('#email'), error: document.querySelector('#emailError'), check: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), message: '請輸入有效的 Email，例如 name@example.com' }
+		};
+		function validate(field) {
+			const ok = field.check(field.input.value.trim());
+			field.error.textContent = ok ? '' : field.message;
+			field.input.setAttribute('aria-invalid', String(!ok));
+			return ok;
+		}
+		Object.values(fields).forEach((field) => {
+			field.input.addEventListener('blur', () => { if (field.input.value.trim()) validate(field); });
+			field.input.addEventListener('input', () => { if (field.input.getAttribute('aria-invalid') === 'true') validate(field); });
+		});
 		function setFormStatus(message, type) {
 			formStatus.textContent = message;
 			formStatus.className = `form-status mb-5 ${type === 'success' ? 'bg-sage/15 text-sage' : 'bg-red-50 text-red-800'}`;
 		}
+		const fallbackMessage = '系統提醒：表單暫時無法送出，請稍後再試，或直接撥打 0963-380-508、加 LINE：hwc.sunny 與我們聯絡。';
 
 		contactForm.addEventListener('submit', async (event) => {
 			event.preventDefault();
-			nameError.textContent = '';
-			phoneError.textContent = '';
-			emailError.textContent = '';
-			const nameIsValid = nameInput.value.trim().length > 0;
-			const phoneIsValid = /^09\d{8}$/.test(phoneInput.value.trim());
-			const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-			let firstInvalidField = null;
+			const invalid = Object.values(fields).filter((field) => !validate(field));
+			if (invalid.length) { invalid[0].input.focus(); return; }
 
-			if (!nameIsValid) { nameError.textContent = '請填寫姓名'; firstInvalidField = nameInput; }
-			if (!phoneIsValid) { phoneError.textContent = '請輸入正確的 09 開頭 10 碼手機號碼'; firstInvalidField ||= phoneInput; }
-			if (!emailIsValid) { emailError.textContent = '請輸入包含 @ 與 domain 的有效 Email'; firstInvalidField ||= emailInput; }
-			if (firstInvalidField) { firstInvalidField.focus(); return; }
-
-			if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) {
-				setFormStatus('系統提醒：表單端點尚未完成設定，或網路連線異常，請稍後再試或直接撥打電話 0963380508 與我們聯絡。', 'error');
-				return;
-			}
+			if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) { setFormStatus(fallbackMessage, 'error'); return; }
 
 			submitButton.disabled = true;
-			submitButton.textContent = '正在送出資料...';
+			submitButton.firstChild.textContent = '正在送出資料… ';
 			try {
 				const response = await fetch(FORMSPREE_ENDPOINT, { method: 'POST', body: new FormData(contactForm), headers: { Accept: 'application/json' } });
 				if (!response.ok) throw new Error('Formspree request failed');
-				setFormStatus('🎉 感謝您的填寫！我們已收到您的資訊，將會盡快與您聯繫。', 'success');
+				setFormStatus('🎉 感謝你的填寫！我們已收到資訊，會盡快與你聯繫。', 'success');
 				contactForm.reset();
+				Object.values(fields).forEach((field) => field.input.removeAttribute('aria-invalid'));
 			} catch (error) {
-				setFormStatus('系統提醒：表單端點尚未完成設定，或網路連線異常，請稍後再試或直接撥打電話 0963380508 與我們聯絡。', 'error');
+				setFormStatus(fallbackMessage, 'error');
 			} finally {
 				submitButton.disabled = false;
-				submitButton.textContent = '確認送出資料';
+				submitButton.firstChild.textContent = '確認送出資料 ';
 			}
 		});
-		document.querySelector('#videoButton').addEventListener('click', () => document.querySelector('#videoMessage').classList.toggle('hidden'));
+
+		// 短影音按鈕
+		const videoButton = document.querySelector('#videoButton');
+		videoButton.addEventListener('click', () => {
+			const message = document.querySelector('#videoMessage');
+			const open = message.classList.toggle('hidden') === false;
+			videoButton.setAttribute('aria-expanded', String(open));
+		});
+
 		document.querySelector('#year').textContent = new Date().getFullYear();
 	</script>
 </body>
