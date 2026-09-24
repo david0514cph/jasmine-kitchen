@@ -4,13 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<meta name="description" content="茉莉花廚房 Jasmine Kitchen｜新竹竹東。提供團隊凝聚體驗、一對一身材管理、場地租借、季節限定選物與會員手作課程。">
-	<meta name="theme-color" content="#f8f5ef">
+	<meta name="theme-color" content="#f6f2eb">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="茉莉花廚房 Jasmine Kitchen｜把喜歡的日子，過得更好">
 	<meta property="og:description" content="一起做事、一起吃飯，在每一次相遇裡，找到更靠近自己的日常。">
 	<meta property="og:image" content="./門口.jpg">
 	<title>茉莉花廚房 Jasmine Kitchen｜把喜歡的日子，過得更好</title>
-	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23272522'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23b47a32' font-family='serif'%3E茉%3C/text%3E%3C/svg%3E">
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23221f1b'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23c9a27a' font-family='serif'%3E茉%3C/text%3E%3C/svg%3E">
 	<script>document.documentElement.classList.add('js');</script>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<script>
@@ -18,20 +18,21 @@
 			theme: {
 				extend: {
 					colors: {
-						ink: '#272522',
-						paper: '#f8f5ef',
-						sand: '#e7ded1',
-						amber: '#b47a32',
-						clay: '#8c5e43',
+						ink: '#221f1b',
+						paper: '#f6f2eb',
+						sand: '#ebe3d6',
+						amber: '#a47148',
+						gold: '#c9a27a',
+						clay: '#7d5641',
 						sage: '#6d7863'
 					},
 					fontFamily: {
 						display: ['"Noto Serif TC"', 'serif'],
-						sans: ['"Noto Sans TC"', 'sans-serif']
+						sans: ['"Noto Sans TC"', 'sans-serif'],
+						en: ['"Cormorant Garamond"', '"Noto Serif TC"', 'serif']
 					},
 					boxShadow: {
-						soft: '0 20px 50px rgba(39, 37, 34, 0.10)',
-						book: '14px 18px 0 rgba(180, 122, 50, 0.17), 0 24px 40px rgba(39, 37, 34, 0.20)'
+						book: '18px 22px 0 rgba(164, 113, 72, 0.14), 0 30px 50px rgba(34, 31, 27, 0.22)'
 					}
 				}
 			}
@@ -39,144 +40,167 @@
 	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
 	<style>
 		html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-		body { background: #f8f5ef; color: #272522; }
-		h1, h2, h3, h4 { text-wrap: balance; }
+		body { background: #f6f2eb; color: #221f1b; font-weight: 400; letter-spacing: 0.02em; }
+		h1, h2, h3, h4 { text-wrap: balance; letter-spacing: 0.04em; }
 		p { text-wrap: pretty; }
 		p, span, li, a, label { overflow-wrap: break-word; line-break: strict; }
 
-		/* 標題前的細線 */
-		.eyebrow { display: inline-flex; align-items: center; gap: 0.75rem; }
-		.eyebrow::before { content: ''; width: 2.5rem; height: 1px; background: currentColor; opacity: 0.8; }
+		/* 紙張質感顆粒 */
+		body::after { content: ''; position: fixed; inset: 0; z-index: 70; pointer-events: none; opacity: 0.05; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+		/* 區塊標籤：大號數字 + 英文斜體 */
+		.kicker { display: flex; align-items: baseline; gap: 1rem; color: #a47148; }
+		.kicker .num { font-family: 'Cormorant Garamond', serif; font-size: 1rem; letter-spacing: 0.1em; }
+		.kicker .line { width: 3rem; height: 1px; background: currentColor; opacity: 0.5; align-self: center; }
+		.kicker .label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; letter-spacing: 0.04em; }
+		.en { font-family: 'Cormorant Garamond', serif; }
+		.hairline { border-color: rgba(34, 31, 27, 0.12); }
 
 		/* 按鈕 */
-		.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 9999px; padding: 0.8rem 1.5rem; font-size: 0.875rem; font-weight: 700; line-height: 1.2; transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease; }
-		.btn:hover { transform: translateY(-3px); }
-		.btn:active { transform: translateY(0); }
-		.btn-dark { background: #272522; color: #fff; }
-		.btn-dark:hover { background: #b47a32; box-shadow: 0 10px 24px rgba(180, 122, 50, 0.28); }
-		.btn-amber { background: #b47a32; color: #fff; }
-		.btn-amber:hover { background: #8c5e43; box-shadow: 0 10px 24px rgba(140, 94, 67, 0.28); }
-		.btn-line { border: 1px solid rgba(39, 37, 34, 0.2); }
-		.btn-line:hover { border-color: #b47a32; color: #b47a32; }
-		.btn-line-light { border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; }
-		.btn-line-light:hover { border-color: #b47a32; color: #e7c08a; }
-		.btn .arrow { transition: transform 0.25s ease; }
-		.btn:hover .arrow { transform: translateX(3px); }
-		a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 2px solid #b47a32; outline-offset: 3px; }
+		.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.95rem 1.6rem; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em; line-height: 1.2; transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease; }
+		.btn .arrow { display: inline-block; width: 1.25rem; height: 1px; background: currentColor; position: relative; transition: width 0.35s ease; }
+		.btn .arrow::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+		.btn:hover .arrow { width: 1.9rem; }
+		.btn-dark { background: #221f1b; color: #f6f2eb; }
+		.btn-dark:hover { background: #7d5641; }
+		.btn-amber { background: #a47148; color: #fff; }
+		.btn-amber:hover { background: #7d5641; }
+		.btn-line { border: 1px solid rgba(34, 31, 27, 0.25); }
+		.btn-line:hover { border-color: #221f1b; background: #221f1b; color: #f6f2eb; }
+		.link-u { position: relative; display: inline-flex; align-items: center; gap: 0.6rem; padding-bottom: 0.3rem; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em; }
+		.link-u::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform-origin: right; transition: transform 0.45s ease; }
+		.link-u:hover::after { transform: scaleX(0.35); }
+		a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 1px solid #a47148; outline-offset: 4px; }
 
 		/* 導覽列 */
-		#siteHeader { transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-		#siteHeader.is-scrolled { background: rgba(248, 245, 239, 0.94); box-shadow: 0 8px 30px rgba(39, 37, 34, 0.07); border-color: rgba(39, 37, 34, 0.08); }
-		.nav-link { position: relative; padding: 0.25rem 0; transition: color 0.2s ease; }
-		.nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: -0.2rem; height: 1px; background: #b47a32; transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
-		.nav-link:hover, .nav-link.is-active { color: #b47a32; }
-		.nav-link.is-active::after { transform: scaleX(1); }
-		#mobileMenu { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+		#siteHeader { transition: background-color 0.4s ease, border-color 0.4s ease, padding 0.4s ease; }
+		#siteHeader.is-scrolled { background: rgba(246, 242, 235, 0.92); border-color: rgba(34, 31, 27, 0.1); }
+		.nav-link { position: relative; padding: 0.25rem 0; letter-spacing: 0.14em; transition: color 0.3s ease; }
+		.nav-link::after { content: ''; position: absolute; left: 50%; bottom: -0.35rem; width: 4px; height: 4px; border-radius: 9999px; background: #a47148; transform: translateX(-50%) scale(0); transition: transform 0.3s ease; }
+		.nav-link:hover, .nav-link.is-active { color: #221f1b; }
+		.nav-link.is-active::after { transform: translateX(-50%) scale(1); }
+		#mobileMenu { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s ease; }
 		#mobileMenu.is-open { grid-template-rows: 1fr; }
 		#mobileMenu > div { overflow: hidden; }
-		.menu-icon span { display: block; height: 1.5px; width: 1.1rem; background: currentColor; transition: transform 0.3s ease, opacity 0.2s ease; }
-		.menu-icon span + span { margin-top: 5px; }
-		[aria-expanded="true"] .menu-icon span:first-child { transform: translateY(6.5px) rotate(45deg); }
-		[aria-expanded="true"] .menu-icon span:nth-child(2) { opacity: 0; }
-		[aria-expanded="true"] .menu-icon span:last-child { transform: translateY(-6.5px) rotate(-45deg); }
+		.menu-icon span { display: block; height: 1px; width: 1.4rem; background: currentColor; transition: transform 0.35s ease, opacity 0.2s ease; }
+		.menu-icon span + span { margin-top: 6px; }
+		[aria-expanded="true"] .menu-icon span:first-child { transform: translateY(3.5px) rotate(45deg); }
+		[aria-expanded="true"] .menu-icon span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 
-		/* 圖片框：完整呈現照片，空白處用同一張照片的模糊背景補滿 */
-		.media { position: relative; overflow: hidden; background: #e7ded1; }
-		.media > .media-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(22px) saturate(1.1); transform: scale(1.2); opacity: 0.6; }
+		/* 照片：統一色調，讓手機拍的照片看起來是同一組 */
+		.photo { filter: saturate(0.86) contrast(1.03) sepia(0.06) brightness(1.01); }
+		.media { position: relative; overflow: hidden; background: #ebe3d6; }
+		.media > .media-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(28px) saturate(0.7) sepia(0.15); transform: scale(1.25); opacity: 0.55; }
 		.media > .media-img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+		.media.cover > .media-img { object-fit: cover; }
+		.media.cover > .media-bg { display: none; }
+		.arch { border-radius: 999px 999px 0 0; }
+		.img-zoom { overflow: hidden; }
+		.img-zoom img { transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+		.img-zoom:hover img { transform: scale(1.04); }
 
 		/* 輪播 */
-		.carousel { position: relative; overflow: hidden; background: #e7ded1; touch-action: pan-y; box-shadow: 0 20px 50px rgba(39, 37, 34, 0.10); }
-		.carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.7s ease; pointer-events: none; }
+		.carousel { position: relative; overflow: hidden; background: #ebe3d6; touch-action: pan-y; }
+		.carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.9s ease; pointer-events: none; }
 		.carousel-slide.is-active { opacity: 1; pointer-events: auto; }
-		.carousel-slide .media-img { transform: scale(1.03); transition: transform 5s ease; }
+		.carousel-slide .media-img { transform: scale(1.04); transition: transform 6s ease-out; }
 		.carousel-slide.is-active .media-img { transform: scale(1); }
-		.carousel-control { position: absolute; top: 50%; z-index: 10; display: flex; height: 2.75rem; width: 2.75rem; transform: translateY(-50%); align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 9999px; background: rgba(39, 37, 34, 0.42); color: #fff; backdrop-filter: blur(6px); opacity: 0; transition: opacity 0.25s ease, background 0.2s ease, transform 0.2s ease; }
+		.carousel-control { position: absolute; top: 50%; z-index: 10; display: flex; height: 2.75rem; width: 2.75rem; transform: translateY(-50%); align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 9999px; color: #fff; background: rgba(34, 31, 27, 0.18); backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.35s ease, background 0.3s ease; }
 		.carousel:hover .carousel-control, .carousel:focus-within .carousel-control { opacity: 1; }
-		@media (hover: none) { .carousel-control { opacity: 1; height: 2.25rem; width: 2.25rem; } }
-		.carousel-control:hover { background: rgba(180, 122, 50, 0.9); transform: translateY(-50%) scale(1.06); }
-		.carousel-control.prev { left: 0.85rem; }
-		.carousel-control.next { right: 0.85rem; }
-		.carousel-dots { position: absolute; bottom: 0.9rem; left: 50%; z-index: 10; display: flex; gap: 0.45rem; transform: translateX(-50%); padding: 0.4rem 0.6rem; border-radius: 9999px; background: rgba(39, 37, 34, 0.25); backdrop-filter: blur(6px); }
-		.carousel-dot { height: 0.45rem; width: 0.45rem; border-radius: 9999px; background: rgba(255, 255, 255, 0.55); transition: width 0.3s ease, background 0.3s ease; }
-		.carousel-dot.is-active { width: 1.35rem; background: #fff; }
-		.carousel-count { position: absolute; top: 0.9rem; right: 0.9rem; z-index: 10; border-radius: 9999px; background: rgba(39, 37, 34, 0.45); padding: 0.2rem 0.65rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: #fff; backdrop-filter: blur(6px); }
+		@media (hover: none) { .carousel-control { opacity: 0.9; height: 2.25rem; width: 2.25rem; } }
+		.carousel-control:hover { background: rgba(34, 31, 27, 0.55); }
+		.carousel-control.prev { left: 1rem; }
+		.carousel-control.next { right: 1rem; }
+		.carousel-bar { position: absolute; left: 1.1rem; right: 1.1rem; bottom: 1rem; z-index: 10; display: flex; align-items: center; gap: 1rem; color: #fff; }
+		.carousel-dots { display: flex; flex: 1; gap: 0.35rem; }
+		.carousel-dot { position: relative; flex: 1; max-width: 2.5rem; height: 14px; }
+		.carousel-dot::before, .carousel-dot::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(255, 255, 255, 0.45); }
+		.carousel-dot::after { background: #fff; transform: scaleX(0); transform-origin: left; }
+		.carousel-dot.is-done::after, .carousel:not(.is-playing) .carousel-dot.is-active::after { transform: scaleX(1); }
+		.carousel.is-playing .carousel-dot.is-active::after { animation: progress var(--dur, 5s) linear forwards; }
+		@keyframes progress { to { transform: scaleX(1); } }
+		.carousel-count { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 0.1em; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3); }
+		.carousel::after { content: ''; position: absolute; inset: auto 0 0 0; height: 5rem; z-index: 5; pointer-events: none; background: linear-gradient(to top, rgba(34, 31, 27, 0.35), transparent); }
 		.zoomable { cursor: zoom-in; }
 
 		/* 燈箱 */
 		#lightbox { max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; margin: 0; padding: 0; border: 0; background: transparent; }
-		#lightbox::backdrop { background: rgba(20, 18, 16, 0.92); }
-		#lightbox[open] { display: flex; align-items: center; justify-content: center; animation: fade 0.25s ease; }
-		#lightboxImg { max-width: min(92vw, 1400px); max-height: 84vh; object-fit: contain; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
-		.lb-btn { position: absolute; display: flex; height: 3rem; width: 3rem; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; background: rgba(255, 255, 255, 0.06); transition: background 0.2s ease; }
-		.lb-btn:hover { background: rgba(180, 122, 50, 0.9); }
+		#lightbox::backdrop { background: rgba(22, 20, 17, 0.95); }
+		#lightbox[open] { display: flex; align-items: center; justify-content: center; animation: fade 0.3s ease; }
+		#lightboxImg { max-width: min(90vw, 1400px); max-height: 82vh; object-fit: contain; }
+		.lb-btn { position: absolute; display: flex; height: 3rem; width: 3rem; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.25); color: #fff; transition: background 0.3s ease; }
+		.lb-btn:hover { background: rgba(255, 255, 255, 0.1); }
 		@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 		/* 手風琴 */
 		summary { list-style: none; }
 		summary::-webkit-details-marker { display: none; }
-		summary .plus { position: relative; width: 0.8rem; height: 0.8rem; flex: none; }
-		summary .plus::before, summary .plus::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; background: #b47a32; transition: transform 0.3s ease; }
+		summary .plus { position: relative; width: 0.75rem; height: 0.75rem; flex: none; }
+		summary .plus::before, summary .plus::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #221f1b; transition: transform 0.35s ease; }
 		summary .plus::after { transform: rotate(90deg); }
 		details[open] summary .plus::after { transform: rotate(0deg); }
-		details .details-body { animation: drop 0.35s ease; }
+		details .details-body { animation: drop 0.4s ease; }
 		@keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
-		/* 方案卡片 */
-		.plan-card { transition: transform 0.35s ease, box-shadow 0.35s ease; }
-		.plan-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(39, 37, 34, 0.14); }
-
 		/* 服務索引 */
-		.service-link { transition: background-color 0.3s ease, color 0.3s ease; }
-		.service-link:hover { background: #272522; color: #fff; }
-		.service-link:hover .service-en { color: rgba(255, 255, 255, 0.5); }
-		.service-link .service-arrow { transition: transform 0.3s ease, color 0.3s ease; }
-		.service-link:hover .service-arrow { transform: translate(3px, -3px); color: #b47a32; }
+		.service-link { position: relative; transition: color 0.35s ease; }
+		.service-link::before { content: ''; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: #221f1b; transform: scaleX(0); transform-origin: left; transition: transform 0.5s ease; }
+		.service-link:hover::before { transform: scaleX(1); }
+		.service-link:hover .service-num { color: #221f1b; }
 
-		/* 捲動進場 */
-		.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--delay, 0s); }
+		/* 進場動畫 */
+		.js .reveal { opacity: 0; transform: translateY(32px); transition: opacity 1.1s ease, transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--delay, 0s); }
 		.js .reveal.is-visible { opacity: 1; transform: none; }
+		.js .rise { display: block; overflow: hidden; padding-bottom: 0.08em; }
+		.js .rise > span { display: block; transform: translateY(105%); transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--delay, 0s); }
+		.js .is-loaded .rise > span { transform: none; }
+		.js .img-reveal { clip-path: inset(0 0 100% 0); transition: clip-path 1.4s cubic-bezier(0.7, 0, 0.2, 1); transition-delay: var(--delay, 0s); }
+		.js .is-loaded .img-reveal, .js .img-reveal.is-visible { clip-path: inset(0 0 0 0); }
 
 		/* 表單 */
-		.form-field { display: grid; gap: 0.45rem; }
-		.form-field label { font-size: 0.875rem; font-weight: 700; }
-		.form-field input, .form-field select, .form-field textarea { width: 100%; border: 1px solid rgba(39, 37, 34, 0.16); border-radius: 0.5rem; background: rgba(255, 255, 255, 0.8); padding: 0.8rem 0.9rem; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-		.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: #b47a32; box-shadow: 0 0 0 3px rgba(180, 122, 50, 0.14); }
-		.form-field input[aria-invalid="true"] { border-color: #b42318; }
-		.form-error { min-height: 1.1rem; color: #b42318; font-size: 0.75rem; }
-		.form-status { border-radius: 0.5rem; padding: 0.9rem 1rem; font-size: 0.875rem; line-height: 1.6; }
+		.form-field { display: grid; gap: 0.35rem; }
+		.form-field label { font-size: 0.8rem; letter-spacing: 0.12em; color: rgba(34, 31, 27, 0.6); }
+		.form-field input, .form-field textarea { width: 100%; border: 0; border-bottom: 1px solid rgba(34, 31, 27, 0.22); background: transparent; padding: 0.7rem 0; font-size: 1rem; outline: none; border-radius: 0; transition: border-color 0.3s ease; }
+		.form-field input::placeholder, .form-field textarea::placeholder { color: rgba(34, 31, 27, 0.3); }
+		.form-field input:focus, .form-field textarea:focus { border-color: #221f1b; }
+		.form-field input[aria-invalid="true"] { border-color: #a4321f; }
+		.form-error { min-height: 1.1rem; color: #a4321f; font-size: 0.75rem; }
+		.form-status { padding: 0.9rem 1rem; font-size: 0.875rem; line-height: 1.7; }
 		.chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 		.chip-group input { position: absolute; opacity: 0; pointer-events: none; }
-		.chip-group label { cursor: pointer; border: 1px solid rgba(39, 37, 34, 0.16); border-radius: 9999px; background: rgba(255, 255, 255, 0.8); padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 500; transition: all 0.2s ease; }
-		.chip-group label:hover { border-color: #b47a32; color: #b47a32; }
-		.chip-group input:checked + label { border-color: #272522; background: #272522; color: #fff; }
-		.chip-group input:focus-visible + label { outline: 2px solid #b47a32; outline-offset: 2px; }
-		.flash { animation: flash 1.2s ease; }
-		@keyframes flash { 0%, 100% { box-shadow: 0 20px 50px rgba(39, 37, 34, 0.10); } 30% { box-shadow: 0 0 0 4px rgba(180, 122, 50, 0.35), 0 20px 50px rgba(39, 37, 34, 0.10); } }
+		.chip-group label { cursor: pointer; border: 1px solid rgba(34, 31, 27, 0.18); padding: 0.55rem 1rem; font-size: 0.85rem; letter-spacing: 0.06em; transition: all 0.3s ease; }
+		.chip-group label:hover { border-color: #221f1b; }
+		.chip-group input:checked + label { border-color: #221f1b; background: #221f1b; color: #f6f2eb; }
+		.chip-group input:focus-visible + label { outline: 1px solid #a47148; outline-offset: 3px; }
+		.flash { animation: flash 1.4s ease; }
+		@keyframes flash { 30% { background-color: rgba(201, 162, 122, 0.18); } }
 
-		/* 手機底部快捷列 */
-		#quickBar { transform: translateY(110%); transition: transform 0.35s ease; }
+		#quickBar { transform: translateY(110%); transition: transform 0.4s ease; }
 		#quickBar.is-visible { transform: translateY(0); }
-		#toTop { opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease; }
+		#toTop { opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity 0.35s ease, transform 0.35s ease, background 0.3s ease, color 0.3s ease; }
 		#toTop.is-visible { opacity: 1; transform: none; pointer-events: auto; }
 
 		@media (prefers-reduced-motion: reduce) {
 			html { scroll-behavior: auto; }
 			*, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-			.js .reveal { opacity: 1; transform: none; }
+			.js .reveal, .js .rise > span { opacity: 1; transform: none; }
+			.js .img-reveal { clip-path: none; }
 		}
 	</style>
 </head>
-<body class="font-sans antialiased selection:bg-amber selection:text-white">
-	<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white">跳到主要內容</a>
+<body class="font-sans antialiased selection:bg-gold selection:text-ink">
+	<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:bg-ink focus:px-4 focus:py-2 focus:text-white">跳到主要內容</a>
 
-	<header id="siteHeader" class="fixed inset-x-0 top-0 z-50 border-b border-transparent bg-paper/80 backdrop-blur-md">
-		<nav class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 lg:px-10" aria-label="主要導覽">
-			<a href="#top" class="flex items-baseline gap-2 font-display text-xl font-bold tracking-[0.14em]" aria-label="茉莉花廚房 Jasmine Kitchen 回到頂部"><span>茉莉花廚房</span><span class="hidden font-sans text-[0.65rem] font-medium tracking-[0.12em] text-amber sm:inline">Jasmine Kitchen</span><span class="text-amber">．</span></a>
-			<div class="hidden items-center gap-7 text-sm text-ink/70 lg:flex">
+	<header id="siteHeader" class="fixed inset-x-0 top-0 z-50 border-b border-transparent backdrop-blur-md">
+		<nav class="mx-auto flex max-w-[88rem] items-center justify-between gap-6 px-5 py-5 lg:px-12" aria-label="主要導覽">
+			<a href="#top" class="flex items-baseline gap-3" aria-label="茉莉花廚房 Jasmine Kitchen 回到頂部">
+				<span class="font-display text-lg font-semibold tracking-[0.3em]">茉莉花廚房</span>
+				<span class="en hidden text-base italic text-amber sm:inline">Jasmine Kitchen</span>
+			</a>
+			<div class="hidden items-center gap-8 text-[0.8rem] text-ink/55 xl:flex">
 				<a class="nav-link" href="#team">團隊凝聚</a>
 				<a class="nav-link" href="#body">身材管理</a>
 				<a class="nav-link" href="#venue">場地租借</a>
@@ -184,24 +208,24 @@
 				<a class="nav-link" href="#vip">會員福利</a>
 				<a class="nav-link" href="#books">精選好書</a>
 			</div>
-			<div class="flex items-center gap-2">
-				<a href="#contact" class="btn btn-line hidden !py-2.5 lg:inline-flex">填表洽詢</a>
-				<a href="tel:0963380508" class="btn btn-dark hidden !py-2.5 lg:inline-flex">立即電話預約</a>
-				<button id="menuButton" class="flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2 text-sm lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="開啟選單">
-					<span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>選單
+			<div class="flex items-center gap-3">
+				<a href="#contact" class="link-u hidden !text-[0.8rem] lg:inline-flex">填表洽詢</a>
+				<a href="tel:0963380508" class="btn btn-dark hidden !px-5 !py-3 !text-[0.8rem] lg:inline-flex">電話預約</a>
+				<button id="menuButton" class="flex items-center gap-3 py-2 text-[0.8rem] tracking-[0.15em] xl:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="開啟選單">
+					<span class="menu-icon" aria-hidden="true"><span></span><span></span></span><span class="lg:hidden">MENU</span>
 				</button>
 			</div>
 		</nav>
-		<div id="mobileMenu" class="border-ink/10 lg:hidden">
+		<div id="mobileMenu" class="xl:hidden">
 			<div>
-				<div class="grid gap-1 border-t border-ink/10 px-5 pb-6 pt-3">
-					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#team">團隊凝聚<span class="font-sans text-xs text-amber">01</span></a>
-					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#body">身材管理<span class="font-sans text-xs text-amber">02</span></a>
-					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#venue">場地租借<span class="font-sans text-xs text-amber">03</span></a>
-					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#seasonal">季節選物<span class="font-sans text-xs text-amber">04</span></a>
-					<a class="flex items-baseline justify-between border-b border-ink/5 py-3 font-display text-lg" href="#vip">會員福利<span class="font-sans text-xs text-amber">05</span></a>
-					<a class="flex items-baseline justify-between py-3 font-display text-lg" href="#books">精選好書<span class="font-sans text-xs text-amber">06</span></a>
-					<div class="mt-3 grid grid-cols-2 gap-2"><a href="tel:0963380508" class="btn btn-dark">電話預約</a><a href="#contact" class="btn btn-line">填表洽詢</a></div>
+				<div class="mx-auto grid max-w-[88rem] border-t border-ink/10 px-5 pb-8 pt-2 lg:px-12">
+					<a class="flex items-baseline justify-between border-b border-ink/10 py-4 font-display text-xl" href="#team">團隊凝聚<span class="en text-sm text-amber">01</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/10 py-4 font-display text-xl" href="#body">身材管理<span class="en text-sm text-amber">02</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/10 py-4 font-display text-xl" href="#venue">場地租借<span class="en text-sm text-amber">03</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/10 py-4 font-display text-xl" href="#seasonal">季節選物<span class="en text-sm text-amber">04</span></a>
+					<a class="flex items-baseline justify-between border-b border-ink/10 py-4 font-display text-xl" href="#vip">會員福利<span class="en text-sm text-amber">05</span></a>
+					<a class="flex items-baseline justify-between py-4 font-display text-xl" href="#books">精選好書<span class="en text-sm text-amber">06</span></a>
+					<div class="mt-4 grid grid-cols-2 gap-2 lg:hidden"><a href="tel:0963380508" class="btn btn-dark">電話預約</a><a href="#contact" class="btn btn-line">填表洽詢</a></div>
 				</div>
 			</div>
 		</div>
@@ -209,245 +233,252 @@
 
 	<main id="main">
 		<!-- 首頁主視覺 -->
-		<section id="top" class="relative overflow-hidden px-5 pb-16 pt-28 lg:px-10 lg:pb-20 lg:pt-36">
-			<div class="pointer-events-none absolute -right-32 top-24 h-[28rem] w-[28rem] rounded-full bg-sand/60 blur-3xl" aria-hidden="true"></div>
-			<div class="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1fr_1fr] lg:gap-16">
-				<div class="reveal max-w-xl">
-					<p class="eyebrow text-xs font-bold tracking-[0.28em] text-amber">A PLACE FOR EVERYDAY GOODNESS</p>
-					<h1 class="mt-6 font-display text-4xl font-bold leading-[1.25] tracking-tight sm:text-5xl lg:text-[3.6rem]">把喜歡的日子，<br><span class="text-clay">過得更好。</span></h1>
-					<p class="mt-6 max-w-lg text-base leading-8 text-ink/70 md:text-lg md:leading-9">一個讓人重新感受生活的地方。一起做事、一起吃飯，也在每一次相遇裡，找到更靠近自己的日常。</p>
-					<div class="mt-9 flex flex-wrap gap-3">
-						<a href="#services" class="btn btn-amber">探索服務 <span class="arrow" aria-hidden="true">↘</span></a>
-						<a href="#contact" class="btn btn-line">與我們聊聊</a>
+		<section id="top" class="relative px-5 pb-16 pt-32 lg:px-12 lg:pb-24 lg:pt-40">
+			<div id="hero" class="mx-auto grid w-full max-w-[88rem] items-end gap-14 lg:grid-cols-12 lg:gap-10">
+				<div class="lg:col-span-6 lg:pb-16">
+					<p class="rise en text-lg italic text-amber"><span>A place for everyday goodness</span></p>
+					<h1 class="mt-6 font-display text-[2.6rem] font-medium leading-[1.3] sm:text-6xl lg:text-[4.4rem] lg:leading-[1.25]">
+						<span class="rise"><span style="--delay: 0.1s">把喜歡的日子，</span></span>
+						<span class="rise"><span style="--delay: 0.22s">過得更好。</span></span>
+					</h1>
+					<p class="rise mt-8 max-w-md text-[0.95rem] leading-9 text-ink/60"><span style="--delay: 0.35s">一個讓人重新感受生活的地方。一起做事、一起吃飯，也在每一次相遇裡，找到更靠近自己的日常。</span></p>
+					<div class="rise mt-10"><span style="--delay: 0.45s"><span class="flex flex-wrap items-center gap-x-8 gap-y-4">
+						<a href="#services" class="btn btn-dark">探索服務 <span class="arrow" aria-hidden="true"></span></a>
+						<a href="#contact" class="link-u">與我們聊聊</a>
+					</span></span></div>
+				</div>
+				<div class="relative lg:col-span-5 lg:col-start-8">
+					<div class="img-reveal arch img-zoom aspect-[4/5] w-full">
+						<img src="./門口.jpg" alt="茉莉花廚房門口，掛著店名招牌與綠意盆栽" class="photo zoomable h-full w-full object-cover object-[28%_50%]" fetchpriority="high" data-group="hero">
 					</div>
-					<p class="mt-10 flex items-center gap-2 text-sm text-ink/50"><svg class="h-4 w-4 text-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>新竹縣竹東鎮富榮街 99 號</p>
-				</div>
-				<div class="reveal relative pb-10 lg:pb-0 lg:pl-6" style="--delay: 0.15s">
-					<div class="absolute -right-6 -top-8 h-36 w-36 rounded-full border border-amber/30 lg:-right-10" aria-hidden="true"></div>
-					<img src="./門口.jpg" alt="茉莉花廚房門口，掛著店名招牌與綠意盆栽" class="zoomable relative aspect-[4/3] w-full rounded-2xl object-cover object-[30%_50%] shadow-soft" fetchpriority="high" data-group="hero">
-					<figure class="absolute -bottom-2 left-4 w-[46%] rounded-xl bg-paper p-2 shadow-soft sm:-left-6 lg:-bottom-10">
-						<img src="./tb-activity.jpg" alt="大家圍著料理台一起下廚" class="zoomable aspect-[3/2] w-full rounded-lg object-cover" data-group="hero">
-						<figcaption class="px-2 pb-1 pt-3 font-display text-sm sm:text-base">留一點時間，給真正重要的事。</figcaption>
-					</figure>
-				</div>
+					<figure class="img-reveal absolute -bottom-8 -left-4 w-[44%] border-[6px] border-paper sm:-left-10 lg:-left-20" style="--delay: 0.35s">
+						<img src="./tb-activity.jpg" alt="大家圍著料理台一起下廚" class="photo zoomable aspect-[4/5] w-full object-cover" data-group="hero">
+					</figure>				</div>
 			</div>
 
 			<!-- 服務索引 -->
-			<nav id="services" class="reveal relative mx-auto mt-20 max-w-7xl lg:mt-28" aria-label="服務項目" style="--delay: 0.25s">
-				<p class="mb-5 text-xs font-bold tracking-[0.25em] text-ink/40">OUR SERVICES</p>
-				<div class="grid grid-cols-2 border-l border-t border-ink/10 sm:grid-cols-3 lg:grid-cols-6">
-					<a href="#team" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">01<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">團隊凝聚</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">TEAM BUILDING</span></span></a>
-					<a href="#body" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">02<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">身材管理</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">BODY MANAGEMENT</span></span></a>
-					<a href="#venue" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">03<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">場地租借</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">VENUE RENTAL</span></span></a>
-					<a href="#seasonal" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">04<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">季節選物</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">SEASONAL</span></span></a>
-					<a href="#vip" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">05<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">會員福利</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">VIP CLUB</span></span></a>
-					<a href="#books" class="service-link group flex flex-col justify-between gap-6 border-b border-r border-ink/10 p-5"><span class="flex items-start justify-between text-xs font-bold text-amber">06<span class="service-arrow text-ink/30" aria-hidden="true">↗</span></span><span><span class="block font-display text-lg font-bold">精選好書</span><span class="service-en mt-1 block text-[0.65rem] tracking-[0.15em] text-ink/40">BOOKSTORE</span></span></a>
+			<nav id="services" class="reveal mx-auto mt-28 max-w-[88rem] lg:mt-36" aria-label="服務項目">
+				<div class="flex items-baseline justify-between">
+					<p class="en text-lg italic text-amber">Our Services</p>
+					<p class="hidden text-xs tracking-[0.2em] text-ink/40 sm:block">六種，讓日子更好的方式</p>
+				</div>
+				<div class="mt-6 grid grid-cols-2 border-t border-ink/15 sm:grid-cols-3 lg:grid-cols-6">
+					<a href="#team" class="service-link group border-b border-ink/10 py-6 pr-4 sm:border-b-0 lg:py-8"><span class="service-num en text-2xl text-ink/30 transition">01</span><span class="mt-4 block font-display text-lg">團隊凝聚</span><span class="en mt-1 block text-sm italic text-ink/40">Team Building</span></a>
+					<a href="#body" class="service-link group border-b border-ink/10 py-6 pr-4 sm:border-b-0 lg:py-8"><span class="service-num en text-2xl text-ink/30 transition">02</span><span class="mt-4 block font-display text-lg">身材管理</span><span class="en mt-1 block text-sm italic text-ink/40">Body Management</span></a>
+					<a href="#venue" class="service-link group border-b border-ink/10 py-6 pr-4 sm:border-b-0 lg:py-8"><span class="service-num en text-2xl text-ink/30 transition">03</span><span class="mt-4 block font-display text-lg">場地租借</span><span class="en mt-1 block text-sm italic text-ink/40">Venue Rental</span></a>
+					<a href="#seasonal" class="service-link group border-b border-ink/10 py-6 pr-4 sm:border-b-0 lg:py-8"><span class="service-num en text-2xl text-ink/30 transition">04</span><span class="mt-4 block font-display text-lg">季節選物</span><span class="en mt-1 block text-sm italic text-ink/40">Seasonal</span></a>
+					<a href="#vip" class="service-link group py-6 pr-4 lg:py-8"><span class="service-num en text-2xl text-ink/30 transition">05</span><span class="mt-4 block font-display text-lg">會員福利</span><span class="en mt-1 block text-sm italic text-ink/40">VIP Club</span></a>
+					<a href="#books" class="service-link group py-6 pr-4 lg:py-8"><span class="service-num en text-2xl text-ink/30 transition">06</span><span class="mt-4 block font-display text-lg">精選好書</span><span class="en mt-1 block text-sm italic text-ink/40">Bookstore</span></a>
 				</div>
 			</nav>
 		</section>
 
 		<!-- 01 團隊凝聚 -->
-		<section id="team" data-section class="border-t border-ink/10 px-5 py-20 lg:px-10 lg:py-28">
-			<div class="mx-auto max-w-7xl">
-				<div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
-					<div class="reveal lg:col-span-5">
-						<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">01 / TEAM BUILDING</p>
-						<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">讓團隊一起<br>有感前進。</h2>
-						<span class="mt-6 inline-flex rounded-full border border-amber/25 bg-amber/10 px-4 py-2 text-sm font-bold text-clay">15 – 20 人專屬客製</span>
-						<p class="mt-5 max-w-md leading-8 text-ink/65">專屬客製化團隊體驗，從 15 至 20 人的小型聚會開始，依照團隊節奏設計能留下記憶的共同時光。</p>
-						<div class="mt-8 flex flex-wrap gap-3"><a href="#contact" data-service="團隊凝聚" class="btn btn-dark">填表洽詢 <span class="arrow" aria-hidden="true">→</span></a><a href="tel:0963380508" class="btn btn-line">電話預約</a></div>
+		<section id="team" data-section class="px-5 py-24 lg:px-12 lg:py-36">
+			<div class="mx-auto max-w-[88rem]">
+				<div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-10">
+					<div class="reveal lg:col-span-4">
+						<p class="kicker"><span class="num">01</span><span class="line"></span><span class="label">Team Building</span></p>
+						<h2 class="mt-8 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">讓團隊一起<br>有感前進。</h2>
+						<p class="mt-8 flex items-baseline gap-3 border-y hairline py-4"><span class="en text-3xl text-clay">15 – 20</span><span class="text-sm tracking-[0.1em] text-ink/60">人專屬客製</span></p>
+						<p class="mt-8 max-w-md text-[0.95rem] leading-9 text-ink/60">專屬客製化團隊體驗，從 15 至 20 人的小型聚會開始，依照團隊節奏設計能留下記憶的共同時光。</p>
+						<div class="mt-10 flex flex-wrap items-center gap-6"><a href="#contact" data-service="團隊凝聚" class="btn btn-dark">填表洽詢 <span class="arrow" aria-hidden="true"></span></a><a href="tel:0963380508" class="link-u">電話預約</a></div>
 					</div>
-					<div class="reveal lg:col-span-7" style="--delay: 0.1s">
-						<div class="carousel aspect-[4/3] w-full rounded-2xl sm:aspect-[3/2]" data-carousel aria-roledescription="carousel" aria-label="團隊活動照片">
-							<div class="carousel-slide is-active"><div class="media h-full"><img src="./tb-activity.jpg" alt="團隊活動花絮：一起下廚" class="media-img zoomable"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity2.jpg" alt="團隊活動花絮 2" class="media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity3.jpg" alt="團隊活動花絮 3" class="media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity4.jpg" alt="團隊活動花絮 4" class="media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity5.jpg" alt="團隊活動花絮 5" class="media-img zoomable" loading="lazy"></div></div>
+					<div class="reveal lg:col-span-7 lg:col-start-6" style="--delay: 0.1s">
+						<div class="carousel aspect-[4/3] w-full sm:aspect-[3/2]" data-carousel aria-roledescription="carousel" aria-label="團隊活動照片">
+							<div class="carousel-slide is-active"><div class="media h-full"><img src="./tb-activity.jpg" alt="團隊活動花絮：一起下廚" class="photo media-img zoomable"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity2.jpg" alt="團隊活動花絮 2" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity3.jpg" alt="團隊活動花絮 3" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity4.jpg" alt="團隊活動花絮 4" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img src="./tb-activity5.jpg" alt="團隊活動花絮 5" class="photo media-img zoomable" loading="lazy"></div></div>
 						</div>
 					</div>
 				</div>
-				<div class="mt-16 grid gap-5 md:grid-cols-3">
-					<article class="plan-card reveal flex flex-col rounded-2xl bg-white p-7 shadow-soft"><div class="flex items-center justify-between"><span class="text-sm font-bold text-amber">方案 A</span><span class="font-display text-3xl text-ink/10">01</span></div><h3 class="mt-8 font-display text-2xl font-bold">日常初見</h3><p class="mt-3 text-sm leading-7 text-ink/60">適合第一次相聚的團隊。</p><p class="text-sm leading-7 text-ink/60">內容細節待討論。</p><div class="mt-auto flex items-center justify-between border-t border-ink/10 pt-5 text-sm font-bold"><span>價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 A｜日常初見" class="text-amber transition hover:text-clay">洽詢此方案 →</a></div></article>
-					<article class="plan-card reveal flex flex-col rounded-2xl bg-ink p-7 text-white shadow-soft" style="--delay: 0.1s"><div class="flex items-center justify-between"><span class="text-sm font-bold text-amber">方案 B</span><span class="rounded-full bg-amber px-3 py-1 text-[0.7rem] font-bold">推薦</span></div><h3 class="mt-8 font-display text-2xl font-bold">共同創作</h3><p class="mt-3 text-sm leading-7 text-white/60">適合想一起完成一件事的團隊。</p><p class="text-sm leading-7 text-white/60">內容細節待討論。</p><div class="mt-10 flex items-center justify-between border-t border-white/15 pt-5 text-sm font-bold"><span>價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 B｜共同創作" class="text-amber transition hover:text-white">洽詢此方案 →</a></div></article>
-					<article class="plan-card reveal flex flex-col rounded-2xl bg-white p-7 shadow-soft" style="--delay: 0.2s"><div class="flex items-center justify-between"><span class="text-sm font-bold text-amber">方案 C</span><span class="font-display text-3xl text-ink/10">03</span></div><h3 class="mt-8 font-display text-2xl font-bold">深度連結</h3><p class="mt-3 text-sm leading-7 text-ink/60">適合建立默契與信任的團隊。</p><p class="text-sm leading-7 text-ink/60">內容細節待討論。</p><div class="mt-auto flex items-center justify-between border-t border-ink/10 pt-5 text-sm font-bold"><span>價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 C｜深度連結" class="text-amber transition hover:text-clay">洽詢此方案 →</a></div></article>
+
+				<div class="mt-24 lg:mt-32">
+					<div class="reveal flex items-baseline justify-between border-b border-ink/15 pb-5"><p class="en text-lg italic text-amber">Programs</p><p class="text-xs tracking-[0.2em] text-ink/40">三種相聚的方式</p></div>
+					<div class="grid md:grid-cols-3">
+						<article class="reveal flex flex-col border-b hairline py-10 md:border-b-0 md:border-r md:pr-10"><div class="flex items-baseline justify-between"><span class="en text-5xl text-ink/15">A</span><span class="text-xs tracking-[0.2em] text-ink/40">方案 A</span></div><h3 class="mt-8 font-display text-2xl font-medium">日常初見</h3><p class="mt-4 text-sm leading-8 text-ink/55">適合第一次相聚的團隊。<br>內容細節待討論。</p><div class="mt-auto flex items-center justify-between pt-10 text-sm"><span class="tracking-[0.1em] text-ink/50">價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 A｜日常初見" class="link-u !text-xs">洽詢此方案</a></div></article>
+						<article class="reveal relative flex flex-col border-b hairline bg-sand/60 px-0 py-10 md:border-b-0 md:border-r md:px-10" style="--delay: 0.1s"><div class="flex items-baseline justify-between"><span class="en text-5xl text-amber/40">B</span><span class="en text-sm italic text-amber">Recommended</span></div><h3 class="mt-8 font-display text-2xl font-medium">共同創作</h3><p class="mt-4 text-sm leading-8 text-ink/55">適合想一起完成一件事的團隊。<br>內容細節待討論。</p><div class="mt-auto flex items-center justify-between pt-10 text-sm"><span class="tracking-[0.1em] text-ink/50">價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 B｜共同創作" class="link-u !text-xs">洽詢此方案</a></div></article>
+						<article class="reveal flex flex-col py-10 md:pl-10" style="--delay: 0.2s"><div class="flex items-baseline justify-between"><span class="en text-5xl text-ink/15">C</span><span class="text-xs tracking-[0.2em] text-ink/40">方案 C</span></div><h3 class="mt-8 font-display text-2xl font-medium">深度連結</h3><p class="mt-4 text-sm leading-8 text-ink/55">適合建立默契與信任的團隊。<br>內容細節待討論。</p><div class="mt-auto flex items-center justify-between pt-10 text-sm"><span class="tracking-[0.1em] text-ink/50">價格待定</span><a href="#contact" data-service="團隊凝聚" data-note="想了解方案 C｜深度連結" class="link-u !text-xs">洽詢此方案</a></div></article>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- 02 身材管理 -->
-		<section id="body" data-section class="bg-sand/50 px-5 py-20 lg:px-10 lg:py-28">
-			<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
-				<div class="reveal relative order-2 lg:order-1">
-					<div class="media aspect-[4/5] w-full rounded-2xl shadow-soft"><img src="./consulting-hero.jpg" alt="身材管理顧問" class="media-img zoomable" loading="lazy" data-group="body"></div>
-					<div class="absolute -right-3 bottom-8 rounded-xl bg-paper px-5 py-4 shadow-soft sm:-right-8">
-						<p class="text-xs font-bold tracking-[0.2em] text-amber">1 ON 1</p>
-						<p class="mt-1 font-display text-lg font-bold">一對一專屬陪伴</p>
-					</div>
+		<section id="body" data-section class="bg-sand/70 px-5 py-24 lg:px-12 lg:py-36">
+			<div class="mx-auto grid max-w-[88rem] gap-16 lg:grid-cols-12 lg:items-center lg:gap-10">
+				<div class="reveal relative order-2 lg:order-1 lg:col-span-5">
+					<div class="media cover arch aspect-[3/4] w-full"><img src="./consulting-hero.jpg" alt="身材管理顧問" class="photo media-img zoomable object-[50%_35%]" loading="lazy" data-group="body"></div>
+					<p class="en absolute -bottom-6 right-0 hidden text-7xl sm:block italic leading-none text-amber/30 sm:-right-6 sm:text-8xl" aria-hidden="true">1 on 1</p>
 				</div>
-				<div class="reveal order-1 lg:order-2" style="--delay: 0.1s">
-					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">02 / BODY MANAGEMENT</p>
-					<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">照顧身體，<br>從理解開始。</h2>
-					<p class="mt-6 max-w-lg leading-8 text-ink/65">一對一專業身材管理，陪你找到適合自己的生活方法。</p>
-					<ol class="mt-8 grid gap-4">
-						<li class="flex gap-5 rounded-xl bg-white/70 p-5"><span class="font-display text-2xl font-bold text-amber">01</span><div><h3 class="font-bold">健康飲食</h3><p class="mt-1 text-sm leading-7 text-ink/60">從日常選擇建立穩定習慣。</p></div></li>
-						<li class="flex gap-5 rounded-xl bg-white/70 p-5"><span class="font-display text-2xl font-bold text-amber">02</span><div><h3 class="font-bold">體態諮詢</h3><p class="mt-1 text-sm leading-7 text-ink/60">依照你的狀態規劃可執行的方向。</p></div></li>
-						<li class="flex gap-5 rounded-xl bg-white/70 p-5"><span class="font-display text-2xl font-bold text-amber">03</span><div><h3 class="font-bold">更懂自己</h3><p class="mt-1 text-sm leading-7 text-ink/60">不追趕標準，只練習更懂自己的身體。</p></div></li>
+				<div class="reveal order-1 lg:order-2 lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
+					<p class="kicker"><span class="num">02</span><span class="line"></span><span class="label">Body Management</span></p>
+					<h2 class="mt-8 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">照顧身體，<br>從理解開始。</h2>
+					<p class="mt-8 max-w-lg text-[0.95rem] leading-9 text-ink/60">一對一專業身材管理，陪你找到適合自己的生活方法。</p>
+					<ol class="mt-10 border-t border-ink/15">
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">01</span><div><h3 class="font-display text-lg font-medium">健康飲食</h3><p class="mt-1 text-sm leading-7 text-ink/55">從日常選擇建立穩定習慣。</p></div></li>
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">02</span><div><h3 class="font-display text-lg font-medium">體態諮詢</h3><p class="mt-1 text-sm leading-7 text-ink/55">依照你的狀態規劃可執行的方向。</p></div></li>
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">03</span><div><h3 class="font-display text-lg font-medium">更懂自己</h3><p class="mt-1 text-sm leading-7 text-ink/55">不追趕標準，只練習更懂自己的身體。</p></div></li>
 					</ol>
-					<div class="mt-9 flex flex-wrap gap-3">
-						<a href="#contact" data-service="身材管理諮詢" class="btn btn-dark">填表預約諮詢 <span class="arrow" aria-hidden="true">→</span></a>
-						<a href="tel:0963380508" class="btn btn-line">電話預約</a>
-						<button id="videoButton" type="button" class="btn btn-line" aria-expanded="false" aria-controls="videoMessage"><span class="flex h-5 w-5 items-center justify-center rounded-full bg-amber text-[0.55rem] text-white" aria-hidden="true">▶</span>觀看短影音介紹</button>
+					<div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+						<a href="#contact" data-service="身材管理諮詢" class="btn btn-dark">填表預約諮詢 <span class="arrow" aria-hidden="true"></span></a>
+						<a href="tel:0963380508" class="link-u">電話預約</a>
+						<button id="videoButton" type="button" class="link-u" aria-expanded="false" aria-controls="videoMessage"><span class="flex h-6 w-6 items-center justify-center rounded-full border border-ink/40 pl-0.5 text-[0.5rem]" aria-hidden="true">▶</span>觀看短影音介紹</button>
 					</div>
-					<p id="videoMessage" class="mt-4 hidden text-sm text-clay" role="status">影音連結即將上線，歡迎先與我們聯絡。</p>
+					<p id="videoMessage" class="en mt-5 hidden text-base italic text-clay" role="status">影音連結即將上線，歡迎先與我們聯絡。</p>
 				</div>
 			</div>
 		</section>
 
+		<!-- 全幅照片帶 -->
+		<section class="relative h-[70vh] min-h-[26rem] overflow-hidden" aria-label="餐桌時光">
+			<img id="parallaxImg" src="./外面.jpg" alt="戶外長桌上擺滿料理與飲品" class="photo absolute inset-0 h-[120%] w-full object-cover" loading="lazy">
+			<div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-ink/10"></div>
+			<div class="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/20 to-transparent"></div>
+			<div class="reveal relative mx-auto flex h-full max-w-[88rem] flex-col justify-end px-5 pb-14 text-paper lg:px-12 lg:pb-20">
+				<p class="en text-lg italic text-paper/80">Around the table</p>
+				<p class="mt-4 max-w-3xl font-display text-3xl font-medium leading-[1.5] sm:text-5xl sm:leading-[1.45]">留一點時間，<br>給真正重要的事。</p>
+			</div>
+		</section>
+
 		<!-- 03 場地租借 -->
-		<section id="venue" data-section class="px-5 py-20 lg:px-10 lg:py-28">
-			<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
-				<div class="reveal">
-					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">03 / VENUE RENTAL</p>
-					<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">一個空間，<br>容納各種可能。</h2>
-					<p class="mt-6 max-w-lg leading-8 text-ink/65">把場地留給你的聚會、課程或小型活動。自在的尺度與剛好的光，讓每一個計畫自然發生。</p>
-					<div class="mt-8 flex flex-wrap gap-2 text-sm">
-						<span class="rounded-full border border-ink/15 px-4 py-1.5">私人聚會</span><span class="rounded-full border border-ink/15 px-4 py-1.5">料理課程</span><span class="rounded-full border border-ink/15 px-4 py-1.5">工作坊</span><span class="rounded-full border border-ink/15 px-4 py-1.5">小型活動</span>
+		<section id="venue" data-section class="px-5 py-24 lg:px-12 lg:py-36">
+			<div class="mx-auto grid max-w-[88rem] gap-16 lg:grid-cols-12 lg:items-center lg:gap-10">
+				<div class="reveal lg:col-span-5">
+					<p class="kicker"><span class="num">03</span><span class="line"></span><span class="label">Venue Rental</span></p>
+					<h2 class="mt-8 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">一個空間，<br>容納各種可能。</h2>
+					<p class="mt-8 max-w-md text-[0.95rem] leading-9 text-ink/60">把場地留給你的聚會、課程或小型活動。自在的尺度與剛好的光，讓每一個計畫自然發生。</p>
+					<p class="mt-6 text-sm tracking-[0.12em] text-ink/45">私人聚會　·　料理課程　·　工作坊　·　小型活動</p>
+					<div class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-y border-ink/15 py-6">
+						<span class="text-xs tracking-[0.2em] text-ink/50">NT$</span>
+						<span class="en text-6xl leading-none text-clay">3,500</span>
+						<span class="text-sm text-ink/50">／小時・至少租借 3 小時</span>
 					</div>
-					<div class="mt-9 flex flex-wrap items-end gap-x-4 gap-y-2 border-l-2 border-amber pl-5">
-						<span class="font-display text-4xl font-bold text-clay sm:text-5xl">NT$ 3,500</span>
-						<span class="pb-1.5 text-sm text-ink/55">／小時・至少租借 3 小時</span>
+					<div class="divide-y divide-ink/10 border-b border-ink/10">
+						<details open class="py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-display">設備愛護<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/55">使用空間設備前請先確認操作方式，活動結束後一併歸位。</p></details>
+						<details class="py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-display">場地復原與垃圾處理<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/55">請將使用過的桌椅、器具與垃圾恢復至原狀。</p></details>
+						<details class="py-5"><summary class="flex cursor-pointer items-center justify-between gap-4 font-display">預約取消規範<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/55">取消與改期規則將於預約確認時提供完整說明。</p></details>
 					</div>
-					<div class="mt-9 divide-y divide-ink/10 border-y border-ink/10">
-						<details open class="group py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-bold">設備愛護<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/60">使用空間設備前請先確認操作方式，活動結束後一併歸位。</p></details>
-						<details class="group py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-bold">場地復原與垃圾處理<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/60">請將使用過的桌椅、器具與垃圾恢復至原狀。</p></details>
-						<details class="group py-4"><summary class="flex cursor-pointer items-center justify-between gap-4 font-bold">預約取消規範<span class="plus" aria-hidden="true"></span></summary><p class="details-body mt-3 pr-8 text-sm leading-7 text-ink/60">取消與改期規則將於預約確認時提供完整說明。</p></details>
-					</div>
-					<div class="mt-8 flex flex-wrap gap-3"><a href="#contact" data-service="場地租借" class="btn btn-amber">填表洽詢 <span class="arrow" aria-hidden="true">→</span></a><a href="tel:0963380508" class="btn btn-line">電話聯絡</a></div>
+					<div class="mt-10 flex flex-wrap items-center gap-6"><a href="#contact" data-service="場地租借" class="btn btn-dark">填表洽詢 <span class="arrow" aria-hidden="true"></span></a><a href="tel:0963380508" class="link-u">電話聯絡</a></div>
 				</div>
-				<div class="reveal" style="--delay: 0.1s">
-					<div class="carousel aspect-[4/5] w-full rounded-2xl" data-carousel aria-roledescription="carousel" aria-label="場地照片">
-						<div class="carousel-slide is-active"><div class="media h-full"><img src="./venue-main.jpg" alt="場地環境" class="media-img zoomable" loading="lazy"></div></div>
-						<div class="carousel-slide"><div class="media h-full"><img src="./venue-2.jpg" alt="場地氛圍" class="media-img zoomable" loading="lazy"></div></div>
-						<div class="carousel-slide"><div class="media h-full"><img src="./venue-3.jpg" alt="空間細節" class="media-img zoomable" loading="lazy"></div></div>
+				<div class="reveal lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
+					<div class="carousel aspect-[4/5] w-full" data-carousel aria-roledescription="carousel" aria-label="場地照片">
+						<div class="carousel-slide is-active"><div class="media h-full"><img src="./venue-main.jpg" alt="場地環境" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img src="./venue-2.jpg" alt="場地氛圍" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img src="./venue-3.jpg" alt="空間細節" class="photo media-img zoomable" loading="lazy"></div></div>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- 04 季節選物 -->
-		<section id="seasonal" data-section class="bg-sand/50 px-5 py-20 lg:px-10 lg:py-28">
-			<div class="mx-auto max-w-7xl">
-				<div class="reveal flex flex-col justify-between gap-6 md:flex-row md:items-end">
-					<div>
-						<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">04 / SEASONAL PRODUCTS</p>
-						<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">把季節，帶回家。</h2>
+		<section id="seasonal" data-section class="bg-sand/70 px-5 py-24 lg:px-12 lg:py-36">
+			<div class="mx-auto max-w-[88rem]">
+				<div class="reveal grid gap-8 lg:grid-cols-12 lg:items-end">
+					<div class="lg:col-span-7">
+						<p class="kicker"><span class="num">04</span><span class="line"></span><span class="label">Seasonal Products</span></p>
+						<h2 class="mt-8 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">把季節，帶回家。</h2>
 					</div>
-					<div class="max-w-sm border-l border-amber/40 pl-5 text-sm leading-7 text-ink/60">
-						<p>全品項皆為季節性限量販售。</p>
-						<p>提前一個月公告，<a href="#vip" class="font-bold text-clay underline decoration-amber/40 underline-offset-4 hover:text-amber">會員群</a>內優先選購。</p>
-					</div>
+					<p class="max-w-sm text-sm leading-8 text-ink/55 lg:col-span-4 lg:col-start-9">全品項皆為季節性限量販售。<br>提前一個月公告，<a href="#vip" class="border-b border-ink/30 text-ink transition hover:border-amber hover:text-amber">會員群</a>內優先選購。</p>
 				</div>
-				<div class="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
-					<article class="reveal group">
-						<div class="carousel aspect-square rounded-2xl" data-carousel aria-roledescription="carousel" aria-label="低升糖貝果照片">
-							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-bagel.jpg" alt="低升糖貝果 1" class="media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./product-bagel2.jpg" alt="低升糖貝果 2" class="media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./product-bagel3.jpg" alt="低升糖貝果 3" class="media-img zoomable" loading="lazy"></div></div>
+				<div class="mt-16 grid gap-14 md:grid-cols-3 md:gap-8">
+					<article class="reveal">
+						<div class="carousel aspect-[5/4]" data-carousel aria-roledescription="carousel" aria-label="低升糖貝果照片">
+							<div class="carousel-slide is-active"><div class="media cover h-full"><img src="./product-bagel.jpg" alt="低升糖貝果 1" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media cover h-full"><img src="./product-bagel2.jpg" alt="低升糖貝果 2" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media cover h-full"><img src="./product-bagel3.jpg" alt="低升糖貝果 3" class="photo media-img zoomable" loading="lazy"></div></div>
 						</div>
-						<div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider"><span class="rounded-full bg-amber/10 px-2.5 py-1 text-clay">季節限定</span><span class="rounded-full bg-ink/5 px-2.5 py-1 text-ink/60">會員優先</span></div>
-						<h3 class="mt-3 font-display text-2xl font-bold">低升糖貝果</h3>
-						<p class="mt-2 text-sm leading-7 text-ink/60">日常也能放心享用的柔韌口感。</p>
+						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">低升糖貝果</h3><span class="en text-lg text-ink/30">No.01</span></div>
+						<p class="mt-4 text-sm leading-7 text-ink/55">日常也能放心享用的柔韌口感。</p>
+						<p class="en mt-3 text-sm italic text-amber">Seasonal · Members first</p>
 					</article>
-					<article class="reveal group" style="--delay: 0.1s">
-						<div class="carousel aspect-square rounded-2xl" data-carousel aria-roledescription="carousel" aria-label="經典蛋黃酥照片">
-							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-pastry.jpg" alt="經典蛋黃酥 1" class="media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./product-pastry2.jpg" alt="經典蛋黃酥 2" class="media-img zoomable" loading="lazy"></div></div>
+					<article class="reveal md:mt-12" style="--delay: 0.1s">
+						<div class="carousel aspect-[5/4]" data-carousel aria-roledescription="carousel" aria-label="經典蛋黃酥照片">
+							<div class="carousel-slide is-active"><div class="media cover h-full"><img src="./product-pastry.jpg" alt="經典蛋黃酥 1" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media cover h-full"><img src="./product-pastry2.jpg" alt="經典蛋黃酥 2" class="photo media-img zoomable" loading="lazy"></div></div>
 						</div>
-						<div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider"><span class="rounded-full bg-amber/10 px-2.5 py-1 text-clay">季節限定</span><span class="rounded-full bg-ink/5 px-2.5 py-1 text-ink/60">會員優先</span></div>
-						<h3 class="mt-3 font-display text-2xl font-bold">經典蛋黃酥</h3>
-						<p class="mt-2 text-sm leading-7 text-ink/60">酥香與鹹蛋黃，寫給節日的老派浪漫。</p>
+						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">經典蛋黃酥</h3><span class="en text-lg text-ink/30">No.02</span></div>
+						<p class="mt-4 text-sm leading-7 text-ink/55">酥香與鹹蛋黃，寫給節日的老派浪漫。</p>
+						<p class="en mt-3 text-sm italic text-amber">Seasonal · Members first</p>
 					</article>
-					<article class="reveal group" style="--delay: 0.2s">
-						<div class="media aspect-square overflow-hidden rounded-2xl shadow-soft"><img src="./product-nougat.jpg" alt="手作牛軋糖" class="media-img zoomable transition duration-700 group-hover:scale-105" loading="lazy"></div>
-						<div class="mt-5 flex gap-2 text-[11px] font-bold tracking-wider"><span class="rounded-full bg-amber/10 px-2.5 py-1 text-clay">季節限定</span><span class="rounded-full bg-ink/5 px-2.5 py-1 text-ink/60">會員優先</span></div>
-						<h3 class="mt-3 font-display text-2xl font-bold">手作牛軋糖</h3>
-						<p class="mt-2 text-sm leading-7 text-ink/60">一口咬下，是堅果、奶香與手作的溫度。</p>
+					<article class="reveal" style="--delay: 0.2s">
+						<div class="img-zoom aspect-[5/4]"><img src="./product-nougat.jpg" alt="手作牛軋糖" class="photo zoomable h-full w-full object-cover" loading="lazy" data-group="nougat"></div>
+						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">手作牛軋糖</h3><span class="en text-lg text-ink/30">No.03</span></div>
+						<p class="mt-4 text-sm leading-7 text-ink/55">一口咬下，是堅果、奶香與手作的溫度。</p>
+						<p class="en mt-3 text-sm italic text-amber">Seasonal · Members first</p>
 					</article>
 				</div>
 			</div>
 		</section>
 
 		<!-- 05 會員福利 -->
-		<section id="vip" data-section class="relative overflow-hidden bg-ink px-5 py-20 text-white lg:px-10 lg:py-28">
-			<div class="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-amber/15 blur-3xl" aria-hidden="true"></div>
-			<div class="relative mx-auto max-w-7xl">
-				<div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-16">
-					<div class="reveal lg:sticky lg:top-28">
-						<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">05 / VIP CLUB</p>
-						<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">加入喜歡生活的<br>同一個群組。</h2>
-						<ol class="mt-8 grid gap-4 text-sm text-white/70">
-							<li class="flex items-center gap-4"><span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-amber/60 text-xs font-bold text-amber">1</span>留下 Google 五星好評</li>
-							<li class="flex items-center gap-4"><span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-amber/60 text-xs font-bold text-amber">2</span>通過真實評論確認</li>
-							<li class="flex items-center gap-4"><span class="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-amber/60 text-xs font-bold text-amber">3</span>加入會員群，享季節選物與活動優先權</li>
-						</ol>
-						<a href="#contact" data-service="其他" data-note="我想加入會員群" class="btn btn-amber mt-9">五星好評並加入會員 <span class="arrow" aria-hidden="true">→</span></a>
+		<section id="vip" data-section class="bg-ink px-5 py-24 text-paper lg:px-12 lg:py-36">
+			<div class="mx-auto grid max-w-[88rem] gap-16 lg:grid-cols-12 lg:gap-10">
+				<div class="reveal lg:sticky lg:top-32 lg:col-span-5 lg:self-start">
+					<p class="kicker !text-gold"><span class="num">05</span><span class="line"></span><span class="label">VIP Club</span></p>
+					<h2 class="mt-8 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">加入喜歡生活的<br>同一個群組。</h2>
+					<ol class="mt-10 border-t border-paper/15 text-sm text-paper/70">
+						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-5"><span class="en text-xl text-gold">i.</span>留下 Google 五星好評</li>
+						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-5"><span class="en text-xl text-gold">ii.</span>通過真實評論確認</li>
+						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-5"><span class="en text-xl text-gold">iii.</span>加入會員群，享季節選物與活動優先權</li>
+					</ol>
+					<a href="#contact" data-service="其他" data-note="我想加入會員群" class="btn mt-10 bg-gold text-ink hover:bg-paper">五星好評並加入會員 <span class="arrow" aria-hidden="true"></span></a>
+				</div>
+				<div class="lg:col-span-6 lg:col-start-7">
+					<div class="reveal carousel aspect-[4/3]" data-carousel aria-roledescription="carousel" aria-label="會員手作課程照片">
+						<div class="carousel-slide is-active"><div class="media h-full"><img src="./vip-class.jpg" alt="會員手作課程花絮 1" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img src="./vip-class2.jpg" alt="會員手作課程花絮 2" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img src="./vip-class3.jpg" alt="會員手作課程花絮 3" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img src="./vip-class4.jpg" alt="會員手作課程花絮 4" class="photo media-img zoomable" loading="lazy"></div></div>
 					</div>
-					<div>
-						<div class="grid gap-5 sm:grid-cols-2">
-							<div class="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6"><p class="text-sm font-bold text-amber">01 / 季節限定甜點</p><h3 class="mt-4 font-display text-2xl font-bold">優先搶購權</h3><p class="mt-3 text-sm leading-7 text-white/55">提前知道下一季的味道，把喜歡的留給自己。</p></div>
-							<div class="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-6" style="--delay: 0.1s"><p class="text-sm font-bold text-amber">02 / 節慶手作體驗</p><h3 class="mt-4 font-display text-2xl font-bold">會員專屬報名資格</h3><p class="mt-3 text-sm leading-7 text-white/55">中秋蛋黃酥課、聖誕手作麵包課，享超值親民學員價。</p></div>
-						</div>
-						<div class="reveal mt-8" style="--delay: 0.15s">
-							<div class="carousel aspect-[4/3] rounded-2xl sm:aspect-video" data-carousel aria-roledescription="carousel" aria-label="會員手作課程照片">
-								<div class="carousel-slide is-active"><div class="media h-full"><img src="./vip-class.jpg" alt="會員手作課程花絮 1" class="media-img zoomable" loading="lazy"></div></div>
-								<div class="carousel-slide"><div class="media h-full"><img src="./vip-class2.jpg" alt="會員手作課程花絮 2" class="media-img zoomable" loading="lazy"></div></div>
-								<div class="carousel-slide"><div class="media h-full"><img src="./vip-class3.jpg" alt="會員手作課程花絮 3" class="media-img zoomable" loading="lazy"></div></div>
-								<div class="carousel-slide"><div class="media h-full"><img src="./vip-class4.jpg" alt="會員手作課程花絮 4" class="media-img zoomable" loading="lazy"></div></div>
-							</div>
-						</div>
+					<div class="mt-14 grid gap-12 sm:grid-cols-2 sm:gap-8">
+						<div class="reveal border-t border-gold/50 pt-6"><p class="en text-base italic text-gold">Seasonal desserts</p><h3 class="mt-4 font-display text-2xl font-medium">優先搶購權</h3><p class="mt-3 text-sm leading-8 text-paper/55">提前知道下一季的味道，把喜歡的留給自己。</p></div>
+						<div class="reveal border-t border-gold/50 pt-6" style="--delay: 0.1s"><p class="en text-base italic text-gold">Holiday workshops</p><h3 class="mt-4 font-display text-2xl font-medium">會員專屬報名資格</h3><p class="mt-3 text-sm leading-8 text-paper/55">中秋蛋黃酥課、聖誕手作麵包課，享超值親民學員價。</p></div>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- 06 精選好書 -->
-		<section id="books" data-section class="bg-sand/60 px-5 py-20 lg:px-10 lg:py-28">
-			<div class="mx-auto grid max-w-5xl gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-				<div class="reveal mx-auto w-full max-w-xs">
-					<img src="./book-cover.jpeg" alt="《家宴》書籍封面" class="zoomable w-full shadow-book transition duration-500 hover:-translate-y-2 hover:rotate-[-1deg]" loading="lazy" data-group="book">
+		<section id="books" data-section class="px-5 py-24 lg:px-12 lg:py-36">
+			<div class="mx-auto grid max-w-6xl gap-16 lg:grid-cols-12 lg:items-center lg:gap-10">
+				<div class="reveal relative mx-auto w-full max-w-sm lg:col-span-5">
+					<div class="absolute inset-x-6 -bottom-6 top-10 bg-sand" aria-hidden="true"></div>
+					<img src="./book-cover.jpeg" alt="《家宴》書籍封面" class="zoomable relative mx-auto w-4/5 shadow-book transition duration-700 hover:-translate-y-2" loading="lazy" data-group="book">
 				</div>
-				<div class="reveal" style="--delay: 0.1s">
-					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">06 / BOOKSTORE</p>
-					<h2 class="mt-5 font-display text-4xl font-bold sm:text-5xl">《家宴》</h2>
-					<p class="mt-3 text-sm font-bold text-amber">黃文倩 Sunny｜從家常料理到私房款待的餐桌美學</p>
-					<blockquote class="mt-6 border-l-2 border-clay pl-5 font-display text-xl leading-9 text-clay">餐桌上的溫度，就是家的記憶。</blockquote>
-					<p class="mt-6 leading-8 text-ink/70">這是一本把料理、生活與情感放在同一張餐桌上的書，陪你用一桌好菜款待身邊重要的人。從家宴備料、時間管理到上桌節奏，將複雜的準備拆成清楚步驟，即使是第一次辦家宴，也能自在地把家變成最溫暖的餐館。</p>
-					<div class="mt-6 flex flex-wrap gap-2 text-sm font-bold text-clay"><span class="rounded-full bg-white/60 px-3 py-1">#私房家宴</span><span class="rounded-full bg-white/60 px-3 py-1">#餐桌美學</span><span class="rounded-full bg-white/60 px-3 py-1">#新手不慌張</span></div>
-					<a href="https://www.books.com.tw/products/0010978123" target="_blank" rel="noopener noreferrer" class="btn btn-dark mt-9">前往博客來購書 <span class="arrow" aria-hidden="true">↗</span></a>
+				<div class="reveal lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
+					<p class="kicker"><span class="num">06</span><span class="line"></span><span class="label">Bookstore</span></p>
+					<h2 class="mt-8 font-display text-5xl font-medium sm:text-6xl">《家宴》</h2>
+					<p class="mt-4 text-sm tracking-[0.1em] text-ink/55">黃文倩 Sunny ／ 從家常料理到私房款待的餐桌美學</p>
+					<blockquote class="mt-10 font-display text-2xl leading-[1.7] text-clay">「餐桌上的溫度，<br>就是家的記憶。」</blockquote>
+					<p class="mt-8 text-[0.95rem] leading-9 text-ink/60">這是一本把料理、生活與情感放在同一張餐桌上的書，陪你用一桌好菜款待身邊重要的人。從家宴備料、時間管理到上桌節奏，將複雜的準備拆成清楚步驟，即使是第一次辦家宴，也能自在地把家變成最溫暖的餐館。</p>
+					<p class="mt-6 text-sm tracking-[0.1em] text-amber">#私房家宴　#餐桌美學　#新手不慌張</p>
+					<a href="https://www.books.com.tw/products/0010978123" target="_blank" rel="noopener noreferrer" class="btn btn-dark mt-10">前往博客來購書 <span class="arrow" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</section>
 
 		<!-- 聯絡 -->
-		<section id="contact" data-section class="px-5 py-20 lg:px-10 lg:py-28">
-			<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-				<div class="reveal">
-					<p class="eyebrow text-xs font-bold tracking-[0.25em] text-amber">LET'S MAKE A GOOD DAY</p>
-					<h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-6xl">想一起做點<br><span class="text-clay">不一樣的事？</span></h2>
-					<p class="mt-6 max-w-md leading-8 text-ink/65">無論是團隊活動、身材管理、場地租借或課程報名，歡迎留下需求，我們會盡快與你聯繫。</p>
-					<div class="mt-9 grid gap-3">
-						<a href="tel:0963380508" class="group flex items-center justify-between rounded-xl border border-ink/10 bg-white/60 px-5 py-4 transition hover:border-amber"><span><span class="block text-xs text-ink/50">電話</span><span class="font-bold">0963-380-508</span></span><span class="text-amber transition group-hover:translate-x-1" aria-hidden="true">→</span></a>
-						<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between rounded-xl border border-ink/10 bg-white/60 px-5 py-4 transition hover:border-amber"><span><span class="block text-xs text-ink/50">LINE ID</span><span class="font-bold">hwc.sunny</span></span><span class="text-amber transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
-						<a href="https://www.google.com/maps/search/?api=1&query=新竹縣竹東鎮富榮街99號" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between rounded-xl border border-ink/10 bg-white/60 px-5 py-4 transition hover:border-amber"><span><span class="block text-xs text-ink/50">地址・開啟地圖</span><span class="font-bold">新竹縣竹東鎮富榮街 99 號</span></span><span class="text-amber transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
+		<section id="contact" data-section class="border-t border-ink/10 bg-sand/40 px-5 py-24 lg:px-12 lg:py-36">
+			<div class="mx-auto grid max-w-[88rem] gap-16 lg:grid-cols-12 lg:gap-10">
+				<div class="reveal lg:col-span-5">
+					<p class="en text-lg italic text-amber">Let's make a good day</p>
+					<h2 class="mt-6 font-display text-4xl font-medium leading-[1.35] sm:text-6xl sm:leading-[1.3]">想一起做點<br><span class="text-clay">不一樣的事？</span></h2>
+					<p class="mt-8 max-w-md text-[0.95rem] leading-9 text-ink/60">無論是團隊活動、身材管理、場地租借或課程報名，歡迎留下需求，我們會盡快與你聯繫。</p>
+					<div class="mt-12 border-t border-ink/15">
+						<a href="tel:0963380508" class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline border-b hairline py-5 transition hover:text-amber"><span class="text-xs tracking-[0.2em] text-ink/45">電話</span><span class="en text-xl">0963 · 380 · 508</span><span class="transition group-hover:translate-x-1" aria-hidden="true">→</span></a>
+						<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline border-b hairline py-5 transition hover:text-amber"><span class="text-xs tracking-[0.2em] text-ink/45">LINE</span><span class="en text-xl">hwc.sunny</span><span class="transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
+						<a href="https://www.google.com/maps/search/?api=1&query=新竹縣竹東鎮富榮街99號" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline border-b hairline py-5 transition hover:text-amber"><span class="text-xs tracking-[0.2em] text-ink/45">地址</span><span>新竹縣竹東鎮富榮街 99 號</span><span class="transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
+						<div class="grid grid-cols-[5.5rem_1fr] items-baseline border-b hairline py-5"><span class="text-xs tracking-[0.2em] text-ink/45">社群</span><span class="flex gap-6"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="en text-xl transition hover:text-amber">Instagram</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="en text-xl transition hover:text-amber">Facebook</a></span></div>
 					</div>
-					<div class="mt-6 flex gap-5 text-sm font-bold"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="text-amber transition hover:text-clay">Instagram ↗</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="text-amber transition hover:text-clay">Facebook ↗</a></div>
 				</div>
-				<div id="formCard" class="reveal rounded-2xl bg-white/80 p-6 shadow-soft sm:p-10" style="--delay: 0.1s">
-					<div id="formStatus" class="form-status mb-5 hidden" role="status" aria-live="polite"></div>
+				<div id="formCard" class="reveal bg-paper p-6 transition-colors sm:p-12 lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
+					<div id="formStatus" class="form-status mb-6 hidden" role="status" aria-live="polite"></div>
 					<form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate><!-- TODO: 將 YOUR_FORM_ID 替換為實際 Formspree 專屬 ID -->
 						<fieldset>
-							<legend class="mb-3 text-sm font-bold">感興趣的項目</legend>
+							<legend class="mb-4 text-[0.8rem] tracking-[0.12em] text-ink/60">感興趣的項目</legend>
 							<div class="chip-group">
 								<input type="radio" name="service_type" id="st1" value="團隊凝聚" checked><label for="st1">團隊凝聚</label>
 								<input type="radio" name="service_type" id="st2" value="身材管理諮詢"><label for="st2">身材管理諮詢</label>
@@ -457,16 +488,16 @@
 								<input type="radio" name="service_type" id="st6" value="其他"><label for="st6">其他</label>
 							</div>
 						</fieldset>
-						<div class="mt-7 grid gap-5 sm:grid-cols-2">
-							<div class="form-field"><label for="name">姓名 <span class="text-amber">*</span></label><input id="name" name="name" type="text" required autocomplete="name" placeholder="請輸入姓名" aria-describedby="nameError"><p id="nameError" class="form-error"></p></div>
+						<div class="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+							<div class="form-field"><label for="name">姓名 *</label><input id="name" name="name" type="text" required autocomplete="name" placeholder="請輸入姓名" aria-describedby="nameError"><p id="nameError" class="form-error"></p></div>
 							<div class="form-field"><label for="company">公司 / 團體名稱</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="個人或公司名稱"><p class="form-error"></p></div>
-							<div class="form-field"><label for="phone">聯絡電話 <span class="text-amber">*</span></label><input id="phone" name="phone" type="tel" required inputmode="numeric" maxlength="12" autocomplete="tel" placeholder="09xxxxxxxx" aria-describedby="phoneError"><p id="phoneError" class="form-error"></p></div>
-							<div class="form-field"><label for="email">電子郵件 Email <span class="text-amber">*</span></label><input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" aria-describedby="emailError"><p id="emailError" class="form-error"></p></div>
-							<div class="form-field sm:col-span-2"><label for="message">需求說明 / 備註</label><textarea id="message" name="message" rows="4" placeholder="例如：人數、希望日期、想了解的內容（選填）"></textarea></div>
+							<div class="form-field"><label for="phone">聯絡電話 *</label><input id="phone" name="phone" type="tel" required inputmode="numeric" maxlength="12" autocomplete="tel" placeholder="09xxxxxxxx" aria-describedby="phoneError"><p id="phoneError" class="form-error"></p></div>
+							<div class="form-field"><label for="email">電子郵件 Email *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com" aria-describedby="emailError"><p id="emailError" class="form-error"></p></div>
+							<div class="form-field sm:col-span-2"><label for="message">需求說明 / 備註</label><textarea id="message" name="message" rows="3" placeholder="例如：人數、希望日期、想了解的內容（選填）"></textarea></div>
 						</div>
-						<div class="mt-4 flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
-							<p class="text-xs text-ink/45">送出後我們會在 1–2 個工作天內與你聯繫。</p>
-							<button type="submit" id="submitBtn" class="btn btn-dark disabled:cursor-not-allowed disabled:opacity-60">確認送出資料 <span class="arrow" aria-hidden="true">→</span></button>
+						<div class="mt-8 flex flex-col-reverse gap-5 sm:flex-row sm:items-center sm:justify-between">
+							<p class="text-xs leading-6 tracking-[0.05em] text-ink/40">送出後我們會在 1–2 個工作天內與你聯繫。</p>
+							<button type="submit" id="submitBtn" class="btn btn-dark disabled:cursor-not-allowed disabled:opacity-60"><span id="submitLabel">確認送出</span> <span class="arrow" aria-hidden="true"></span></button>
 						</div>
 					</form>
 				</div>
@@ -474,62 +505,69 @@
 		</section>
 	</main>
 
-	<footer class="bg-ink px-5 pb-28 pt-14 text-white lg:px-10 lg:pb-12">
-		<div class="mx-auto max-w-7xl">
-			<div class="flex flex-col justify-between gap-10 border-b border-white/10 pb-10 md:flex-row">
-				<div>
-					<p class="flex flex-wrap items-baseline gap-2 font-display text-2xl font-bold tracking-[0.14em]">茉莉花廚房 <span class="font-sans text-xs font-medium tracking-[0.12em] text-amber">Jasmine Kitchen</span><span class="text-amber">．</span></p>
-					<p class="mt-3 font-display text-white/50">把喜歡的日子，過得更好。</p>
+	<footer class="bg-ink px-5 pb-32 pt-20 text-paper lg:px-12 lg:pb-12">
+		<div class="mx-auto max-w-[88rem]">
+			<div class="grid gap-12 border-b border-paper/10 pb-14 lg:grid-cols-12">
+				<div class="lg:col-span-6">
+					<p class="font-display text-3xl font-medium tracking-[0.3em] sm:text-4xl">茉莉花廚房</p>
+					<p class="en mt-3 text-xl italic text-gold">Jasmine Kitchen</p>
+					<p class="mt-8 font-display text-paper/50">把喜歡的日子，過得更好。</p>
 				</div>
-				<div class="grid grid-cols-2 gap-x-12 gap-y-2 text-sm text-white/60 sm:grid-cols-3">
-					<a class="transition hover:text-amber" href="#team">團隊凝聚</a><a class="transition hover:text-amber" href="#body">身材管理</a><a class="transition hover:text-amber" href="#venue">場地租借</a><a class="transition hover:text-amber" href="#seasonal">季節選物</a><a class="transition hover:text-amber" href="#vip">會員福利</a><a class="transition hover:text-amber" href="#books">精選好書</a>
-				</div>
-			</div>
-			<div class="flex flex-col justify-between gap-6 pt-8 text-sm sm:flex-row sm:items-end">
-				<p class="leading-7 text-white/50">地址｜新竹縣竹東鎮富榮街 99 號<br>電話｜<a href="tel:0963380508" class="text-white/75 transition hover:text-amber">0963-380-508</a>　Line ID｜<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="text-white/75 transition hover:text-amber">hwc.sunny ↗</a></p>
-				<div class="flex flex-col gap-3 sm:items-end">
-					<div class="flex gap-4"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="text-white/70 transition hover:text-amber">Instagram ↗</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="text-white/70 transition hover:text-amber">Facebook ↗</a></div>
-					<p class="text-xs text-white/40">© <span id="year"></span> 茉莉花廚房 Jasmine Kitchen. All rights reserved.</p>
+				<div class="grid grid-cols-2 gap-10 text-sm lg:col-span-5 lg:col-start-8">
+					<div><p class="en text-base italic text-gold">Explore</p><div class="mt-5 grid gap-3 text-paper/60"><a class="transition hover:text-paper" href="#team">團隊凝聚</a><a class="transition hover:text-paper" href="#body">身材管理</a><a class="transition hover:text-paper" href="#venue">場地租借</a><a class="transition hover:text-paper" href="#seasonal">季節選物</a><a class="transition hover:text-paper" href="#vip">會員福利</a><a class="transition hover:text-paper" href="#books">精選好書</a></div></div>
+					<div><p class="en text-base italic text-gold">Contact</p><div class="mt-5 grid gap-3 text-paper/60"><a href="tel:0963380508" class="transition hover:text-paper">0963-380-508</a><a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="transition hover:text-paper">LINE：hwc.sunny</a><span>新竹縣竹東鎮<br>富榮街 99 號</span><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="transition hover:text-paper">Instagram</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="transition hover:text-paper">Facebook</a></div></div>
 				</div>
 			</div>
+			<p class="pt-8 text-xs tracking-[0.1em] text-paper/35">© <span id="year"></span> 茉莉花廚房 Jasmine Kitchen. All rights reserved.</p>
 		</div>
 	</footer>
 
 	<!-- 手機底部快捷列 -->
 	<div id="quickBar" class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-paper/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-md lg:hidden">
-		<div class="grid grid-cols-3 gap-2 text-sm font-bold">
-			<a href="tel:0963380508" class="btn btn-dark !px-2">電話</a>
-			<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="btn btn-line !px-2">LINE</a>
-			<a href="#contact" class="btn btn-amber !px-2">填表洽詢</a>
+		<div class="grid grid-cols-3 gap-2">
+			<a href="tel:0963380508" class="btn btn-line !px-2 !py-3">電話</a>
+			<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="btn btn-line !px-2 !py-3">LINE</a>
+			<a href="#contact" class="btn btn-dark !px-2 !py-3">填表洽詢</a>
 		</div>
 	</div>
-	<a id="toTop" href="#top" class="fixed bottom-6 right-6 z-40 hidden h-12 w-12 items-center justify-center rounded-full bg-ink text-white shadow-soft hover:bg-amber lg:flex" aria-label="回到頂部">↑</a>
+	<a id="toTop" href="#top" class="fixed bottom-8 right-8 z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-ink/20 bg-paper/80 text-ink backdrop-blur hover:bg-ink hover:text-paper lg:flex" aria-label="回到頂部"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20V4M5 11l7-7 7 7"/></svg></a>
 
 	<!-- 燈箱 -->
 	<dialog id="lightbox" aria-label="照片檢視">
 		<img id="lightboxImg" src="" alt="">
-		<p id="lightboxCount" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs font-bold tracking-[0.15em] text-white/60"></p>
-		<button class="lb-btn right-5 top-5" type="button" data-lb="close" aria-label="關閉">✕</button>
-		<button class="lb-btn left-4 top-1/2 -translate-y-1/2" type="button" data-lb="prev" aria-label="上一張">←</button>
-		<button class="lb-btn right-4 top-1/2 -translate-y-1/2" type="button" data-lb="next" aria-label="下一張">→</button>
+		<p id="lightboxCount" class="en absolute bottom-6 left-1/2 -translate-x-1/2 text-base tracking-[0.15em] text-white/60"></p>
+		<button class="lb-btn right-5 top-5" type="button" data-lb="close" aria-label="關閉"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+		<button class="lb-btn left-4 top-1/2 -translate-y-1/2" type="button" data-lb="prev" aria-label="上一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+		<button class="lb-btn right-4 top-1/2 -translate-y-1/2" type="button" data-lb="next" aria-label="下一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
 	</dialog>
 
 	<script>
 		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const AUTOPLAY_MS = 5000;
 
-		// 導覽列：捲動後加陰影、手機快捷列與回頂按鈕
+		// 首屏進場
+		requestAnimationFrame(() => document.querySelector('#top').classList.add('is-loaded'));
+
+		// 捲動：導覽列、手機快捷列、回頂按鈕、全幅照片視差
 		const header = document.querySelector('#siteHeader');
 		const quickBar = document.querySelector('#quickBar');
 		const toTop = document.querySelector('#toTop');
-		const contactSection = document.querySelector('#contact');
+		const parallaxImg = document.querySelector('#parallaxImg');
 		let contactInView = false;
 		function onScroll() {
 			const y = window.scrollY;
 			header.classList.toggle('is-scrolled', y > 10);
-			quickBar.classList.toggle('is-visible', y > 500 && !contactInView);
+			quickBar.classList.toggle('is-visible', y > 600 && !contactInView);
 			toTop.classList.toggle('is-visible', y > 900);
+			if (!reduceMotion) {
+				const rect = parallaxImg.parentElement.getBoundingClientRect();
+				if (rect.bottom > 0 && rect.top < innerHeight) {
+					const progress = (innerHeight - rect.top) / (innerHeight + rect.height);
+					parallaxImg.style.transform = `translateY(${-progress * 16}%)`;
+				}
+			}
 		}
-		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('scroll', () => requestAnimationFrame(onScroll), { passive: true });
 		onScroll();
 
 		// 手機選單
@@ -539,12 +577,13 @@
 			menuButton.setAttribute('aria-expanded', String(open));
 			menuButton.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
 			mobileMenu.classList.toggle('is-open', open);
+			header.classList.toggle('is-scrolled', open || window.scrollY > 10);
 		}
 		menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
 		mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
 		document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setMenu(false); });
 
-		// 目前所在區塊：導覽列高亮
+		// 導覽列高亮目前區塊
 		const navLinks = document.querySelectorAll('.nav-link');
 		const spy = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
@@ -555,17 +594,17 @@
 		}, { rootMargin: '-45% 0px -50% 0px' });
 		document.querySelectorAll('[data-section]').forEach((section) => spy.observe(section));
 
-		// 捲動進場動畫
+		// 捲動進場
 		const revealObserver = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (!entry.isIntersecting) return;
 				entry.target.classList.add('is-visible');
 				revealObserver.unobserve(entry.target);
 			});
-		}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+		}, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
 		document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-		// 圖片框：加上同一張照片的模糊背景，讓直式 / 橫式照片都能完整呈現
+		// 圖片框：用同一張照片的模糊背景補滿，直式 / 橫式照片都能完整呈現
 		document.querySelectorAll('.media > .media-img').forEach((image) => {
 			const backdrop = document.createElement('img');
 			backdrop.className = 'media-bg';
@@ -583,14 +622,15 @@
 			let timer;
 			let hovered = false;
 			let visible = false;
+			carousel.style.setProperty('--dur', `${AUTOPLAY_MS}ms`);
 
 			carousel.insertAdjacentHTML('beforeend', `
-				<button class="carousel-control prev" type="button" aria-label="上一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
-				<button class="carousel-control next" type="button" aria-label="下一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
-				<div class="carousel-dots"></div>
-				<span class="carousel-count" aria-live="polite"></span>`);
+				<button class="carousel-control prev" type="button" aria-label="上一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
+				<button class="carousel-control next" type="button" aria-label="下一張"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
+				<div class="carousel-bar"><div class="carousel-dots"></div><span class="carousel-count" aria-live="polite"></span></div>`);
 			const dots = carousel.querySelector('.carousel-dots');
 			const count = carousel.querySelector('.carousel-count');
+			const pad = (n) => String(n).padStart(2, '0');
 
 			slides.forEach((slide, index) => {
 				slide.setAttribute('role', 'group');
@@ -610,14 +650,28 @@
 					slide.classList.toggle('is-active', i === current);
 					slide.setAttribute('aria-hidden', String(i !== current));
 				});
-				dots.querySelectorAll('.carousel-dot').forEach((dot, i) => dot.classList.toggle('is-active', i === current));
-				count.textContent = `${current + 1} / ${slides.length}`;
+				dots.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+					dot.classList.remove('is-active');
+					dot.classList.toggle('is-done', i < current);
+				});
+				void dots.offsetWidth; // 重新開始進度條動畫
+				dots.children[current].classList.add('is-active');
+				count.textContent = `${pad(current + 1)} / ${pad(slides.length)}`;
 				restart();
 			}
 			function restart() {
-				clearInterval(timer);
-				if (reduceMotion || hovered || !visible || document.hidden) return;
-				timer = setInterval(() => showSlide(current + 1), 4500);
+				clearTimeout(timer);
+				const playing = !reduceMotion && !hovered && visible && !document.hidden;
+				if (playing && !carousel.classList.contains('is-playing')) {
+					// 恢復播放時，進度條從頭開始
+					carousel.classList.add('is-playing');
+					const active = dots.children[current];
+					active.classList.remove('is-active');
+					void active.offsetWidth;
+					active.classList.add('is-active');
+				}
+				carousel.classList.toggle('is-playing', playing);
+				if (playing) timer = setTimeout(() => showSlide(current + 1), AUTOPLAY_MS);
 			}
 
 			carousel.querySelector('.prev').addEventListener('click', () => showSlide(current - 1));
@@ -630,20 +684,19 @@
 				if (event.key === 'ArrowRight') showSlide(current + 1);
 			});
 
-			// 手機滑動切換
+			// 手機滑動切換（滑動時不觸發放大）
 			let startX = null;
-			carousel.addEventListener('pointerdown', (event) => { startX = event.clientX; });
+			let swiped = false;
+			carousel.addEventListener('pointerdown', (event) => { startX = event.clientX; swiped = false; });
+			carousel.addEventListener('pointermove', (event) => { if (startX !== null && Math.abs(event.clientX - startX) > 10) swiped = true; });
 			carousel.addEventListener('pointerup', (event) => {
 				if (startX === null) return;
 				const delta = event.clientX - startX;
 				startX = null;
 				if (Math.abs(delta) > 40) showSlide(current + (delta < 0 ? 1 : -1));
 			});
-			// 滑動後不要觸發點擊放大
-			carousel.addEventListener('click', (event) => { if (carousel.dataset.swiped) { event.stopPropagation(); delete carousel.dataset.swiped; } }, true);
-			carousel.addEventListener('pointermove', (event) => { if (startX !== null && Math.abs(event.clientX - startX) > 10) carousel.dataset.swiped = '1'; });
+			carousel.addEventListener('click', (event) => { if (swiped) { event.stopPropagation(); swiped = false; } }, true);
 
-			// 不在畫面上時暫停自動播放
 			new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; restart(); }, { threshold: 0.3 }).observe(carousel);
 			document.addEventListener('visibilitychange', restart);
 			showSlide(0);
@@ -659,7 +712,7 @@
 			const image = lbImages[lbIndex];
 			lightboxImg.src = image.getAttribute('src');
 			lightboxImg.alt = image.alt;
-			lightboxCount.textContent = lbImages.length > 1 ? `${lbIndex + 1} / ${lbImages.length}` : '';
+			lightboxCount.textContent = lbImages.length > 1 ? `${String(lbIndex + 1).padStart(2, '0')} / ${String(lbImages.length).padStart(2, '0')}` : '';
 			lightbox.querySelectorAll('[data-lb="prev"], [data-lb="next"]').forEach((button) => button.classList.toggle('hidden', lbImages.length < 2));
 		}
 		function openLightbox(images, index) {
@@ -687,7 +740,7 @@
 			});
 		});
 
-		// 點擊「填表洽詢」時自動帶入服務項目
+		// 點「填表洽詢」自動帶入服務項目
 		const contactForm = document.querySelector('#contactForm');
 		const messageInput = document.querySelector('#message');
 		document.querySelectorAll('a[data-service]').forEach((link) => link.addEventListener('click', () => {
@@ -698,13 +751,14 @@
 			card.classList.remove('flash');
 			void card.offsetWidth;
 			card.classList.add('flash');
-			setTimeout(() => document.querySelector('#name').focus({ preventScroll: true }), 700);
+			setTimeout(() => document.querySelector('#name').focus({ preventScroll: true }), 800);
 		}));
 
 		// 表單驗證與送出
 		const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // TODO: 替換為實際 Formspree 專屬 ID
 		const formStatus = document.querySelector('#formStatus');
 		const submitButton = document.querySelector('#submitBtn');
+		const submitLabel = document.querySelector('#submitLabel');
 		const fields = {
 			name: { input: document.querySelector('#name'), error: document.querySelector('#nameError'), check: (v) => v.length > 0, message: '請填寫姓名' },
 			phone: { input: document.querySelector('#phone'), error: document.querySelector('#phoneError'), check: (v) => /^09\d{8}$/.test(v.replace(/[\s-]/g, '')), message: '請輸入正確的 09 開頭 10 碼手機號碼' },
@@ -722,9 +776,9 @@
 		});
 		function setFormStatus(message, type) {
 			formStatus.textContent = message;
-			formStatus.className = `form-status mb-5 ${type === 'success' ? 'bg-sage/15 text-sage' : 'bg-red-50 text-red-800'}`;
+			formStatus.className = `form-status mb-6 border-l-2 ${type === 'success' ? 'border-sage bg-sage/10 text-sage' : 'border-red-800 bg-red-50 text-red-900'}`;
 		}
-		const fallbackMessage = '系統提醒：表單暫時無法送出，請稍後再試，或直接撥打 0963-380-508、加 LINE：hwc.sunny 與我們聯絡。';
+		const fallbackMessage = '表單暫時無法送出，請稍後再試，或直接撥打 0963-380-508、加 LINE：hwc.sunny 與我們聯絡。';
 
 		contactForm.addEventListener('submit', async (event) => {
 			event.preventDefault();
@@ -734,18 +788,18 @@
 			if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) { setFormStatus(fallbackMessage, 'error'); return; }
 
 			submitButton.disabled = true;
-			submitButton.firstChild.textContent = '正在送出資料… ';
+			submitLabel.textContent = '正在送出…';
 			try {
 				const response = await fetch(FORMSPREE_ENDPOINT, { method: 'POST', body: new FormData(contactForm), headers: { Accept: 'application/json' } });
 				if (!response.ok) throw new Error('Formspree request failed');
-				setFormStatus('🎉 感謝你的填寫！我們已收到資訊，會盡快與你聯繫。', 'success');
+				setFormStatus('感謝你的填寫！我們已收到資訊，會盡快與你聯繫。', 'success');
 				contactForm.reset();
 				Object.values(fields).forEach((field) => field.input.removeAttribute('aria-invalid'));
 			} catch (error) {
 				setFormStatus(fallbackMessage, 'error');
 			} finally {
 				submitButton.disabled = false;
-				submitButton.firstChild.textContent = '確認送出資料 ';
+				submitLabel.textContent = '確認送出';
 			}
 		});
 
