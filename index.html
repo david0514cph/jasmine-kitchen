@@ -83,7 +83,9 @@
 		a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 1px solid #a47148; outline-offset: 4px; }
 
 		/* 導覽列 */
-		#siteHeader { transition: background-color 0.4s ease, border-color 0.4s ease, padding 0.4s ease; }
+		#siteHeader { transition: background-color 0.4s ease, border-color 0.4s ease, padding 0.4s ease, transform 0.4s ease; }
+		/* 手機：往下捲收起頂部導覽、顯示底部快捷列；往上捲則相反，兩者不同時出現 */
+		@media (max-width: 1023px) { #siteHeader.is-hidden { transform: translateY(-100%); } }
 		#siteHeader.is-scrolled { background: rgba(246, 242, 235, 0.92); border-color: rgba(34, 31, 27, 0.1); }
 		/* 1280–1399 寬度空間較窄，先隱藏次要項目讓分類列保持一行 */
 		@media (min-width: 1280px) and (max-width: 1399px) { .hide-tight { display: none !important; } }
@@ -541,11 +543,11 @@
 	</footer>
 
 	<!-- 手機底部快捷列 -->
-	<div id="quickBar" class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-paper/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur-md lg:hidden">
+	<div id="quickBar" class="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-paper/95 px-4 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2 backdrop-blur-md lg:hidden">
 		<div class="grid grid-cols-3 gap-2">
-			<a href="tel:0963380508" class="btn btn-line !px-2 !py-3">電話</a>
-			<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="btn btn-line !px-2 !py-3">LINE</a>
-			<a href="#contact" class="btn btn-dark !px-2 !py-3">填表洽詢</a>
+			<a href="tel:0963380508" class="btn btn-line !px-2 !py-2.5">電話</a>
+			<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="btn btn-line !px-2 !py-2.5">LINE</a>
+			<a href="#contact" class="btn btn-dark !px-2 !py-2.5">填表洽詢</a>
 		</div>
 	</div>
 	<a id="toTop" href="#top" class="fixed bottom-8 right-8 z-40 hidden h-12 w-12 items-center justify-center rounded-full border border-ink/20 bg-paper/80 text-ink backdrop-blur hover:bg-ink hover:text-paper lg:flex" aria-label="回到頂部"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20V4M5 11l7-7 7 7"/></svg></a>
@@ -571,13 +573,23 @@
 		const quickBar = document.querySelector('#quickBar');
 		const toTop = document.querySelector('#toTop');
 		let contactInView = false;
+		const isMobile = window.matchMedia('(max-width: 1023px)');
+		let lastY = window.scrollY;
+		let goingDown = false;
+		let holdHeaderUntil = 0;
 		function onScroll() {
 			const y = window.scrollY;
+			if (Math.abs(y - lastY) > 8) { goingDown = y > lastY; lastY = y; }
+			const menuOpen = header.querySelector('#mobileMenu.is-open');
+			const hideHeader = isMobile.matches && goingDown && y > 600 && !menuOpen && Date.now() > holdHeaderUntil;
 			header.classList.toggle('is-scrolled', y > 10);
-			quickBar.classList.toggle('is-visible', y > 600 && !contactInView);
+			header.classList.toggle('is-hidden', hideHeader);
+			quickBar.classList.toggle('is-visible', hideHeader && !contactInView);
 			toTop.classList.toggle('is-visible', y > 900);
 		}
 		window.addEventListener('scroll', () => requestAnimationFrame(onScroll), { passive: true });
+		// 點站內連結跳轉時，先保持導覽列顯示，避免標題被擋或跳動
+		document.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', () => { holdHeaderUntil = Date.now() + 1200; }));
 		onScroll();
 
 		// 手機選單
