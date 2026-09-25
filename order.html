@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="theme-color" content="#f6f2eb">
+	<title>團隊餐點確認表｜茉莉花廚房 Jasmine Kitchen</title>
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23221f1b'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23c9a27a' font-family='serif'%3E茉%3C/text%3E%3C/svg%3E">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: { ink: '#221f1b', paper: '#f6f2eb', sand: '#ebe3d6', amber: '#a47148', gold: '#c9a27a', clay: '#7d5641', sage: '#6d7863' },
+					fontFamily: {
+						display: ['"Noto Serif TC"', 'serif'],
+						sans: ['"Noto Sans TC"', 'sans-serif'],
+						en: ['"Cormorant Garamond"', '"Noto Serif TC"', 'serif']
+					},
+					fontSize: {
+						xs: ['0.85rem', { lineHeight: '1.35rem' }],
+						sm: ['0.975rem', { lineHeight: '1.6rem' }],
+						base: ['1.0625rem', { lineHeight: '1.8rem' }],
+						lg: ['1.2rem', { lineHeight: '1.9rem' }]
+					}
+				}
+			}
+		}
+	</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+	<style>
+		body { background: #f6f2eb; color: #221f1b; letter-spacing: 0.02em; }
+		h1, h2, h3 { text-wrap: balance; letter-spacing: 0.04em; }
+		p { text-wrap: pretty; }
+		.en { font-family: 'Cormorant Garamond', serif; }
+		.kicker { display: flex; align-items: baseline; gap: 1rem; color: #a47148; }
+		.kicker .num { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; letter-spacing: 0.1em; }
+		.kicker .line { width: 3rem; height: 1px; background: currentColor; opacity: 0.5; align-self: center; }
+		.kicker .label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; }
+
+		.btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.7rem; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.12em; line-height: 1.2; transition: background-color 0.35s ease; }
+		.btn .arrow { display: inline-block; width: 1.25rem; height: 1px; background: currentColor; position: relative; transition: width 0.35s ease; }
+		.btn .arrow::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+		.btn:hover .arrow { width: 1.9rem; }
+		.btn-dark { background: #221f1b; color: #f6f2eb; }
+		.btn-dark:hover { background: #7d5641; }
+		a:focus-visible, button:focus-visible { outline: 1px solid #a47148; outline-offset: 4px; }
+
+		.form-field { display: grid; gap: 0.35rem; }
+		.form-field label, .form-label { font-size: 0.92rem; letter-spacing: 0.12em; color: rgba(34, 31, 27, 0.6); }
+		.form-field input, .form-field textarea, .form-field select { width: 100%; border: 0; border-bottom: 1px solid rgba(34, 31, 27, 0.22); background: transparent; padding: 0.7rem 0; font-size: 1rem; outline: none; border-radius: 0; transition: border-color 0.3s ease; }
+		.form-field input::placeholder, .form-field textarea::placeholder { color: rgba(34, 31, 27, 0.3); }
+		.form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color: #221f1b; }
+		[aria-invalid="true"] { border-color: #a4321f !important; }
+		.form-error { min-height: 1.3rem; color: #a4321f; font-size: 0.85rem; }
+
+		.chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+		.chip-group input { position: absolute; opacity: 0; pointer-events: none; }
+		.chip-group label { cursor: pointer; border: 1px solid rgba(34, 31, 27, 0.18); padding: 0.6rem 1.05rem; font-size: 0.95rem; letter-spacing: 0.06em; transition: all 0.3s ease; }
+		.chip-group label:hover { border-color: #221f1b; }
+		.chip-group input:checked + label { border-color: #221f1b; background: #221f1b; color: #f6f2eb; }
+		.chip-group input:focus-visible + label { outline: 1px solid #a47148; outline-offset: 3px; }
+
+		/* 方案選擇卡 */
+		.plan-option input { position: absolute; opacity: 0; pointer-events: none; }
+		.plan-option label { display: flex; height: 100%; cursor: pointer; flex-direction: column; border: 1px solid rgba(34, 31, 27, 0.18); padding: 1.25rem 1.4rem; transition: all 0.3s ease; }
+		.plan-option label:hover { border-color: #221f1b; }
+		.plan-option input:checked + label { border-color: #221f1b; background: #221f1b; color: #f6f2eb; }
+		.plan-option input:checked + label .muted { color: rgba(246, 242, 235, 0.6); }
+		.plan-option input:checked + label .price { color: #c9a27a; }
+		.plan-option input:focus-visible + label { outline: 1px solid #a47148; outline-offset: 3px; }
+
+		.form-status { padding: 0.9rem 1rem; font-size: 0.975rem; line-height: 1.7; }
+	</style>
+</head>
+<body class="font-sans antialiased selection:bg-gold selection:text-ink">
+	<header class="border-b border-ink/10">
+		<div class="mx-auto flex max-w-[72rem] items-baseline justify-between gap-4 px-5 py-5 lg:px-12">
+			<a href="./index.html" class="flex items-baseline gap-3"><span class="font-display text-lg font-semibold tracking-[0.3em]">茉莉花廚房</span><span class="en hidden text-lg italic text-amber sm:inline">Jasmine Kitchen</span></a>
+			<a href="tel:0963380508" class="text-sm tracking-[0.1em] text-ink/60 hover:text-ink">0963-380-508</a>
+		</div>
+	</header>
+
+	<main class="mx-auto max-w-[72rem] px-5 pb-28 pt-14 lg:px-12 lg:pt-20">
+		<p class="kicker"><span class="num">01</span><span class="line"></span><span class="label">Team Dining Order</span></p>
+		<h1 class="mt-6 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">團隊餐點確認表</h1>
+		<p class="mt-6 max-w-2xl text-base leading-9 text-ink/60">感謝與我們洽詢。請再次填寫聯絡資料，並選擇方案與每位成員的餐點，送出後我們會核對內容，再與你確認訂金與細節。</p>
+
+		<div id="formStatus" class="form-status mt-10 hidden" role="status" aria-live="polite"></div>
+
+		<form id="orderForm" class="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10" novalidate>
+			<input type="hidden" name="_subject" id="subjectField">
+			<input type="hidden" name="訂單摘要" id="summaryField">
+
+			<div class="grid gap-14 lg:col-span-8">
+				<!-- 1 基本資料 -->
+				<section>
+					<h2 class="flex items-baseline gap-3 border-b border-ink/15 pb-4 font-display text-2xl font-medium"><span class="en text-xl text-amber">1</span>基本資料</h2>
+					<div class="mt-8 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+						<div class="form-field"><label for="name">聯絡人姓名 *</label><input id="name" name="聯絡人" type="text" required autocomplete="name" placeholder="請輸入姓名"><p class="form-error" data-for="name"></p></div>
+						<div class="form-field"><label for="company">公司 / 團體名稱</label><input id="company" name="公司團體" type="text" autocomplete="organization" placeholder="個人或公司名稱"><p class="form-error"></p></div>
+						<div class="form-field"><label for="phone">聯絡電話 *</label><input id="phone" name="電話" type="tel" required inputmode="numeric" maxlength="12" autocomplete="tel" placeholder="09xxxxxxxx"><p class="form-error" data-for="phone"></p></div>
+						<div class="form-field"><label for="email">電子郵件 Email *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="name@example.com"><p class="form-error" data-for="email"></p></div>
+						<div class="form-field"><label for="lineId">LINE ID *</label><input id="lineId" name="LINE ID" type="text" required autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="請輸入 LINE ID"><p class="form-error" data-for="lineId"></p></div>
+						<div class="form-field"><label for="date">活動日期 *</label><input id="date" name="活動日期" type="date" required><p class="form-error" data-for="date"></p></div>
+						<div class="form-field"><label for="slot">用餐時段 *</label><select id="slot" name="用餐時段" required><option value="">請選擇</option><option>午餐</option><option>晚餐</option></select><p class="form-error" data-for="slot"></p></div>
+						<div class="form-field"><label for="people">用餐人數 *</label><input id="people" name="用餐人數" type="number" required min="1" max="60" inputmode="numeric" placeholder="例如 18"><p class="form-error" data-for="people"></p></div>
+					</div>
+				</section>
+
+				<!-- 2 方案 -->
+				<section>
+					<h2 class="flex items-baseline gap-3 border-b border-ink/15 pb-4 font-display text-2xl font-medium"><span class="en text-xl text-amber">2</span>選擇方案</h2>
+					<div id="planOptions" class="mt-8 grid gap-3 sm:grid-cols-3"></div>
+					<p class="form-error mt-2" data-for="plan"></p>
+				</section>
+
+				<!-- 3 餐點 -->
+				<section>
+					<h2 class="flex items-baseline gap-3 border-b border-ink/15 pb-4 font-display text-2xl font-medium"><span class="en text-xl text-amber">3</span>餐點選擇</h2>
+					<p class="mt-5 text-sm leading-7 text-ink/60">可選的項目由全團一起選定一款。</p>
+					<div id="courses" class="mt-6"><p class="border-t border-ink/10 py-6 text-ink/50">請先選擇方案。</p></div>
+				</section>
+
+				<!-- 4 飲食需求 -->
+				<section>
+					<h2 class="flex items-baseline gap-3 border-b border-ink/15 pb-4 font-display text-2xl font-medium"><span class="en text-xl text-amber">4</span>飲食需求與備註</h2>
+					<p class="form-label mt-8 mb-4">是否有特殊飲食需求（可複選）</p>
+					<div class="chip-group">
+						<input type="checkbox" name="飲食需求" id="d1" value="蛋奶素"><label for="d1">蛋奶素</label>
+						<input type="checkbox" name="飲食需求" id="d2" value="全素"><label for="d2">全素</label>
+						<input type="checkbox" name="飲食需求" id="d3" value="不吃牛"><label for="d3">不吃牛</label>
+						<input type="checkbox" name="飲食需求" id="d4" value="海鮮過敏"><label for="d4">海鮮過敏</label>
+						<input type="checkbox" name="飲食需求" id="d5" value="堅果過敏"><label for="d5">堅果過敏</label>
+						<input type="checkbox" name="飲食需求" id="d6" value="不喝酒"><label for="d6">不喝酒</label>
+					</div>
+					<div class="form-field mt-8"><label for="note">補充說明</label><textarea id="note" name="備註" rows="3" placeholder="例如：2 位蛋奶素、1 位不喝酒；需要投影設備、蛋糕進場等"></textarea></div>
+				</section>
+			</div>
+
+			<!-- 摘要 -->
+			<aside class="lg:col-span-4">
+				<div class="bg-ink p-7 text-paper lg:sticky lg:top-8">
+					<p class="en text-lg italic text-gold">Summary</p>
+					<dl class="mt-6 grid gap-3 text-sm">
+						<div class="flex justify-between gap-4 border-b border-paper/10 pb-3"><dt class="text-paper/55">方案</dt><dd id="sumPlan">—</dd></div>
+						<div class="flex justify-between gap-4 border-b border-paper/10 pb-3"><dt class="text-paper/55">單價</dt><dd id="sumPrice">—</dd></div>
+						<div class="flex justify-between gap-4 border-b border-paper/10 pb-3"><dt class="text-paper/55">人數</dt><dd id="sumPeople">—</dd></div>
+					</dl>
+					<p class="mt-6 text-xs tracking-[0.2em] text-paper/55">預估總金額</p>
+					<p class="mt-2 flex items-baseline gap-2"><span class="text-xs tracking-[0.2em] text-paper/50">NT$</span><span id="sumTotal" class="en text-5xl leading-none text-gold">—</span></p>
+					<p class="mt-4 text-xs leading-6 text-paper/50">實際金額以我們回覆確認為準。</p>
+					<button type="submit" id="submitBtn" class="btn mt-8 w-full bg-gold text-ink hover:bg-paper disabled:cursor-not-allowed disabled:opacity-60"><span id="submitLabel">確認送出</span> <span class="arrow" aria-hidden="true"></span></button>
+				</div>
+			</aside>
+		</form>
+	</main>
+
+	<script>
+		const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xljdloyg';
+
+		const SALADS = ['田園時蔬佐柑橘油醋', '凱薩沙拉佐帕瑪森脆片', '芝麻葉洋梨核桃沙拉'];
+		const MAINS = ['迷迭香雞腿', '白酒醬魚排', '炙烤海鹽牛小排'];
+		const SOUPS = ['洋蔥湯', '義式蔬菜湯', '馬賽魚湯'];
+		const CHEF = '主廚當季隨選';
+		// 字串：固定；陣列：全團選一款；{ groups }：分三組，小遊戲決定各組主餐
+		const GAME_MAINS = { groups: MAINS };
+		const PLANS = {
+			A: { name: '日常初見', price: 1980, courses: { 餐前酒: CHEF, 前菜: CHEF, 沙拉: SALADS.slice(0, 2), 主餐: '迷迭香雞腿', 湯品: '洋蔥湯', 甜點: CHEF } },
+			B: { name: '共同創作', price: 2480, courses: { 餐前酒: CHEF, 前菜: CHEF, 沙拉: SALADS, 主餐: GAME_MAINS, 湯品: '洋蔥湯', 甜點: CHEF } },
+			C: { name: '深度連結', price: 2980, courses: { 餐前酒: CHEF, 前菜: CHEF, 沙拉: SALADS, 主餐: GAME_MAINS, 湯品: SOUPS, 甜點: CHEF } }
+		};
+		const money = (n) => n.toLocaleString('en-US');
+
+		const form = document.querySelector('#orderForm');
+		const peopleInput = document.querySelector('#people');
+		const coursesBox = document.querySelector('#courses');
+
+		document.querySelector('#planOptions').innerHTML = Object.entries(PLANS).map(([key, plan]) => `
+			<div class="plan-option"><input type="radio" name="方案" id="plan${key}" value="${key}">
+			<label for="plan${key}"><span class="flex items-baseline justify-between"><span class="en text-3xl leading-none">${key}</span>${key === 'B' ? '<span class="muted text-xs tracking-[0.15em] text-amber">推薦</span>' : ''}</span>
+			<span class="mt-4 font-display text-lg">${plan.name}</span>
+			<span class="price mt-1 text-sm text-clay">NT$ ${money(plan.price)} ／人</span></label></div>`).join('');
+
+		const currentPlan = () => form.querySelector('input[name="方案"]:checked')?.value;
+		const people = () => parseInt(peopleInput.value, 10) || 0;
+
+		function renderCourses() {
+			const key = currentPlan();
+			if (!key) return;
+			coursesBox.innerHTML = Object.entries(PLANS[key].courses).map(([course, value]) => {
+				const head = (sub) => `<span class="pt-2 text-sm tracking-[0.15em] text-ink/55">${course}${sub ? `<span class="block text-xs tracking-[0.05em] text-amber">${sub}</span>` : ''}</span>`;
+				if (typeof value === 'string') {
+					return `<div class="grid grid-cols-[5rem_1fr] gap-4 border-t border-ink/10 py-5">${head()}<span class="pt-2">${value}</span></div>`;
+				}
+				if (value.groups) {
+					return `<div class="grid gap-2 border-t border-ink/10 py-5 sm:grid-cols-[5rem_1fr] sm:gap-4">${head('分組決定')}
+						<div class="pt-2"><p>${value.groups.join('・')}</p><p class="mt-2 text-sm leading-7 text-ink/55">當天大家分成三組玩個小遊戲，誰吃哪一道，就看遊戲結果囉！</p></div></div>`;
+				}
+				const chips = value.map((dish, i) => `<input type="radio" name="${course}" id="pick-${course}-${i}" value="${dish}"><label for="pick-${course}-${i}">${dish}</label>`).join('');
+				return `<div class="grid gap-2 border-t border-ink/10 py-5 sm:grid-cols-[5rem_1fr] sm:gap-4" data-pick="${course}">${head(`全團 ${value.length} 選 1`)}
+					<div><div class="chip-group">${chips}</div><p class="form-error mt-2" data-pick-error="${course}"></p></div></div>`;
+			}).join('') + '<div class="border-t border-ink/10"></div>';
+			updateAll();
+		}
+
+		function updateAll() {
+			const key = currentPlan();
+			const n = people();
+			document.querySelector('#sumPlan').textContent = key ? `${key}｜${PLANS[key].name}` : '—';
+			document.querySelector('#sumPrice').textContent = key ? `NT$ ${money(PLANS[key].price)}` : '—';
+			document.querySelector('#sumPeople').textContent = n ? `${n} 位` : '—';
+			document.querySelector('#sumTotal').textContent = key && n ? money(PLANS[key].price * n) : '—';
+		}
+
+		form.addEventListener('change', (e) => {
+			if (e.target.name === '方案') { setError('plan', ''); renderCourses(); return; }
+			const pickError = coursesBox.querySelector(`[data-pick-error="${e.target.name}"]`);
+			if (pickError) pickError.textContent = '';
+			updateAll();
+		});
+		form.addEventListener('input', updateAll);
+
+		// 驗證
+		function setError(id, message) {
+			const el = form.querySelector(`[data-for="${id}"]`);
+			if (el) el.textContent = message;
+			const input = document.getElementById(id);
+			if (input) input.setAttribute('aria-invalid', String(Boolean(message)));
+		}
+		const checks = {
+			name: (v) => v ? '' : '請填寫姓名',
+			phone: (v) => /^09\d{8}$/.test(v.replace(/[\s-]/g, '')) ? '' : '請輸入正確的 09 開頭 10 碼手機號碼',
+			email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? '' : '請輸入有效的 Email',
+			lineId: (v) => v ? '' : '請填寫 LINE ID',
+			date: (v) => v ? '' : '請選擇活動日期',
+			slot: (v) => v ? '' : '請選擇用餐時段',
+			people: (v) => parseInt(v, 10) > 0 ? '' : '請填寫用餐人數'
+		};
+		function validate() {
+			let first = null;
+			for (const [id, check] of Object.entries(checks)) {
+				const message = check(document.getElementById(id).value.trim());
+				setError(id, message);
+				if (message && !first) first = document.getElementById(id);
+			}
+			if (!currentPlan()) { setError('plan', '請選擇方案'); first ||= document.querySelector('#planA'); }
+			coursesBox.querySelectorAll('[data-pick]').forEach((group) => {
+				const course = group.dataset.pick;
+				if (form.querySelector(`input[name="${course}"]:checked`)) return;
+				group.querySelector('[data-pick-error]').textContent = `請選擇一款${course}`;
+				first ||= group;
+			});
+			return first;
+		}
+
+		function buildSummary() {
+			const key = currentPlan();
+			const plan = PLANS[key];
+			const lines = [`方案 ${key}｜${plan.name}　NT$ ${money(plan.price)} × ${people()} 位 = NT$ ${money(plan.price * people())}`, ''];
+			for (const [course, value] of Object.entries(plan.courses)) {
+				if (typeof value === 'string') lines.push(`${course}：${value}`);
+				else if (value.groups) lines.push(`${course}：${value.groups.join('、')}（三組小遊戲決定）`);
+				else lines.push(`${course}：${form.querySelector(`input[name="${course}"]:checked`).value}（全團）`);
+			}
+			return lines.join('\n');
+		}
+
+		const statusBox = document.querySelector('#formStatus');
+		function setStatus(message, ok) {
+			statusBox.textContent = message;
+			statusBox.className = `form-status mt-10 border-l-2 ${ok ? 'border-sage bg-sage/10 text-sage' : 'border-red-800 bg-red-50 text-red-900'}`;
+			statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		}
+		const fallback = '表單暫時無法送出，請稍後再試，或直接撥打 0963-380-508、加 LINE：hwc.sunny 與我們聯絡。';
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const first = validate();
+			if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); if (first.focus) first.focus({ preventScroll: true }); return; }
+			if (FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')) { setStatus(fallback, false); return; }
+
+			const company = document.querySelector('#company').value.trim();
+			document.querySelector('#subjectField').value = `團隊餐點確認｜${company || document.querySelector('#name').value.trim()}｜${document.querySelector('#date').value} ${people()} 位 方案 ${currentPlan()}`;
+			document.querySelector('#summaryField').value = buildSummary();
+			const data = new FormData(form);
+			data.set('飲食需求', data.getAll('飲食需求').join('、') || '無');
+
+			const button = document.querySelector('#submitBtn');
+			const label = document.querySelector('#submitLabel');
+			button.disabled = true;
+			label.textContent = '正在送出…';
+			try {
+				const res = await fetch(FORMSPREE_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+				if (!res.ok) throw new Error('Formspree request failed');
+				setStatus('已收到你的餐點確認！我們會在 1–2 個工作天內核對並回覆。', true);
+				form.reset();
+				coursesBox.innerHTML = '<p class="border-t border-ink/10 py-6 text-ink/50">請先選擇方案。</p>';
+				updateAll();
+			} catch (err) {
+				setStatus(fallback, false);
+			} finally {
+				button.disabled = false;
+				label.textContent = '確認送出';
+			}
+		});
+
+		// 網址可帶入預設方案，例如 order.html?plan=B
+		const preset = new URLSearchParams(location.search).get('plan')?.toUpperCase();
+		if (PLANS[preset]) { document.querySelector(`#plan${preset}`).checked = true; renderCourses(); }
+		document.querySelector('#date').min = new Date().toISOString().slice(0, 10);
+	</script>
+</body>
+</html>
