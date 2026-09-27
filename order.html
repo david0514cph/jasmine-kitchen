@@ -181,8 +181,7 @@
 
 		document.querySelector('#planOptions').innerHTML = Object.entries(PLANS).map(([key, plan]) => `
 			<div class="plan-option"><input type="radio" name="方案" id="plan${key}" value="${key}">
-			<label for="plan${key}"><span class="flex items-baseline justify-between"><span class="en text-3xl leading-none">${key}</span>${key === 'B' ? '<span class="muted text-xs tracking-[0.15em] text-amber">推薦</span>' : ''}</span>
-			<span class="mt-4 font-display text-lg">${plan.name}</span>
+			<label for="plan${key}"><span class="flex items-baseline justify-between gap-2"><span class="font-display text-lg">${plan.name}</span>${key === 'B' ? '<span class="muted text-xs tracking-[0.15em] text-amber">推薦</span>' : ''}</span>
 			<span class="price mt-1 text-sm text-clay">NT$ ${money(plan.price)} ／人</span></label></div>`).join('');
 
 		const currentPlan = () => form.querySelector('input[name="方案"]:checked')?.value;
@@ -260,7 +259,7 @@
 		function buildSummary() {
 			const key = currentPlan();
 			const plan = PLANS[key];
-			const lines = [`方案 ${key}｜${plan.name}　NT$ ${money(plan.price)} × ${people()} 位 = NT$ ${money(plan.price * people())}`, ''];
+			const lines = [`${plan.name}　NT$ ${money(plan.price)} × ${people()} 位 = NT$ ${money(plan.price * people())}`, ''];
 			for (const [course, value] of Object.entries(plan.courses)) {
 				if (typeof value === 'string') lines.push(`${course}：${value}`);
 				else if (value.groups) lines.push(`${course}：${value.groups.join('、')}（三組小遊戲決定）`);
