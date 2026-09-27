@@ -50,6 +50,10 @@
 	<style>
 		html { scroll-behavior: smooth; scroll-padding-top: 7.5rem; }
 		@media (min-width: 1280px) { html { scroll-padding-top: 5.5rem; } }
+		/* 點導覽跳轉時抵掉區塊上方留白，讓標題落在導覽列下方 */
+		[data-section] { scroll-margin-top: -2.5rem; }
+		@media (min-width: 1024px) { [data-section] { scroll-margin-top: -5rem; } }
+		@media (min-width: 1280px) { [data-section] { scroll-margin-top: -6rem; } }
 		body { background: #f6f2eb; color: #221f1b; font-weight: 400; letter-spacing: 0.02em; }
 		h1, h2, h3, h4 { text-wrap: balance; letter-spacing: 0.04em; }
 		p { text-wrap: pretty; }
@@ -77,6 +81,13 @@
 		.btn-amber:hover { background: #7d5641; }
 		.btn-line { border: 1px solid rgba(34, 31, 27, 0.25); }
 		.btn-line:hover { border-color: #221f1b; background: #221f1b; color: #f6f2eb; }
+		/* 外連「了解更多」卡片 */
+		.more-card { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem 1.5rem; border: 1px solid rgba(164, 113, 72, 0.45); border-left: 3px solid #a47148; background: rgba(255, 255, 255, 0.5); transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease; }
+		.more-card:hover { background: #221f1b; border-color: #221f1b; color: #f6f2eb; }
+		.more-card:hover .text-amber { color: #c9a27a; }
+		.more-arrow { flex: none; display: flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem; border: 1px solid currentColor; border-radius: 9999px; opacity: 0.7; transition: transform 0.35s ease, opacity 0.35s ease; }
+		.more-arrow::before { content: ''; width: 8px; height: 8px; margin-left: -3px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+		.more-card:hover .more-arrow { transform: translateX(4px); opacity: 1; }
 		.link-u { position: relative; display: inline-flex; align-items: center; gap: 0.6rem; padding-bottom: 0.3rem; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.12em; }
 		.link-u::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor; transform-origin: right; transition: transform 0.45s ease; }
 		.link-u:hover::after { transform: scaleX(0.35); }
@@ -295,9 +306,9 @@
 				<div class="mt-24 lg:mt-32">
 					<div class="reveal flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-ink/15 pb-5"><p class="flex items-baseline gap-4"><span class="en text-lg italic text-amber">Cooking</span><span class="font-display text-2xl font-medium">烹飪課程</span></p><p class="text-sm tracking-[0.12em] text-ink/60">3 小時・15–20 人・做完一起留下來用餐</p></div>
 					<div class="mt-10 grid gap-5 md:grid-cols-3 md:items-stretch">
-						<div class="reveal"><article class="plan-card flex h-full flex-col p-8 text-paper lg:p-10" style="background: #4a3f36"><div class="flex items-baseline justify-between"><span class="en text-6xl leading-none text-gold/70">A</span><span class="text-sm tracking-[0.2em] text-paper/55">方案 A</span></div><h3 class="mt-10 font-display text-[1.7rem] font-medium">日常初見</h3><p class="mt-4 mb-8 text-base leading-8 text-paper/65">經典六道式套餐，適合第一次相聚的團隊。</p><div class="mb-10"><p class="mb-3 text-xs tracking-[0.2em] text-paper/50">六道式套餐</p><ul class="grid grid-cols-3 gap-x-4 border-b border-paper/10 text-[0.95rem] tracking-[0.1em] text-paper/85"><li class="border-t border-paper/10 py-2.5">餐前酒</li><li class="border-t border-paper/10 py-2.5">前菜</li><li class="border-t border-paper/10 py-2.5">沙拉</li><li class="border-t border-paper/10 py-2.5">主餐</li><li class="border-t border-paper/10 py-2.5">湯品</li><li class="border-t border-paper/10 py-2.5">甜點</li></ul><p class="mt-4 text-xs tracking-[0.12em] text-gold/80">沙拉由全團選一款，細節於諮詢後確認</p></div><div class="mt-auto flex items-center justify-between border-t border-paper/15 pt-6"><span class="flex items-baseline gap-2"><span class="text-xs tracking-[0.2em] text-paper/50">NT$</span><span class="en text-4xl leading-none text-gold">1,980</span><span class="text-sm text-paper/55">／人</span></span><a href="#contact" data-service="團隊建設" data-note="想了解方案 A｜日常初見" class="link-u text-gold">洽詢此方案</a></div></article></div>
-						<div class="reveal" style="--delay: 0.1s"><article class="plan-card flex h-full flex-col p-8 text-paper lg:p-10" style="background: #352e28"><div class="flex items-baseline justify-between"><span class="en text-6xl leading-none text-gold/70">B</span><span class="border border-gold/60 px-3 py-1 text-xs tracking-[0.2em] text-gold">推薦方案</span></div><h3 class="mt-10 font-display text-[1.7rem] font-medium">共同創作</h3><p class="mt-4 mb-8 text-base leading-8 text-paper/65">多一些選擇，讓每個人都吃到喜歡的味道。</p><div class="mb-10"><p class="mb-3 text-xs tracking-[0.2em] text-paper/50">六道式套餐</p><ul class="grid grid-cols-3 gap-x-4 border-b border-paper/10 text-[0.95rem] tracking-[0.1em] text-paper/85"><li class="border-t border-paper/10 py-2.5">餐前酒</li><li class="border-t border-paper/10 py-2.5">前菜</li><li class="border-t border-paper/10 py-2.5">沙拉</li><li class="border-t border-paper/10 py-2.5">主餐</li><li class="border-t border-paper/10 py-2.5">湯品</li><li class="border-t border-paper/10 py-2.5">甜點</li></ul><p class="mt-4 text-xs tracking-[0.12em] text-gold/80">沙拉全團選一款・三款主餐分組遊戲決定，細節於諮詢後確認</p></div><div class="mt-auto flex items-center justify-between border-t border-paper/15 pt-6"><span class="flex items-baseline gap-2"><span class="text-xs tracking-[0.2em] text-paper/50">NT$</span><span class="en text-4xl leading-none text-gold">2,480</span><span class="text-sm text-paper/55">／人</span></span><a href="#contact" data-service="團隊建設" data-note="想了解方案 B｜共同創作" class="link-u text-gold">洽詢此方案</a></div></article></div>
-						<div class="reveal" style="--delay: 0.2s"><article class="plan-card flex h-full flex-col p-8 text-paper lg:p-10" style="background: #221f1b"><div class="flex items-baseline justify-between"><span class="en text-6xl leading-none text-gold/70">C</span><span class="text-sm tracking-[0.2em] text-paper/55">方案 C</span></div><h3 class="mt-10 font-display text-[1.7rem] font-medium">深度連結</h3><p class="mt-4 mb-8 text-base leading-8 text-paper/65">最完整的餐桌體驗，適合慶功與重要聚會。</p><div class="mb-10"><p class="mb-3 text-xs tracking-[0.2em] text-paper/50">六道式套餐</p><ul class="grid grid-cols-3 gap-x-4 border-b border-paper/10 text-[0.95rem] tracking-[0.1em] text-paper/85"><li class="border-t border-paper/10 py-2.5">餐前酒</li><li class="border-t border-paper/10 py-2.5">前菜</li><li class="border-t border-paper/10 py-2.5">沙拉</li><li class="border-t border-paper/10 py-2.5">主餐</li><li class="border-t border-paper/10 py-2.5">湯品</li><li class="border-t border-paper/10 py-2.5">甜點</li></ul><p class="mt-4 text-xs tracking-[0.12em] text-gold/80">沙拉、湯品全團各選一款・三款主餐分組遊戲決定，細節於諮詢後確認</p></div><div class="mt-auto flex items-center justify-between border-t border-paper/15 pt-6"><span class="flex items-baseline gap-2"><span class="text-xs tracking-[0.2em] text-paper/50">NT$</span><span class="en text-4xl leading-none text-gold">2,980</span><span class="text-sm text-paper/55">／人</span></span><a href="#contact" data-service="團隊建設" data-note="想了解方案 C｜深度連結" class="link-u text-gold">洽詢此方案</a></div></article></div>
+						<div class="reveal"><article class="plan-card flex h-full flex-col p-8 text-paper lg:p-10" style="background: #4a3f36"><div class="flex items-baseline justify-between"><span class="en text-6xl leading-none text-gold/70">A</span><span class="text-sm tracking-[0.2em] text-paper/55">方案 A</span></div><h3 class="mt-10 font-display text-[1.7rem] font-medium">經典知味</h3><p class="mt-3 text-sm tracking-[0.15em] text-gold">零負擔的星級私廚入門</p><p class="mt-4 mb-8 text-base leading-8 text-paper/65">享受星級廚藝與低 GI 概念的完美結合。<br>以嚴選優質食材打造的六道式經典饗宴，為團隊帶來純粹、輕盈且毫無罪惡感的美味體驗。</p><div class="mb-10"><p class="mb-3 text-xs tracking-[0.2em] text-paper/50">六道式套餐</p><ul class="grid grid-cols-3 gap-x-4 border-b border-paper/10 text-[0.95rem] tracking-[0.1em] text-paper/85"><li class="border-t border-paper/10 py-2.5">餐前酒</li><li class="border-t border-paper/10 py-2.5">前菜</li><li class="border-t border-paper/10 py-2.5">沙拉</li><li class="border-t border-paper/10 py-2.5">主餐</li><li class="border-t border-paper/10 py-2.5">湯品</li><li class="border-t border-paper/10 py-2.5">甜點</li></ul><p class="mt-4 text-xs tracking-[0.12em] text-gold/80">沙拉由全團選一款，細節於諮詢後確認</p></div><div class="mt-auto flex items-center justify-between border-t border-paper/15 pt-6"><span class="flex items-baseline gap-2"><span class="text-xs tracking-[0.2em] text-paper/50">NT$</span><span class="en text-4xl leading-none text-gold">1,980</span><span class="text-sm text-paper/55">／人</span></span><a href="#contact" data-service="團隊建設" data-note="想了解方案 A｜經典知味" class="link-u text-gold">洽詢此方案</a></div></article></div>
+						<div class="reveal" style="--delay: 0.1s"><article class="plan-card flex h-full flex-col p-8 text-paper lg:p-10" style="background: #352e28"><div class="flex items-baseline justify-between"><span class="en text-6xl leading-none text-gold/70">B</span><span class="border border-gold/60 px-3 py-1 text-xs tracking-[0.2em] text-gold">推薦方案</span></div><h3 class="mt-10 font-display text-[1.7rem] font-medium">質感行家</h3><p class="mt-3 text-sm tracking-[0.15em] text-gold">升級海陸選材，滿足挑剔品味</p><p class="mt-4 mb-8 text-base leading-8 text-paper/65">提供更具彈性與奢華感的主餐選擇。<br>精選高等級肉品與時令海鮮，賦予味蕾更高層次的精緻享受，滿足團隊成員對質感與健康的多元講究。</p><div class="mb-10"><p class="mb-3 text-xs tracking-[0.2em] text-paper/50">六道式套餐</p><ul class="grid grid-cols-3 gap-x-4 border-b border-paper/10 text-[0.95rem] tracking-[0.1em] text-paper/85"><li class="border-t border-paper/10 py-2.5">餐前酒</li><li class="border-t border-paper/10 py-2.5">前菜</li><li class="border-t border-paper/10 py-2.5">沙拉</li><li class="border-t border-paper/10 py-2.5">主餐</li><li class="border-t border-paper/10 py-2.5">湯品</li><li class="border-t border-paper/10 py-2.5">甜點</li></ul><p class="mt-4 text-xs tracking-[0.12em] text-gold/80">沙拉全團選一款・三款主餐分組遊戲決定，細節於諮詢後確認</p></div><div class="mt-auto flex items-center justify-between border-t border-paper/15 pt-6"><span class="flex items-baseline gap-2"><span class="text-xs tracking-[0.2em] text-paper/50">NT$</span><span class="en text-4xl leading-none text-gold">2,480</span><span class="text-sm text-paper/55">／人</span></span><a href="#contact" data-service="團隊建設" data-note="想了解方案 B｜質感行家" class="link-u text-gold">洽詢此方案</a></div></article></div>
+						<div class="reveal" style="--delay: 0.2s"><article class="plan-card flex h-full flex-col p-8 text-paper lg:p-10" style="background: #221f1b"><div class="flex items-baseline justify-between"><span class="en text-6xl leading-none text-gold/70">C</span><span class="text-sm tracking-[0.2em] text-paper/55">方案 C</span></div><h3 class="mt-10 font-display text-[1.7rem] font-medium">極致尊榮</h3><p class="mt-3 text-sm tracking-[0.15em] text-gold">奢華珍稀食材，最高規格款待</p><p class="mt-4 mb-8 text-base leading-8 text-paper/65">採用最高規格的當季珍稀食材，打造毫無妥協的完整餐桌藝術。<br>這是一場為頂級款待而生的私廚體驗，以最豐盛卻吃不胖的絕佳手藝，慰勞最重要的團隊。</p><div class="mb-10"><p class="mb-3 text-xs tracking-[0.2em] text-paper/50">六道式套餐</p><ul class="grid grid-cols-3 gap-x-4 border-b border-paper/10 text-[0.95rem] tracking-[0.1em] text-paper/85"><li class="border-t border-paper/10 py-2.5">餐前酒</li><li class="border-t border-paper/10 py-2.5">前菜</li><li class="border-t border-paper/10 py-2.5">沙拉</li><li class="border-t border-paper/10 py-2.5">主餐</li><li class="border-t border-paper/10 py-2.5">湯品</li><li class="border-t border-paper/10 py-2.5">甜點</li></ul><p class="mt-4 text-xs tracking-[0.12em] text-gold/80">沙拉、湯品全團各選一款・三款主餐分組遊戲決定，細節於諮詢後確認</p></div><div class="mt-auto flex items-center justify-between border-t border-paper/15 pt-6"><span class="flex items-baseline gap-2"><span class="text-xs tracking-[0.2em] text-paper/50">NT$</span><span class="en text-4xl leading-none text-gold">2,980</span><span class="text-sm text-paper/55">／人</span></span><a href="#contact" data-service="團隊建設" data-note="想了解方案 C｜極致尊榮" class="link-u text-gold">洽詢此方案</a></div></article></div>
 					</div>
 				</div>
 				<div class="mt-24 lg:mt-28">
@@ -329,16 +340,18 @@
 					<p class="mt-8 max-w-lg text-base leading-9 text-ink/60">一對一專業身材管理，陪您找到適合自己的生活方法。</p>
 					<p class="mt-4 max-w-lg text-base leading-9 text-ink/60">身材管理不該是痛苦的修行。<br>透過CNFCD的健康方法，讓您重拾輕盈體態與生活底氣。</p>
 					<ol class="mt-10 border-t border-ink/15">
-						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">01</span><div><h3 class="font-display text-lg font-medium">健康飲食</h3><p class="mt-1 text-sm leading-7 text-ink/55">從日常選擇建立穩定習慣。</p></div></li>
-						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">02</span><div><h3 class="font-display text-lg font-medium">體態諮詢</h3><p class="mt-1 text-sm leading-7 text-ink/55">依照您的狀態規劃可執行的方向。</p></div></li>
-						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">03</span><div><h3 class="font-display text-lg font-medium">更懂自己</h3><p class="mt-1 text-sm leading-7 text-ink/55">不追趕標準，只練習更懂自己的身體。</p></div></li>
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">01</span><div><h3 class="font-display text-lg font-medium">告別挨餓</h3><p class="mt-1 text-sm leading-7 text-ink/55">越吃越美的「營養介入飲食法」</p></div></li>
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">02</span><div><h3 class="font-display text-lg font-medium">專屬體態顧問</h3><p class="mt-1 text-sm leading-7 text-ink/55">精準破解「致胖盲點」</p></div></li>
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-6"><span class="en text-2xl text-amber">03</span><div><h3 class="font-display text-lg font-medium">找回腰身與底氣</h3><p class="mt-1 text-sm leading-7 text-ink/55">不復胖的「質感生活」</p></div></li>
 					</ol>
-					<div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+					<a href="https://linkgoods.com/jasstudio" target="_blank" rel="noopener noreferrer" class="more-card mt-10">
+						<span><span class="en block text-base italic text-amber">Discover more</span><span class="mt-1 block font-display text-xl font-medium">了解更多身材管理資訊</span></span>
+						<span class="more-arrow" aria-hidden="true"></span>
+					</a>
+					<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
 						<a href="#contact" data-service="身材管理諮詢" class="btn btn-dark">填表預約諮詢 <span class="arrow" aria-hidden="true"></span></a>
 						<a href="tel:0963380508" class="link-u">電話預約</a>
-						<button id="videoButton" type="button" class="link-u" aria-expanded="false" aria-controls="videoMessage"><span class="flex h-6 w-6 items-center justify-center rounded-full border border-ink/40 pl-0.5 text-[0.5rem]" aria-hidden="true">▶</span>觀看短影音介紹</button>
 					</div>
-					<p id="videoMessage" class="en mt-5 hidden text-base italic text-clay" role="status">影音連結即將上線，歡迎先與我們聯絡。</p>
 				</div>
 			</div>
 		</section>
@@ -437,18 +450,18 @@
 			<div class="mx-auto grid max-w-[88rem] gap-14 lg:grid-cols-12 lg:items-stretch lg:gap-10">
 				<div class="reveal flex flex-col lg:col-span-5">
 					<p class="kicker !text-gold"><span class="num">05</span><span class="line"></span><span class="label">VIP Club</span></p>
-					<h2 class="mt-8 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">加入喜歡生活的<br>同一個群組。</h2>
+					<h2 class="mt-8 whitespace-nowrap font-display text-[1.9rem] font-medium leading-[1.35] sm:text-5xl sm:leading-[1.35] lg:text-[2.7vw] 2xl:text-[2.6rem]">茉莉私享圈：<br>只為講究生活的您敞開</h2>
+					<p class="mt-6 text-base leading-9 text-paper/75">恭喜您解鎖專屬 VIP 資格。<br>這不只是一個群組，而是一群不願對健康與體態妥協的知音聚落。</p>
 					<div class="mt-10 grid gap-8 sm:grid-cols-2">
 						<div class="border-t border-gold/50 pt-5"><p class="en text-base italic text-gold">Seasonal desserts</p><h3 class="mt-3 font-display text-xl font-medium">優先搶購權</h3><p class="mt-2 text-sm leading-7 text-paper/55">提前知道下一季的味道，把喜歡的留給自己。</p></div>
-						<div class="border-t border-gold/50 pt-5"><p class="en text-base italic text-gold">Holiday workshops</p><h3 class="mt-3 font-display text-xl font-medium">會員專屬報名資格</h3><p class="mt-2 text-sm leading-7 text-paper/55">中秋蛋黃酥課、聖誕手作麵包課，享超值親民學員價。</p></div>
+						<div class="border-t border-gold/50 pt-5"><p class="en text-base italic text-gold">Holiday workshops</p><h3 class="mt-3 font-display text-xl font-medium">成本價季節限定課程</h3><p class="mt-2 text-sm leading-7 text-paper/55">季節選物上市時，同步開設會員限定課程。<br>例如蛋黃酥季就教做蛋黃酥，會員以成本價參加。</p></div>
 					</div>
-					<p class="mt-10 text-xs tracking-[0.2em] text-paper/55">如何加入</p>
+					<p class="mt-10 text-xs tracking-[0.2em] text-paper/55">加入資格（符合其一即可）</p>
 					<ol class="mt-3 border-t border-paper/15 text-sm text-paper/70">
-						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-4"><span class="en text-xl text-gold">i.</span>留下 Google 五星好評</li>
-						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-4"><span class="en text-xl text-gold">ii.</span>通過真實評論確認</li>
-						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-4"><span class="en text-xl text-gold">iii.</span>加入會員群，享季節選物與活動優先權</li>
+						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-4"><span class="en text-xl text-gold">i.</span><span>留下 Google 五星好評，並附上照片的真實評價<span class="mt-1 block text-xs text-paper/50">評論一定要帶圖片，確認後即可加入會員群</span></span></li>
+						<li class="grid grid-cols-[3rem_1fr] items-baseline border-b border-paper/10 py-4"><span class="en text-xl text-gold">ii.</span>Sunny 老師身材管理課程的學員</li>
 					</ol>
-					<a href="#contact" data-service="其他" data-note="我想加入會員群" class="btn mt-10 w-fit bg-gold text-ink hover:bg-paper">五星好評並加入會員 <span class="arrow" aria-hidden="true"></span></a>
+					<a href="#contact" data-service="其他" data-note="我想加入會員群" class="btn mt-10 w-fit bg-gold text-ink hover:bg-paper">申請加入會員 <span class="arrow" aria-hidden="true"></span></a>
 				</div>
 				<div class="reveal lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
 					<div class="carousel aspect-[4/3] lg:aspect-auto lg:h-full" data-carousel aria-roledescription="carousel" aria-label="會員手作課程照片">
@@ -463,8 +476,8 @@
 
 		<!-- 06 精選好書 -->
 		<section id="books" data-section class="px-5 py-24 lg:px-12 lg:py-36">
-			<div class="mx-auto grid max-w-6xl gap-16 lg:grid-cols-12 lg:items-center lg:gap-10">
-				<div class="reveal relative mx-auto w-full max-w-sm lg:col-span-5">
+			<div class="mx-auto grid max-w-6xl gap-16 lg:grid-cols-12 lg:items-start lg:gap-10">
+				<div class="reveal relative mx-auto w-full max-w-sm lg:sticky lg:top-40 lg:col-span-5 xl:top-32">
 					<div class="absolute inset-x-6 -bottom-6 top-10 bg-sand" aria-hidden="true"></div>
 					<img src="./book-cover.jpeg" alt="《家宴》書籍封面" class="zoomable relative mx-auto w-4/5 shadow-book transition duration-700 hover:-translate-y-2" loading="lazy" data-group="book">
 				</div>
@@ -472,8 +485,15 @@
 					<p class="kicker"><span class="num">06</span><span class="line"></span><span class="label">Bookstore</span></p>
 					<h2 class="mt-8 font-display text-5xl font-medium sm:text-6xl">《家宴》</h2>
 					<p class="mt-4 text-sm tracking-[0.1em] text-ink/55">黃文倩 Sunny ／ 從家常料理到私房款待的餐桌美學</p>
-					<blockquote class="mt-10 font-display text-2xl leading-[1.7] text-clay">「餐桌上的溫度，<br>就是家的記憶。」</blockquote>
-					<p class="mt-8 text-base leading-9 text-ink/60">這是一本把料理、生活與情感放在同一張餐桌上的書，陪您用一桌好菜款待身邊重要的人。<br>從家宴備料、時間管理到上桌節奏，將複雜的準備拆成清楚步驟，即使是第一次辦家宴，也能自在地把家變成最溫暖的餐館。</p>
+					<blockquote class="mt-10 font-display text-2xl leading-[1.7] text-clay">「廚房熱了，家就溫暖了！<br>餐桌上的溫度，<br class="sm:hidden">就是家的記憶。」</blockquote>
+					<p class="mt-8 text-base leading-9 text-ink/60">但對許多新手來說，準備一頓豐盛的飯菜，往往伴隨著手忙腳亂與廚房災難。</p>
+					<p class="mt-4 text-base leading-9 text-ink/60">這本書，就是為了打破新手的恐懼而生。<br>它不只是一本食譜，更是一套幫大腦減壓的「高效率下廚公式」。<br>我們將複雜的家宴備料、時間管理到上桌節奏，精準拆解成任何人都看得懂的清楚步驟。<br>即使是第一次辦家宴、第一次完整做出一桌菜，您也能從容自在地款待身邊重要的人。</p>
+					<p class="mt-10 text-xs tracking-[0.2em] text-ink/55">三大必買亮點</p>
+					<ol class="mt-3 border-t border-ink/15">
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-5"><span class="en text-2xl text-amber">01</span><div><h3 class="font-display text-lg font-medium">新手不慌張的拆解公式</h3><p class="mt-1 text-sm leading-7 text-ink/60">幫您省去思考流程的決策成本，將做菜變成一套 SOP。<br>從前置準備到完美出菜，照著步驟走，徹底告別廚房裡的兵荒馬亂。</p></div></li>
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-5"><span class="en text-2xl text-amber">02</span><div><h3 class="font-display text-lg font-medium">零失誤的餐桌美學</h3><p class="mt-1 text-sm leading-7 text-ink/60">真正的優雅，是不流汗也能端出星級美味。<br>教您用最聰明的方式，展現主人的絕佳品味與私房心意。</p></div></li>
+						<li class="grid grid-cols-[3.5rem_1fr] items-baseline border-b hairline py-5"><span class="en text-2xl text-amber">03</span><div><h3 class="font-display text-lg font-medium">日常與宴客的雙效指南</h3><p class="mt-1 text-sm leading-7 text-ink/60">這套時間管理術，不僅能讓您自信地舉辦聚會，更能讓每天的日常開伙變得極度高效。</p></div></li>
+					</ol>
 					<p class="mt-6 text-sm tracking-[0.1em] text-amber">#私房家宴　#餐桌美學　#新手不慌張</p>
 					<a href="https://www.books.com.tw/products/0010978123" target="_blank" rel="noopener noreferrer" class="btn btn-dark mt-10">前往博客來購書 <span class="arrow" aria-hidden="true"></span></a>
 				</div>
@@ -532,7 +552,7 @@
 				<div class="lg:col-span-6">
 					<p class="font-display text-3xl font-medium tracking-[0.3em] sm:text-4xl">茉莉花廚房</p>
 					<p class="en mt-3 text-xl italic text-gold">Jas Kitchen</p>
-					<p class="mt-8 font-display text-paper/50">把喜歡的日子，過得更好。</p>
+					<p class="mt-8 font-display text-paper/50">陪您把喜歡的日子過得更美，更健康。</p>
 				</div>
 				<div class="grid grid-cols-2 gap-10 text-sm lg:col-span-5 lg:col-start-8">
 					<div><p class="en text-base italic text-gold">Explore</p><div class="mt-5 grid gap-3 text-paper/60"><a class="transition hover:text-paper" href="#team">團隊建設</a><a class="transition hover:text-paper" href="#body">身材管理</a><a class="transition hover:text-paper" href="#venue">場地租借</a><a class="transition hover:text-paper" href="#seasonal">季節選物</a><a class="transition hover:text-paper" href="#vip">會員福利</a><a class="transition hover:text-paper" href="#books">精選好書</a></div></div>
@@ -609,14 +629,24 @@
 		// 導覽列高亮目前區塊
 		const navLinks = document.querySelectorAll('.nav-link');
 		const catScroller = document.querySelector('#catScroller');
+		let spyLockedUntil = 0;
+		function setActive(id) {
+			navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`));
+			const chip = catScroller.querySelector(`.nav-link[href="#${id}"]`);
+			if (chip && getComputedStyle(catScroller).display !== 'none') catScroller.scrollTo({ left: chip.offsetLeft - catScroller.clientWidth / 2 + chip.offsetWidth / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+		}
+		// 點站內連結：立刻高亮目的地，捲動途中經過的區塊不再搶高亮
+		document.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', () => {
+			const id = link.getAttribute('href').slice(1);
+			if (!document.getElementById(id)?.hasAttribute('data-section')) return;
+			spyLockedUntil = Date.now() + 1200;
+			setActive(id);
+		}));
 		const spy = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.target.id === 'contact') { contactInView = entry.isIntersecting; onScroll(); }
-				if (!entry.isIntersecting) return;
-				if (entry.target.id === 'contact') { navLinks.forEach((link) => link.classList.remove('is-active')); return; }
-				navLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
-				const chip = catScroller.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-				if (chip && getComputedStyle(catScroller).display !== 'none') catScroller.scrollTo({ left: chip.offsetLeft - catScroller.clientWidth / 2 + chip.offsetWidth / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+				if (!entry.isIntersecting || Date.now() < spyLockedUntil) return;
+				setActive(entry.target.id);
 			});
 		}, { rootMargin: '-45% 0px -50% 0px' });
 		document.querySelectorAll('[data-section]').forEach((section) => spy.observe(section));
@@ -829,14 +859,6 @@
 				submitButton.disabled = false;
 				submitLabel.textContent = '確認送出';
 			}
-		});
-
-		// 短影音按鈕
-		const videoButton = document.querySelector('#videoButton');
-		videoButton.addEventListener('click', () => {
-			const message = document.querySelector('#videoMessage');
-			const open = message.classList.toggle('hidden') === false;
-			videoButton.setAttribute('aria-expanded', String(open));
 		});
 
 		document.querySelector('#year').textContent = new Date().getFullYear();
