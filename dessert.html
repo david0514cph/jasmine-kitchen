@@ -87,7 +87,7 @@
 	<main class="mx-auto max-w-[72rem] px-5 pb-28 pt-14 lg:px-12 lg:pt-20">
 		<p class="kicker"><span class="num">01</span><span class="line"></span><span class="label">Team Baking Order</span></p>
 		<h1 class="mt-6 font-display text-4xl font-medium leading-[1.35] sm:text-5xl">團隊甜點確認表</h1>
-		<p class="mt-6 max-w-2xl text-base leading-9 text-ink/60">感謝與我們洽詢。請再次填寫聯絡資料，並選擇團隊要一起做的甜點，送出後我們會核對內容，再與你確認訂金與細節。</p>
+		<p class="mt-6 max-w-2xl text-base leading-9 text-ink/60">感謝與我們洽詢。請再次填寫聯絡資料，並選擇團隊要一起做的甜點，送出後我們會核對內容，再與您確認訂金與細節。</p>
 
 		<div id="formStatus" class="form-status mt-10 hidden" role="status" aria-live="polite"></div>
 
@@ -246,7 +246,7 @@
 			try {
 				const res = await fetch(FORMSPREE_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
 				if (!res.ok) throw new Error('Formspree request failed');
-				setStatus('已收到你的甜點確認！我們會在 1–2 個工作天內核對並回覆。', true);
+				setStatus('已收到您的甜點確認！我們會在 1–2 個工作天內核對並回覆。', true);
 				form.reset();
 				updateAll();
 			} catch (err) {
