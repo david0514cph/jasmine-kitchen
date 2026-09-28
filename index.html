@@ -69,6 +69,17 @@
 		.kicker .label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; letter-spacing: 0.04em; }
 		.en { font-family: 'Cormorant Garamond', serif; }
 		.hairline { border-color: rgba(34, 31, 27, 0.12); }
+		.season-labels { display: none; }
+		@media (min-width: 768px) {
+			.season-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+			.season-grid > article { grid-row: span 6; display: grid; grid-template-rows: subgrid; }
+		}
+		@media (min-width: 1024px) {
+			.season-grid { grid-template-columns: 7rem repeat(3, minmax(0, 1fr)); }
+			.season-labels { grid-row: span 6; display: grid; grid-template-rows: subgrid; }
+			.season-labels > :nth-child(1) { grid-row: 5; }
+			.season-labels > :nth-child(2) { grid-row: 6; }
+		}
 
 		/* 按鈕 */
 		.btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.7rem; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.12em; line-height: 1.2; transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease; }
@@ -415,7 +426,11 @@
 					</div>
 					<a href="#vip" class="btn w-fit bg-gold text-ink hover:bg-paper">加入會員群 <span class="arrow" aria-hidden="true"></span></a>
 				</div>
-				<div class="mt-14 grid gap-14 md:grid-cols-3 md:gap-8">
+				<div class="season-grid mt-14 grid gap-14 md:gap-x-8 md:gap-y-0">
+					<div class="season-labels reveal" aria-hidden="true">
+						<p class="mt-6 border-t hairline pt-4 text-sm font-medium tracking-[0.15em] text-amber">實作課程</p>
+						<p class="border-t hairline pt-4 mt-4 text-sm font-medium tracking-[0.15em] text-amber">限量產品購買</p>
+					</div>
 					<article class="reveal">
 						<div class="carousel aspect-[3/2]" data-carousel aria-roledescription="carousel" aria-label="低升糖貝果照片">
 							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-bagel.jpg" alt="低升糖貝果 1" class="photo media-img zoomable" loading="lazy"></div></div>
@@ -425,6 +440,8 @@
 						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">低升糖貝果</h3><span class="en text-lg text-ink/30">No.01</span></div>
 						<p class="mt-4 text-sm leading-7 text-ink/55">日常也能放心享用的柔韌口感。</p>
 						<p class="en mt-3 text-sm italic text-amber">Seasonal · Members first</p>
+						<div class="mt-6 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">實作課程</p><p class="mt-1 text-sm leading-7 text-ink/35 lg:mt-0">暫不開課</p></div>
+						<div class="mt-4 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">限量產品購買</p><p class="mt-1 text-sm leading-7 text-ink/75 lg:mt-0">每季開放一次，於 2、5、8、11 月出貨。出貨前一個月開放預訂，僅接受預訂。</p></div>
 					</article>
 					<article class="reveal" style="--delay: 0.1s">
 						<div class="carousel aspect-[3/2]" data-carousel aria-roledescription="carousel" aria-label="經典蛋黃酥照片">
@@ -433,15 +450,17 @@
 						</div>
 						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">經典蛋黃酥</h3><span class="en text-lg text-ink/30">No.02</span></div>
 						<p class="mt-4 text-sm leading-7 text-ink/55">酥香與鹹蛋黃，寫給節日的老派浪漫。</p>
-						<p class="mt-2 text-sm leading-7 text-ink/80">每年中秋節前約半個月開課，開課前一個月公告。</p>
 						<p class="en mt-3 text-sm italic text-amber">Seasonal · Members first</p>
+						<div class="mt-6 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">實作課程</p><p class="mt-1 text-sm leading-7 text-ink/75 lg:mt-0">每年中秋節前約半個月開課，開課前一個月公告。</p></div>
+						<div class="mt-4 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">限量產品購買</p><p class="mt-1 text-sm leading-7 text-ink/75 lg:mt-0">每年中秋節前約半個月開賣，開賣前一個月公告。</p></div>
 					</article>
 					<article class="reveal" style="--delay: 0.2s">
 						<div class="frame aspect-[3/2]"><img src="./product-nougat.jpg" alt="手作牛軋糖" class="photo zoomable" loading="lazy" data-group="nougat"></div>
 						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">潘妮多尼</h3><span class="en text-lg text-ink/30">No.03</span></div>
 						<p class="mt-4 text-sm leading-7 text-ink/55">義式聖誕老麵包，果乾與奶油香慢慢發酵。</p>
-						<p class="mt-2 text-sm leading-7 text-ink/80">每年 12 月初開課，活動前一個月公告。</p>
 						<p class="en mt-3 text-sm italic text-amber">Seasonal · Members first</p>
+						<div class="mt-6 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">實作課程</p><p class="mt-1 text-sm leading-7 text-ink/75 lg:mt-0">每年 12 月初開課，開課前一個月公告。</p></div>
+						<div class="mt-4 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">限量產品購買</p><p class="mt-1 text-sm leading-7 text-ink/75 lg:mt-0">每年 12 月初開賣，開賣前一個月公告。</p></div>
 					</article>
 				</div>
 			</div>
