@@ -98,6 +98,13 @@
 		.btn-dark:hover { background: #7d5641; }
 		.btn-amber { background: #a47148; color: #fff; }
 		.btn-amber:hover { background: #7d5641; }
+		/* 醒目按鈕：同尺寸，金色底 + 呼吸光暈 + 光澤掃過 */
+		.btn-spotlight { overflow: hidden; background: linear-gradient(135deg, #b5814f, #a47148 55%, #8f6038); color: #fff; box-shadow: 0 0 0 0 rgba(201, 162, 122, 0.6), 0 6px 18px -6px rgba(125, 86, 65, 0.55); animation: spotlight-pulse 2.4s ease-out infinite; }
+		.btn-spotlight::before { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.38) 50%, transparent 70%); transform: translateX(-120%); animation: spotlight-shine 3.6s ease-in-out infinite; pointer-events: none; }
+		.btn-spotlight:hover { background: #7d5641; animation-play-state: paused; }
+		@keyframes spotlight-pulse { 0% { box-shadow: 0 0 0 0 rgba(201, 162, 122, 0.6), 0 6px 18px -6px rgba(125, 86, 65, 0.55); } 70%, 100% { box-shadow: 0 0 0 12px rgba(201, 162, 122, 0), 0 6px 18px -6px rgba(125, 86, 65, 0.55); } }
+		@keyframes spotlight-shine { 0%, 55% { transform: translateX(-120%); } 85%, 100% { transform: translateX(120%); } }
+		@media (prefers-reduced-motion: reduce) { .btn-spotlight, .btn-spotlight::before { animation: none; } }
 		.btn-line { border: 1px solid rgba(34, 31, 27, 0.25); }
 		.btn-line:hover { border-color: #221f1b; background: #221f1b; color: #f6f2eb; }
 		/* 外連「了解更多」卡片 */
@@ -407,7 +414,7 @@
 						<span class="more-arrow" aria-hidden="true"></span>
 					</a>
 					<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-						<a href="#contact" data-service="身材管理諮詢" class="btn btn-dark">填表預約諮詢 <span class="arrow" aria-hidden="true"></span></a>
+						<a href="https://www.surveycake.com/s/rLpvo" target="_blank" rel="noopener noreferrer" class="btn btn-spotlight">填表預約諮詢 <span class="arrow" aria-hidden="true"></span></a>
 						<a href="tel:0963380508" class="link-u">電話預約</a>
 					</div>
 				</div>
