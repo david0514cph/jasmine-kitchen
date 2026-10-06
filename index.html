@@ -201,7 +201,7 @@
 		@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 		/* 最新消息彈窗 */
-		#newsDialog { width: min(28rem, calc(100vw - 2.5rem)); max-height: min(70vh, 36rem); padding: 0; border: 0; background: #f6f2eb; color: #221f1b; }
+		#newsDialog { width: min(28rem, calc(100vw - 2.5rem)); max-height: min(88vh, 46rem); padding: 0; border: 0; background: #f6f2eb; color: #221f1b; }
 		#newsDialog::backdrop { background: rgba(22, 20, 17, 0.55); }
 		#newsDialog[open] { animation: fade 0.3s ease; }
 
@@ -652,7 +652,15 @@
 			<button type="button" class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 hover:bg-sand" data-news-close aria-label="關閉"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
 		</div>
 		<div class="px-6 py-6">
-			<ul id="newsList" class="grid gap-5"></ul>
+			<ul id="newsList" class="grid gap-5">
+				<li>
+					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="block"><img src="news-scone-1114.jpg?v=1" alt="司康手作課活動封面，報名費 NT$880／人" width="800" height="800" class="mx-auto aspect-square w-full max-w-[36vh] object-cover"></a>
+					<p class="mt-5 text-xs tracking-[0.15em] text-clay">活動・11/14（六）13:30–17:30</p>
+					<h3 class="mt-2 font-display text-lg font-medium">英式司康手作課＋甜點不胖講座</h3>
+					<p class="mt-2 text-sm leading-7 text-ink/70">親手烤出外酥內軟的英式司康，等出爐時還有健康分享上下場。這次一個人就能報名，限額 20 人。</p>
+					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="btn btn-dark mt-5 w-full">立即報名 <span class="arrow" aria-hidden="true"></span></a>
+				</li>
+			</ul>
 			<p id="newsEmpty" class="text-sm leading-7 text-ink/55">目前尚無最新消息，敬請期待。</p>
 		</div>
 	</dialog>
@@ -719,6 +727,18 @@
 		newsDialog.addEventListener('click', (event) => {
 			if (event.target === newsDialog || event.target.closest('[data-news-close]')) newsDialog.close();
 		});
+		// 進站自動彈出最新消息：每次造訪只跳一次，活動結束後自動停止
+		const NEWS_AUTO_KEY = 'newsAutoShown:scone-1114';
+		const NEWS_AUTO_UNTIL = new Date('2026-11-14T17:30:00+08:00');
+		let newsAlreadyShown = false;
+		try { newsAlreadyShown = sessionStorage.getItem(NEWS_AUTO_KEY) === '1'; } catch (error) {}
+		if (!newsAlreadyShown && Date.now() < NEWS_AUTO_UNTIL.getTime() && document.querySelector('#newsList').children.length > 0) {
+			setTimeout(() => {
+				if (document.querySelector('dialog[open]')) return;
+				newsDialog.showModal();
+				try { sessionStorage.setItem(NEWS_AUTO_KEY, '1'); } catch (error) {}
+			}, 800);
+		}
 
 		// 導覽列高亮目前區塊
 		const navLinks = document.querySelectorAll('.nav-link');
@@ -957,5 +977,6 @@
 
 		document.querySelector('#year').textContent = new Date().getFullYear();
 	</script>
+	<script src="track.js?v=1"></script>
 </body>
 </html>
