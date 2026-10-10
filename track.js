@@ -1,6 +1,6 @@
 // GA4 section analytics: which sections people see, how long they stay, and what they click.
 // Events: section_view (first time a section is half on screen), section_time (seconds on screen,
-// sent when the visitor leaves or switches tab), element_click (any link or button).
+// sent when the visitor leaves or switches tab), element_click (any link or button), signup_click (Luma signup links; a GA key event).
 (function () {
 	if (typeof gtag !== 'function') return;
 
@@ -70,5 +70,15 @@
 			click_url: el.getAttribute('href') || '',
 			section_name: nameOf(el.closest('section') || el.closest('header, footer, nav, dialog, [id]')),
 		});
+		// Signup link clicks (Luma) are the GA key event signup_click.
+		const href = el.getAttribute('href') || '';
+		if (href.includes('luma.com/')) {
+			gtag('event', 'signup_click', {
+				click_text: text || '(no text)',
+				click_url: href,
+				section_name: nameOf(el.closest('section') || el.closest('header, footer, nav, dialog, [id]')),
+				transport_type: 'beacon',
+			});
+		}
 	}, true);
 })();

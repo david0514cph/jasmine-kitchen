@@ -23,27 +23,6 @@
 	<meta name="theme-color" content="#f6f2eb">
 	<title>團隊甜點確認表｜茉莉花廚房 Jas Studio</title>
 	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23221f1b'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23c9a27a' font-family='serif'%3E茉%3C/text%3E%3C/svg%3E">
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: { ink: '#221f1b', paper: '#f6f2eb', sand: '#ebe3d6', amber: '#a47148', gold: '#c9a27a', clay: '#7d5641', sage: '#6d7863' },
-					fontFamily: {
-						display: ['"Noto Serif TC"', 'serif'],
-						sans: ['"Noto Sans TC"', 'sans-serif'],
-						en: ['"Cormorant Garamond"', '"Noto Serif TC"', 'serif']
-					},
-					fontSize: {
-						xs: ['0.85rem', { lineHeight: '1.35rem' }],
-						sm: ['0.975rem', { lineHeight: '1.6rem' }],
-						base: ['1.0625rem', { lineHeight: '1.8rem' }],
-						lg: ['1.2rem', { lineHeight: '1.9rem' }]
-					}
-				}
-			}
-		}
-	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
@@ -91,6 +70,7 @@
 
 		.form-status { padding: 0.9rem 1rem; font-size: 0.975rem; line-height: 1.7; }
 	</style>
+	<link rel="stylesheet" href="./styles.css?v=1">
 </head>
 <body class="font-sans antialiased selection:bg-gold selection:text-ink">
 	<header class="border-b border-ink/10">
@@ -275,6 +255,6 @@
 
 		document.querySelector('#date').min = new Date().toISOString().slice(0, 10);
 	</script>
-	<script src="track.js?v=1"></script>
+	<script src="track.js?v=2"></script>
 </body>
 </html>

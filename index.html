@@ -24,42 +24,10 @@
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="茉莉花廚房 Jas Studio｜您的專屬幸福製造所">
 	<meta property="og:description" content="一起做事、一起吃飯，在每一次相遇裡，找到更靠近自己的日常。">
-	<meta property="og:image" content="./門口.jpg?v=2">
+	<meta property="og:image" content="./門口.jpg?v=3">
 	<title>茉莉花廚房 Jas Studio｜您的專屬幸福製造所</title>
 	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23221f1b'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23c9a27a' font-family='serif'%3E茉%3C/text%3E%3C/svg%3E">
 	<script>document.documentElement.classList.add('js');</script>
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script>
-		tailwind.config = {
-			theme: {
-				extend: {
-					colors: {
-						ink: '#221f1b',
-						paper: '#f6f2eb',
-						sand: '#ebe3d6',
-						amber: '#a47148',
-						gold: '#c9a27a',
-						clay: '#7d5641',
-						sage: '#6d7863'
-					},
-					fontFamily: {
-						display: ['"Noto Serif TC"', 'serif'],
-						sans: ['"Noto Sans TC"', 'sans-serif'],
-						en: ['"Cormorant Garamond"', '"Noto Serif TC"', 'serif']
-					},
-					fontSize: {
-						xs: ['0.85rem', { lineHeight: '1.35rem' }],
-						sm: ['0.975rem', { lineHeight: '1.6rem' }],
-						base: ['1.0625rem', { lineHeight: '1.8rem' }],
-						lg: ['1.2rem', { lineHeight: '1.9rem' }]
-					},
-					boxShadow: {
-						book: '18px 22px 0 rgba(164, 113, 72, 0.14), 0 30px 50px rgba(34, 31, 27, 0.22)'
-					}
-				}
-			}
-		}
-	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
@@ -230,7 +198,7 @@
 		.js .rise { display: block; overflow: hidden; padding-bottom: 0.08em; }
 		.js .rise > span { display: block; transform: translateY(105%); transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--delay, 0s); }
 		.js .is-loaded .rise > span { transform: none; }
-		.js .img-reveal { clip-path: inset(0 0 100% 0); transition: clip-path 1.4s cubic-bezier(0.7, 0, 0.2, 1); transition-delay: var(--delay, 0s); }
+		.js .img-reveal { clip-path: inset(0 0 100% 0); transition: clip-path 0.9s cubic-bezier(0.7, 0, 0.2, 1); transition-delay: var(--delay, 0s); }
 		.js .is-loaded .img-reveal, .js .img-reveal.is-visible { clip-path: inset(0 0 0 0); }
 
 		/* 表單 */
@@ -263,6 +231,8 @@
 			.js .img-reveal { clip-path: none; }
 		}
 	</style>
+	<link rel="preload" as="image" href="./hero-door.jpg?v=2" fetchpriority="high">
+	<link rel="stylesheet" href="./styles.css?v=1">
 </head>
 <body class="font-sans antialiased selection:bg-gold selection:text-ink">
 	<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:bg-ink focus:px-4 focus:py-2 focus:text-white">跳到主要內容</a>
@@ -312,15 +282,16 @@
 					<p class="rise mt-8 max-w-xl text-lg leading-9 text-ink/80"><span style="--delay: 0.35s">我們不只是一個學廚藝的地方，而是一個改變生活的起點。<br>我們相信，真正的幸福來自「身心靈極致平衡」：擁有輕盈的外在＋溫暖的人際關係＝內心充滿力量與平靜。</span></p>
 					<div class="rise mt-10"><span style="--delay: 0.45s"><span class="flex flex-wrap items-center gap-x-8 gap-y-4">
 						<a href="#team" class="btn btn-dark">探索服務 <span class="arrow" aria-hidden="true"></span></a>
+						<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="btn btn-amber" data-until="2026-11-14T17:30:00+08:00">🧈 11/14 司康課報名</a>
 						<a href="#contact" class="link-u">與我們聊聊</a>
 					</span></span></div>
 				</div>
 				<div class="relative lg:col-span-6 lg:col-start-7">
 					<div class="img-reveal frame aspect-[3/2] w-full">
-						<img src="./hero-door.jpg" alt="茉莉花廚房門口，掛著店名招牌與綠色座椅" class="photo zoomable" fetchpriority="high" data-group="hero">
+						<img src="./hero-door.jpg?v=2" width="1400" height="933" alt="茉莉花廚房門口，掛著店名招牌與綠色座椅" class="photo zoomable" fetchpriority="high" data-group="hero">
 					</div>
 					<figure class="img-reveal frame absolute -bottom-14 -left-4 aspect-[3/4] w-[30%] border-[6px] border-paper shadow-[0_18px_40px_rgba(34,31,27,0.18)] sm:-left-8 lg:-left-12" style="--delay: 0.35s">
-						<img src="./hero-door2.jpg" alt="門口的綠色座椅與花架" class="photo zoomable !object-cover" data-group="hero">
+						<img src="./hero-door2.jpg?v=2" width="700" height="466" alt="門口的綠色座椅與花架" class="photo zoomable !object-cover" data-group="hero">
 					</figure>
 				</div>
 			</div>
@@ -341,19 +312,19 @@
 					<div class="reveal lg:col-span-7 lg:col-start-6" style="--delay: 0.1s">
 						<div class="carousel aspect-[3/2] w-full" data-carousel aria-roledescription="carousel" aria-label="團隊活動照片">
 							<div class="carousel-slide is-active"><div class="frame h-full"><img src="./tb-activity.jpg" alt="團隊活動花絮：一起下廚" class="photo media-img zoomable"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-activity2.jpg" alt="團隊活動花絮：分工備料" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-activity5.jpg" alt="團隊活動花絮：專注料理" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new5.jpg" alt="團隊活動花絮：聖誕主題一起下廚" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new11.jpg" alt="團隊活動花絮：一起擺盤" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new4.jpg" alt="團隊活動花絮：手工製麵" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new6.jpg" alt="餐桌氛圍：燭光與花飾" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new2.jpg" alt="餐桌氛圍：精緻餐桌佈置" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new9.jpg" alt="餐桌氛圍：斟上一杯紅酒" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new3.jpg" alt="餐桌氛圍：滿桌料理的長桌饗宴" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new.jpg" alt="團隊料理：魚子醬開胃小塔" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new7.jpg" alt="團隊料理：香料羊排" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new10.jpg" alt="團隊料理：厚切牛排" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="frame h-full"><img src="./tb-new8.jpg" alt="團隊料理：主餐拼盤" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-activity2.jpg" alt="團隊活動花絮：分工備料" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-activity5.jpg?v=2" alt="團隊活動花絮：專注料理" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new5.jpg?v=2" alt="團隊活動花絮：聖誕主題一起下廚" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new11.jpg?v=2" alt="團隊活動花絮：一起擺盤" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new4.jpg?v=2" alt="團隊活動花絮：手工製麵" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new6.jpg?v=2" alt="餐桌氛圍：燭光與花飾" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new2.jpg?v=2" alt="餐桌氛圍：精緻餐桌佈置" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new9.jpg?v=2" alt="餐桌氛圍：斟上一杯紅酒" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new3.jpg?v=2" alt="餐桌氛圍：滿桌料理的長桌饗宴" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new.jpg?v=2" alt="團隊料理：魚子醬開胃小塔" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new7.jpg?v=2" alt="團隊料理：香料羊排" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new10.jpg?v=2" alt="團隊料理：厚切牛排" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="frame h-full"><img data-src="./tb-new8.jpg?v=2" alt="團隊料理：主餐拼盤" class="photo media-img zoomable" loading="lazy"></div></div>
 						</div>
 					</div>
 				</div>
@@ -380,20 +351,20 @@
 								<p class="text-sm tracking-[0.1em] text-ink/55"><span class="lg:hidden">左右滑動看全部・</span>點照片看更多</p>
 							</div>
 							<div class="dessert-strip mt-6">
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-司康.jpg" alt="司康" class="photo zoomable" data-group="dessert-司康" loading="lazy" onerror="this.remove()"><img src="./甜點-司康-2.jpg" alt="司康 2" class="zoomable hidden" data-group="dessert-司康" loading="lazy"><img src="./甜點-司康-3.jpg" alt="司康 3" class="zoomable hidden" data-group="dessert-司康" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">司康</figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-原味戚風蛋糕.jpg" alt="原味戚風蛋糕" class="photo zoomable" data-group="dessert-原味戚風蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-原味戚風蛋糕-2.jpg" alt="原味戚風蛋糕 2" class="zoomable hidden" data-group="dessert-原味戚風蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">原味戚風蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-日式北海道戚風蛋糕.jpg" alt="日式北海道戚風蛋糕" class="photo zoomable" data-group="dessert-日式北海道戚風蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-日式北海道戚風蛋糕-2.jpg" alt="日式北海道戚風蛋糕 2" class="zoomable hidden" data-group="dessert-日式北海道戚風蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">日式北海道戚風蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">4 個</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-紅茶戚風蛋糕.jpg?v=2" alt="紅茶戚風蛋糕" class="photo zoomable" data-group="dessert-紅茶戚風蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-紅茶戚風蛋糕-2.jpg?v=2" alt="紅茶戚風蛋糕 2" class="zoomable hidden" data-group="dessert-紅茶戚風蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">紅茶戚風蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-費南雪.jpg" alt="費南雪" class="photo zoomable" data-group="dessert-費南雪" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">費南雪</figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-布朗尼.jpg?v=2" alt="布朗尼" class="photo zoomable" data-group="dessert-布朗尼" loading="lazy" onerror="this.remove()"><img src="./甜點-布朗尼-2.jpg" alt="布朗尼 2" class="zoomable hidden" data-group="dessert-布朗尼" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">布朗尼</figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-檸檬瑪德蓮.jpg" alt="檸檬瑪德蓮" class="photo zoomable" data-group="dessert-檸檬瑪德蓮" loading="lazy" onerror="this.remove()"><img src="./甜點-檸檬瑪德蓮-2.jpg" alt="檸檬瑪德蓮 2" class="zoomable hidden" data-group="dessert-檸檬瑪德蓮" loading="lazy"><img src="./甜點-檸檬瑪德蓮-3.jpg" alt="檸檬瑪德蓮 3" class="zoomable hidden" data-group="dessert-檸檬瑪德蓮" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">檸檬瑪德蓮</figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-巧克力瑪德蓮.jpg?v=2" alt="巧克力瑪德蓮" class="photo zoomable" data-group="dessert-巧克力瑪德蓮" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">巧克力瑪德蓮</figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-原味輕乳酪蛋糕.jpg?v=2" alt="原味輕乳酪蛋糕" class="photo zoomable" data-group="dessert-原味輕乳酪蛋糕" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">原味輕乳酪蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-檸檬輕乳酪蛋糕.jpg?v=2" alt="檸檬輕乳酪蛋糕" class="photo zoomable" data-group="dessert-檸檬輕乳酪蛋糕" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">檸檬輕乳酪蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-紐約風起司蛋糕.jpg?v=2" alt="紐約風起司蛋糕" class="photo zoomable" data-group="dessert-紐約風起司蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-紐約風起司蛋糕-2.jpg" alt="紐約風起司蛋糕 2" class="zoomable hidden" data-group="dessert-紐約風起司蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">紐約風起司蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-老奶奶檸檬蛋糕.jpg?v=2" alt="老奶奶檸檬蛋糕" class="photo zoomable" data-group="dessert-老奶奶檸檬蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-老奶奶檸檬蛋糕-2.jpg?v=2" alt="老奶奶檸檬蛋糕 2" class="zoomable hidden" data-group="dessert-老奶奶檸檬蛋糕" loading="lazy"><img src="./甜點-老奶奶檸檬蛋糕-3.jpg" alt="老奶奶檸檬蛋糕 3" class="zoomable hidden" data-group="dessert-老奶奶檸檬蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">老奶奶檸檬蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-香橙磅蛋糕.jpg?v=2" alt="香橙磅蛋糕" class="photo zoomable" data-group="dessert-香橙磅蛋糕" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">香橙磅蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
-							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-法式菠菜鹹派.jpg?v=2" alt="法式菠菜鹹派" class="photo zoomable" data-group="dessert-法式菠菜鹹派" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">法式菠菜鹹派<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-司康.jpg?v=2" alt="司康" class="photo zoomable" data-group="dessert-司康" loading="lazy" onerror="this.remove()"><img src="./甜點-司康-2.jpg?v=2" alt="司康 2" class="zoomable hidden" data-group="dessert-司康" loading="lazy"><img src="./甜點-司康-3.jpg?v=2" alt="司康 3" class="zoomable hidden" data-group="dessert-司康" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">司康</figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-原味戚風蛋糕.jpg?v=2" alt="原味戚風蛋糕" class="photo zoomable" data-group="dessert-原味戚風蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-原味戚風蛋糕-2.jpg?v=2" alt="原味戚風蛋糕 2" class="zoomable hidden" data-group="dessert-原味戚風蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">原味戚風蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-日式北海道戚風蛋糕.jpg?v=2" alt="日式北海道戚風蛋糕" class="photo zoomable" data-group="dessert-日式北海道戚風蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-日式北海道戚風蛋糕-2.jpg?v=2" alt="日式北海道戚風蛋糕 2" class="zoomable hidden" data-group="dessert-日式北海道戚風蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">日式北海道戚風蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">4 個</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-紅茶戚風蛋糕.jpg?v=3" alt="紅茶戚風蛋糕" class="photo zoomable" data-group="dessert-紅茶戚風蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-紅茶戚風蛋糕-2.jpg?v=3" alt="紅茶戚風蛋糕 2" class="zoomable hidden" data-group="dessert-紅茶戚風蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">紅茶戚風蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-費南雪.jpg?v=2" alt="費南雪" class="photo zoomable" data-group="dessert-費南雪" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">費南雪</figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-布朗尼.jpg?v=3" alt="布朗尼" class="photo zoomable" data-group="dessert-布朗尼" loading="lazy" onerror="this.remove()"><img src="./甜點-布朗尼-2.jpg?v=2" alt="布朗尼 2" class="zoomable hidden" data-group="dessert-布朗尼" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">布朗尼</figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-檸檬瑪德蓮.jpg?v=2" alt="檸檬瑪德蓮" class="photo zoomable" data-group="dessert-檸檬瑪德蓮" loading="lazy" onerror="this.remove()"><img src="./甜點-檸檬瑪德蓮-2.jpg?v=2" alt="檸檬瑪德蓮 2" class="zoomable hidden" data-group="dessert-檸檬瑪德蓮" loading="lazy"><img src="./甜點-檸檬瑪德蓮-3.jpg?v=2" alt="檸檬瑪德蓮 3" class="zoomable hidden" data-group="dessert-檸檬瑪德蓮" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">檸檬瑪德蓮</figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-巧克力瑪德蓮.jpg?v=3" alt="巧克力瑪德蓮" class="photo zoomable" data-group="dessert-巧克力瑪德蓮" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">巧克力瑪德蓮</figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-原味輕乳酪蛋糕.jpg?v=3" alt="原味輕乳酪蛋糕" class="photo zoomable" data-group="dessert-原味輕乳酪蛋糕" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">原味輕乳酪蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-檸檬輕乳酪蛋糕.jpg?v=3" alt="檸檬輕乳酪蛋糕" class="photo zoomable" data-group="dessert-檸檬輕乳酪蛋糕" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">檸檬輕乳酪蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-紐約風起司蛋糕.jpg?v=3" alt="紐約風起司蛋糕" class="photo zoomable" data-group="dessert-紐約風起司蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-紐約風起司蛋糕-2.jpg?v=2" alt="紐約風起司蛋糕 2" class="zoomable hidden" data-group="dessert-紐約風起司蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">紐約風起司蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-老奶奶檸檬蛋糕.jpg?v=3" alt="老奶奶檸檬蛋糕" class="photo zoomable" data-group="dessert-老奶奶檸檬蛋糕" loading="lazy" onerror="this.remove()"><img src="./甜點-老奶奶檸檬蛋糕-2.jpg?v=3" alt="老奶奶檸檬蛋糕 2" class="zoomable hidden" data-group="dessert-老奶奶檸檬蛋糕" loading="lazy"><img src="./甜點-老奶奶檸檬蛋糕-3.jpg?v=2" alt="老奶奶檸檬蛋糕 3" class="zoomable hidden" data-group="dessert-老奶奶檸檬蛋糕" loading="lazy"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">老奶奶檸檬蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-香橙磅蛋糕.jpg?v=3" alt="香橙磅蛋糕" class="photo zoomable" data-group="dessert-香橙磅蛋糕" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">香橙磅蛋糕<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
+							<figure><div class="dessert-photo aspect-square"><span>照片準備中</span><img src="./甜點-法式菠菜鹹派.jpg?v=3" alt="法式菠菜鹹派" class="photo zoomable" data-group="dessert-法式菠菜鹹派" loading="lazy" onerror="this.remove()"></div><figcaption class="mt-3 font-display text-[0.95rem] leading-snug">法式菠菜鹹派<span class="ml-2 whitespace-nowrap text-xs text-ink/50">6 吋</span></figcaption></figure>
 							</div>
 						</div>
 					</div>
@@ -405,7 +376,7 @@
 		<section id="body" data-section class="bg-sand/70 px-5 py-24 lg:px-12 lg:py-36">
 			<div class="mx-auto grid max-w-[88rem] gap-16 lg:grid-cols-12 lg:items-center lg:gap-10">
 				<div class="reveal relative order-2 lg:order-1 lg:col-span-5">
-					<div class="frame mx-auto aspect-[9/16] w-full max-w-[22rem]"><img src="./consulting-hero.jpg?v=3" alt="身材管理顧問" class="photo zoomable" loading="lazy" data-group="body"></div>
+					<div class="frame mx-auto aspect-[9/16] w-full max-w-[22rem]"><img src="./consulting-hero.jpg?v=4" alt="身材管理顧問" class="photo zoomable" loading="lazy" data-group="body"></div>
 				</div>
 				<div class="reveal order-1 lg:order-2 lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
 					<p class="kicker"><span class="num">02</span><span class="line"></span><span class="label">Body Management</span></p>
@@ -432,7 +403,7 @@
 		<!-- 餐桌照片帶 -->
 		<section class="bg-ink px-5 py-20 text-paper lg:px-12 lg:py-28" aria-label="餐桌時光">
 			<div class="mx-auto grid max-w-[88rem] items-end gap-10 lg:grid-cols-12">
-				<div class="reveal frame aspect-[3/2] w-full lg:col-span-8"><img src="./外面.jpg" alt="戶外長桌上擺滿料理與飲品" class="photo zoomable" loading="lazy" data-group="table"></div>
+				<div class="reveal frame aspect-[3/2] w-full lg:col-span-8"><img src="./外面.jpg?v=2" alt="戶外長桌上擺滿料理與飲品" class="photo zoomable" loading="lazy" data-group="table"></div>
 				<div class="reveal lg:col-span-4 lg:pb-4" style="--delay: 0.15s">
 					<p class="en text-lg italic text-gold">Around the table</p>
 					<p class="mt-5 font-display text-3xl font-medium leading-[1.55] sm:text-4xl">留一點時間，<br>給真正重要的事。</p>
@@ -463,9 +434,9 @@
 				</div>
 				<div class="reveal lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
 					<div class="carousel aspect-[4/5] w-full" data-carousel aria-roledescription="carousel" aria-label="場地照片">
-						<div class="carousel-slide is-active"><div class="media h-full"><img src="./venue-main.jpg" alt="場地環境" class="photo media-img zoomable" loading="lazy"></div></div>
-						<div class="carousel-slide"><div class="media h-full"><img src="./venue-2.jpg" alt="場地氛圍" class="photo media-img zoomable" loading="lazy"></div></div>
-						<div class="carousel-slide"><div class="media h-full"><img src="./venue-3.jpg" alt="空間細節" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide is-active"><div class="media h-full"><img src="./venue-main.jpg?v=2" alt="場地環境" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img data-src="./venue-2.jpg" alt="場地氛圍" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img data-src="./venue-3.jpg?v=2" alt="空間細節" class="photo media-img zoomable" loading="lazy"></div></div>
 					</div>
 				</div>
 			</div>
@@ -496,8 +467,8 @@
 					<article class="reveal">
 						<div class="carousel aspect-[3/2]" data-carousel aria-roledescription="carousel" aria-label="低升糖貝果照片">
 							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-bagel.jpg" alt="低升糖貝果 1" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./product-bagel2.jpg" alt="低升糖貝果 2" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./product-bagel3.jpg" alt="低升糖貝果 3" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img data-src="./product-bagel2.jpg" alt="低升糖貝果 2" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img data-src="./product-bagel3.jpg?v=2" alt="低升糖貝果 3" class="photo media-img zoomable" loading="lazy"></div></div>
 						</div>
 						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">低升糖貝果</h3><span class="en text-lg text-ink/30">No.01</span></div>
 						<p class="mt-4 text-sm leading-7 text-ink/55">日常也能放心享用的柔韌口感。</p>
@@ -506,8 +477,8 @@
 					</article>
 					<article class="reveal" style="--delay: 0.1s">
 						<div class="carousel aspect-[3/2]" data-carousel aria-roledescription="carousel" aria-label="經典蛋黃酥照片">
-							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-pastry.jpg?v=2" alt="經典蛋黃酥 1" class="photo media-img zoomable" loading="lazy"></div></div>
-							<div class="carousel-slide"><div class="media h-full"><img src="./product-pastry2.jpg?v=2" alt="經典蛋黃酥 2" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide is-active"><div class="media h-full"><img src="./product-pastry.jpg?v=3" alt="經典蛋黃酥 1" class="photo media-img zoomable" loading="lazy"></div></div>
+							<div class="carousel-slide"><div class="media h-full"><img data-src="./product-pastry2.jpg?v=3" alt="經典蛋黃酥 2" class="photo media-img zoomable" loading="lazy"></div></div>
 						</div>
 						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">經典蛋黃酥</h3><span class="en text-lg text-ink/30">No.02</span></div>
 						<p class="mt-4 text-sm leading-7 text-ink/55">酥香與鹹蛋黃，寫給節日的老派浪漫。</p>
@@ -515,7 +486,7 @@
 						<div class="mt-4 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">限量產品購買</p><p class="mt-1 text-sm leading-7 text-ink/75 lg:mt-0">每年中秋節前約半個月開賣，開賣前一個月公告。</p></div>
 					</article>
 					<article class="reveal" style="--delay: 0.2s">
-						<div class="frame aspect-[3/2]"><img src="./product-panettone.jpg" alt="潘妮多尼" class="photo zoomable" loading="lazy" data-group="panettone"></div>
+						<div class="frame aspect-[3/2]"><img src="./product-panettone.jpg?v=2" alt="潘妮多尼" class="photo zoomable" loading="lazy" data-group="panettone"></div>
 						<div class="mt-6 flex items-baseline justify-between border-b hairline pb-4"><h3 class="font-display text-2xl font-medium">潘妮多尼</h3><span class="en text-lg text-ink/30">No.03</span></div>
 						<p class="mt-4 text-sm leading-7 text-ink/55">義式聖誕老麵包，果乾與奶油香慢慢發酵。</p>
 						<div class="mt-6 border-t hairline pt-4"><p class="text-sm font-medium tracking-[0.15em] text-amber lg:sr-only">實作課程</p><p class="mt-1 text-sm leading-7 text-ink/75 lg:mt-0">每年 12 月初開課，開課前一個月公告。</p></div>
@@ -546,9 +517,9 @@
 				<div class="reveal lg:col-span-6 lg:col-start-7" style="--delay: 0.1s">
 					<div class="carousel aspect-[4/3] lg:aspect-auto lg:h-full" data-carousel aria-roledescription="carousel" aria-label="會員手作課程照片">
 						<div class="carousel-slide is-active"><div class="media h-full"><img src="./vip-class.jpg" alt="會員手作課程花絮 1" class="photo media-img zoomable" loading="lazy"></div></div>
-						<div class="carousel-slide"><div class="media h-full"><img src="./vip-class2.jpg" alt="會員手作課程花絮 2" class="photo media-img zoomable" loading="lazy"></div></div>
-						<div class="carousel-slide"><div class="media h-full"><img src="./vip-class3.jpg" alt="會員手作課程花絮 3" class="photo media-img zoomable" loading="lazy"></div></div>
-						<div class="carousel-slide"><div class="media h-full"><img src="./vip-class4.jpg" alt="會員手作課程花絮 4" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img data-src="./vip-class2.jpg?v=2" alt="會員手作課程花絮 2" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img data-src="./vip-class3.jpg" alt="會員手作課程花絮 3" class="photo media-img zoomable" loading="lazy"></div></div>
+						<div class="carousel-slide"><div class="media h-full"><img data-src="./vip-class4.jpg" alt="會員手作課程花絮 4" class="photo media-img zoomable" loading="lazy"></div></div>
 					</div>
 				</div>
 			</div>
@@ -662,11 +633,11 @@
 		<div class="px-6 py-6">
 			<ul id="newsList" class="grid gap-5">
 				<li>
-					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="block"><img src="news-scone-1114.jpg?v=1" alt="司康手作課活動封面，報名費 NT$880／人" width="800" height="800" class="mx-auto aspect-square w-full max-w-[36vh] object-cover"></a>
-					<p class="mt-5 text-xs tracking-[0.15em] text-clay">活動・11/14（六）13:30–17:30</p>
+					<p class="text-xs tracking-[0.15em] text-clay">活動・11/14（六）13:30–17:30</p>
 					<h3 class="mt-2 font-display text-lg font-medium">英式司康手作課＋甜點不胖講座</h3>
-					<p class="mt-2 text-sm leading-7 text-ink/70">親手烤出外酥內軟的英式司康，等出爐時還有健康分享上下場。這次一個人就能報名，限額 20 人。</p>
-					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="btn btn-dark mt-5 w-full">立即報名 <span class="arrow" aria-hidden="true"></span></a>
+					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="btn btn-amber mt-4 w-full !py-[1.15rem] !text-base">立即報名 <span class="arrow" aria-hidden="true"></span></a>
+					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="mt-5 block"><img src="news-scone-1114.jpg?v=2" alt="司康手作課活動封面，報名費 NT$880／人" width="520" height="520" class="mx-auto aspect-square w-full max-w-[26vh] object-cover"></a>
+					<p class="mt-4 text-sm leading-7 text-ink/70">親手烤出外酥內軟的英式司康，等出爐時還有健康分享上下場。這次一個人就能報名，限額 20 人。</p>
 				</li>
 			</ul>
 			<p id="newsEmpty" class="text-sm leading-7 text-ink/55">目前尚無最新消息，敬請期待。</p>
@@ -735,6 +706,8 @@
 		newsDialog.addEventListener('click', (event) => {
 			if (event.target === newsDialog || event.target.closest('[data-news-close]')) newsDialog.close();
 		});
+		// 活動到期後自動隱藏的按鈕
+		document.querySelectorAll('[data-until]').forEach((el) => { if (Date.now() >= new Date(el.dataset.until).getTime()) el.remove(); });
 		// 進站自動彈出最新消息：每次造訪只跳一次，活動結束後自動停止
 		const NEWS_AUTO_KEY = 'newsAutoShown:scone-1114';
 		const NEWS_AUTO_UNTIL = new Date('2026-11-14T17:30:00+08:00');
@@ -823,8 +796,15 @@
 				slide.querySelector('.media-img').addEventListener('click', () => openLightbox(slides.map((s) => s.querySelector('.media-img')), index));
 			});
 
+			// 只先載入第一張，其餘照片輪到時（和下一張）才載入
+			function loadSlide(slide) {
+				const img = slide && slide.querySelector('img[data-src]');
+				if (img) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+			}
 			function showSlide(index) {
 				current = (index + slides.length) % slides.length;
+				loadSlide(slides[current]);
+				loadSlide(slides[(current + 1) % slides.length]);
 				slides.forEach((slide, i) => {
 					slide.classList.toggle('is-active', i === current);
 					slide.setAttribute('aria-hidden', String(i !== current));
@@ -876,7 +856,7 @@
 			});
 			carousel.addEventListener('click', (event) => { if (swiped) { event.stopPropagation(); swiped = false; } }, true);
 
-			new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; restart(); }, { threshold: 0.3 }).observe(carousel);
+			new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) loadSlide(slides[(current + 1) % slides.length]); restart(); }, { threshold: 0.3 }).observe(carousel);
 			document.addEventListener('visibilitychange', restart);
 			showSlide(0);
 		});
@@ -889,7 +869,7 @@
 		let lbIndex = 0;
 		function renderLightbox() {
 			const image = lbImages[lbIndex];
-			lightboxImg.src = image.getAttribute('src');
+			lightboxImg.src = image.getAttribute('src') || image.dataset.src;
 			lightboxImg.alt = image.alt;
 			lightboxCount.textContent = lbImages.length > 1 ? `${String(lbIndex + 1).padStart(2, '0')} / ${String(lbImages.length).padStart(2, '0')}` : '';
 			lightbox.querySelectorAll('[data-lb="prev"], [data-lb="next"]').forEach((button) => button.classList.toggle('hidden', lbImages.length < 2));
@@ -985,6 +965,6 @@
 
 		document.querySelector('#year').textContent = new Date().getFullYear();
 	</script>
-	<script src="track.js?v=1"></script>
+	<script src="track.js?v=2"></script>
 </body>
 </html>
