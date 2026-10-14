@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Jas Studio//茉莉花廚房//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:pumpkin-20261029@jasstudiotw.com
+DTSTAMP:20261014T000000Z
+DTSTART:20261029T120000Z
+DTEND:20261029T130000Z
+SUMMARY:萬聖節線上課｜手作南瓜濃湯 × 創意南瓜燈盅
+LOCATION:Zoom https://zoom.us/j/9439439453
+URL:https://zoom.us/j/9439439453
+DESCRIPTION:講師：Sunny 老師（茉莉花廚房）\nZoom 會議 ID：94
+ 3 943 9453，0 元免費、無需密碼\n連結：https://zoom.us/j/943943
+ 9453\n\n＊學員請自備南瓜，課前請準備好材料：https://jass
+ tudiotw.com/news-pumpkin-1029-list.jpg\n進入會議室後請先關閉麥
+ 克風，改名格式：名字－推薦人
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:南瓜線上課 30 分鐘後開始
+TRIGGER:-PT30M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

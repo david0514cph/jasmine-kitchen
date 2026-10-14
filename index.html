@@ -177,9 +177,39 @@
 		@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
 		/* 最新消息彈窗 */
-		#newsDialog { width: min(28rem, calc(100vw - 2.5rem)); max-height: min(88vh, 46rem); padding: 0; border: 0; background: #f6f2eb; color: #221f1b; }
+		#newsDialog { width: min(60rem, calc(100vw - 1.5rem)); max-height: min(92vh, 54rem); padding: 0; border: 0; background: #f6f2eb; color: #221f1b; }
 		#newsDialog::backdrop { background: rgba(22, 20, 17, 0.55); }
 		#newsDialog[open] { animation: fade 0.3s ease; }
+		#newsDialog .news-head { position: sticky; top: 0; z-index: 2; background: #f6f2eb; }
+		#newsDialog .news-tabs { display: flex; gap: 0.25rem; overflow-x: auto; padding: 0 1.5rem; border-bottom: 1px solid rgba(34, 31, 27, 0.1); scrollbar-width: none; }
+		#newsDialog .news-tabs::-webkit-scrollbar { display: none; }
+		#newsDialog .news-tab { flex: 1 1 0; min-width: 9.5rem; padding: 0.9rem 0.75rem 0.8rem; border-bottom: 2px solid transparent; display: flex; flex-direction: column; justify-content: flex-start; text-align: left; color: rgba(34, 31, 27, 0.5); transition: color 0.2s, border-color 0.2s; }
+		@media (max-width: 639px) { #newsDialog .news-tabs { padding: 0 0.75rem; } #newsDialog .news-tab { min-width: 0; padding: 0.8rem 0.6rem 0.7rem; } #newsDialog .news-tab .d { font-size: 0.72rem; letter-spacing: 0.04em; } #newsDialog .news-tab .t { font-size: 0.95rem; } }
+		#newsDialog .news-tab:hover { color: #221f1b; }
+		#newsDialog .news-tab[aria-selected="true"] { border-color: #a47148; color: #221f1b; }
+		#newsDialog .news-tab .d { display: block; font-size: 0.78rem; letter-spacing: 0.12em; color: #7d5641; }
+		#newsDialog .news-tab .t { display: block; margin-top: 0.15rem; font-family: "Noto Serif TC", serif; font-size: 1rem; line-height: 1.5; }
+		#newsDialog .news-item { display: grid; gap: 1.5rem; grid-template-areas: "top" "poster" "more"; }
+		#newsDialog .news-item[hidden] { display: none; }
+		#newsDialog .news-top { grid-area: top; }
+		#newsDialog .news-poster { grid-area: poster; display: block; }
+		#newsDialog .news-poster img { width: 100%; height: auto; box-shadow: 0 18px 40px rgba(34, 31, 27, 0.14); }
+		#newsDialog .news-more { grid-area: more; }
+		#newsDialog .news-list { grid-area: list; display: block; }
+		#newsDialog .news-list img { width: 100%; height: auto; box-shadow: 0 12px 30px rgba(34, 31, 27, 0.12); }
+		#newsDialog .news-item.news-item--two { grid-template-areas: "top" "poster" "list" "more"; }
+		@media (min-width: 768px) {
+			#newsDialog .news-item.news-item--two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto 1fr; grid-template-areas: "top top" "poster list" "poster more"; }
+			#newsDialog .news-item--two .news-top { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; column-gap: 2.5rem; align-items: end; }
+			#newsDialog .news-item--two .news-top > :not(.news-cal) { grid-column: 1; }
+			#newsDialog .news-item--two .news-cal { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
+		}
+		@media (min-width: 768px) {
+			#newsDialog .news-item { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-rows: auto 1fr; grid-template-areas: "poster top" "poster more"; column-gap: 2.5rem; row-gap: 1.25rem; align-items: start; }
+		}
+		#newsDialog .news-cal-btn { padding-left: 0.5rem; padding-right: 0.5rem; letter-spacing: 0.04em; white-space: nowrap; }
+		#newsDialog .news-link { text-decoration: underline; text-underline-offset: 4px; }
+		#newsDialog .news-link:hover { color: rgb(125 86 65); }
 
 		/* 手風琴 */
 		summary { list-style: none; }
@@ -188,6 +218,7 @@
 		summary .plus::before, summary .plus::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #221f1b; transition: transform 0.35s ease; }
 		summary .plus::after { transform: rotate(90deg); }
 		details[open] summary .plus::after { transform: rotate(0deg); }
+		summary .plus-light::before, summary .plus-light::after { background: currentColor; }
 		details .details-body { animation: drop 0.4s ease; }
 		@keyframes drop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -562,6 +593,13 @@
 						<a href="tel:0963380508" class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline border-b border-paper/10 py-5 transition hover:text-gold"><span class="text-xs tracking-[0.2em] text-paper/55">電話</span><span class="en text-xl">0963 · 380 · 508</span><span class="transition group-hover:translate-x-1" aria-hidden="true">→</span></a>
 						<a href="https://line.me/ti/p/~hwc.sunny" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline border-b border-paper/10 py-5 transition hover:text-gold"><span class="text-xs tracking-[0.2em] text-paper/55">LINE</span><span class="en text-xl">hwc.sunny</span><span class="transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
 						<a href="https://www.google.com/maps/search/?api=1&query=新竹縣竹東鎮富榮街99號" target="_blank" rel="noopener noreferrer" class="group grid grid-cols-[5.5rem_1fr_auto] items-baseline border-b border-paper/10 py-5 transition hover:text-gold"><span class="text-xs tracking-[0.2em] text-paper/55">地址</span><span>新竹縣竹東鎮富榮街 99 號</span><span class="transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
+						<details id="parking" class="border-b border-paper/10 py-5"><summary class="grid cursor-pointer grid-cols-[5.5rem_1fr_auto] items-baseline transition hover:text-gold"><span class="text-xs tracking-[0.2em] text-paper/55">停車</span><span>門口免費 5 位・附近有停車場</span><span class="plus plus-light" aria-hidden="true"></span></summary>
+							<div class="details-body mt-5">
+								<p class="text-sm leading-7 text-paper/60">門口可免費停 5 輛車。<br>轉進富榮街的路口有一座車位很多的停車場（每小時 20 元），步行到茉莉花廚房約 2 分鐘，不用擔心找不到位子。<br>停車場旁就有 YouBike 站，課後騎車到附近逛逛也很好。</p>
+								<div class="mt-5 grid grid-cols-2 gap-3"><img src="./parking-lot.jpg" alt="富榮街路口的停車場" loading="lazy" class="aspect-[4/3] w-full object-cover"><img src="./parking-ubike.jpg" alt="停車場旁的 YouBike 站與步道" loading="lazy" class="aspect-[4/3] w-full object-cover"></div>
+								<a href="https://www.google.com/maps/search/?api=1&query=24.779213,121.034245" target="_blank" rel="noopener noreferrer" class="group mt-5 inline-flex items-center gap-2 text-sm text-gold transition hover:text-paper">導航到停車場 <span class="transition group-hover:translate-x-1" aria-hidden="true">↗</span></a>
+							</div>
+						</details>
 						<div class="grid grid-cols-[5.5rem_1fr] items-baseline border-b border-paper/10 py-5"><span class="text-xs tracking-[0.2em] text-paper/55">社群</span><span class="flex gap-6"><a href="https://www.instagram.com/jas.kitchen/" target="_blank" rel="noopener noreferrer" class="en text-xl transition hover:text-gold">Instagram</a><a href="https://www.facebook.com/jas.cooking.studio?locale=zh_TW" target="_blank" rel="noopener noreferrer" class="en text-xl transition hover:text-gold">Facebook</a></span></div>
 					</div>
 				</div>
@@ -626,18 +664,45 @@
 	<!-- 燈箱 -->
 	<!-- 最新消息彈窗：消息放進 #newsList，沒有消息時顯示 #newsEmpty -->
 	<dialog id="newsDialog" aria-labelledby="newsTitle">
-		<div class="flex items-center justify-between border-b hairline px-6 py-5">
-			<h2 id="newsTitle" class="font-display text-xl font-medium">最新消息</h2>
-			<button type="button" class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 hover:bg-sand" data-news-close aria-label="關閉"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+		<div class="news-head">
+			<div class="flex items-center justify-between px-6 py-5">
+				<h2 id="newsTitle" class="font-display text-xl font-medium">最新消息</h2>
+				<button type="button" class="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 hover:bg-sand" data-news-close aria-label="關閉"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+			</div>
+			<div id="newsTabs" class="news-tabs" role="tablist" aria-label="活動列表"></div>
 		</div>
-		<div class="px-6 py-6">
-			<ul id="newsList" class="grid gap-5">
-				<li>
-					<p class="text-xs tracking-[0.15em] text-clay">活動・11/14（六）13:30–17:30</p>
-					<h3 class="mt-2 font-display text-lg font-medium">英式司康手作課＋甜點不胖講座</h3>
-					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="btn btn-amber mt-4 w-full !py-[1.15rem] !text-base">立即報名 <span class="arrow" aria-hidden="true"></span></a>
-					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="mt-5 block"><img src="news-scone-1114.jpg?v=2" alt="司康手作課活動封面，報名費 NT$880／人" width="520" height="520" class="mx-auto aspect-square w-full max-w-[26vh] object-cover"></a>
-					<p class="mt-4 text-sm leading-7 text-ink/70">親手烤出外酥內軟的英式司康，等出爐時還有健康分享上下場。這次一個人就能報名，限額 20 人。</p>
+		<div class="px-6 py-6 lg:p-10">
+			<!-- 每則消息一個 li：data-tab-date / data-tab-title 是上方切換欄位的文字，data-until 到期後自動移除 -->
+			<ul id="newsList">
+				<li class="news-item news-item--two" data-until="2026-10-29T21:00:00+08:00" data-tab-date="10/29 線上・免費" data-tab-title="南瓜濃湯 × 南瓜燈">
+					<div class="news-top">
+						<p class="text-xs tracking-[0.15em] text-clay">線上・10/29（四）20:00–21:00・免費</p>
+						<h3 class="mt-2 font-display text-2xl font-medium leading-snug">萬聖節特別企劃｜手作南瓜濃湯 × 創意南瓜燈盅線上課</h3>
+						<div class="news-cal mt-5">
+							<p class="text-xs tracking-[0.15em] text-ink/55">加入行事曆，上課前提醒你</p>
+							<div class="mt-2 grid grid-cols-2 gap-2">
+								<a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%E8%90%AC%E8%81%96%E7%AF%80%E7%B7%9A%E4%B8%8A%E8%AA%B2%EF%BD%9C%E6%89%8B%E4%BD%9C%E5%8D%97%E7%93%9C%E6%BF%83%E6%B9%AF+%C3%97+%E5%89%B5%E6%84%8F%E5%8D%97%E7%93%9C%E7%87%88%E7%9B%85&amp;dates=20261029T200000%2F20261029T210000&amp;ctz=Asia%2FTaipei&amp;location=Zoom+https%3A%2F%2Fzoom.us%2Fj%2F9439439453&amp;details=%E8%AC%9B%E5%B8%AB%EF%BC%9ASunny+%E8%80%81%E5%B8%AB%EF%BC%88%E8%8C%89%E8%8E%89%E8%8A%B1%E5%BB%9A%E6%88%BF%EF%BC%89%0AZoom+%E6%9C%83%E8%AD%B0+ID%EF%BC%9A943+943+9453%EF%BC%8C0+%E5%85%83%E5%85%8D%E8%B2%BB%E3%80%81%E7%84%A1%E9%9C%80%E5%AF%86%E7%A2%BC%0A%E9%80%A3%E7%B5%90%EF%BC%9Ahttps%3A%2F%2Fzoom.us%2Fj%2F9439439453%0A%0A%EF%BC%8A%E5%AD%B8%E5%93%A1%E8%AB%8B%E8%87%AA%E5%82%99%E5%8D%97%E7%93%9C%EF%BC%8C%E8%AA%B2%E5%89%8D%E8%AB%8B%E6%BA%96%E5%82%99%E5%A5%BD%E6%9D%90%E6%96%99%EF%BC%9Ahttps%3A%2F%2Fjasstudiotw.com%2Fnews-pumpkin-1029-list.jpg%0A%E9%80%B2%E5%85%A5%E6%9C%83%E8%AD%B0%E5%AE%A4%E5%BE%8C%E8%AB%8B%E5%85%88%E9%97%9C%E9%96%89%E9%BA%A5%E5%85%8B%E9%A2%A8%EF%BC%8C%E6%94%B9%E5%90%8D%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%90%8D%E5%AD%97%EF%BC%8D%E6%8E%A8%E8%96%A6%E4%BA%BA" target="_blank" rel="noopener" class="btn btn-amber news-cal-btn w-full !text-sm">Google 日曆</a>
+								<a href="pumpkin-1029.ics" download class="btn btn-dark news-cal-btn w-full !text-sm">Apple／Outlook</a>
+							</div>
+						</div>
+					</div>
+					<a href="news-pumpkin-1029.jpg" target="_blank" rel="noopener" class="news-poster"><img src="news-pumpkin-1029.jpg" alt="萬聖節南瓜線上課海報：10/29（四）晚上 8–9 點，ZOOM 會議 ID 943 943 9453，0 元免費" width="896" height="1200"></a>
+					<a href="news-pumpkin-1029-list.jpg" target="_blank" rel="noopener" class="news-list"><p class="mb-3 text-xs tracking-[0.15em] text-ink/55">課前準備材料清單（點圖看大圖）</p><img src="news-pumpkin-1029-list.jpg" alt="材料清單：南瓜濃湯用南瓜、胡蘿蔔、洋蔥、大蒜、培根、鹽、黑胡椒、水、鮮奶油；南瓜燈用奇異筆、雕刻刀具、大湯匙、大碗、LED 小蠟燭、廚房紙巾" width="1200" height="670"></a>
+					<div class="news-more">
+						<p class="text-sm leading-7 text-ink/70">一顆南瓜兩種玩法：先煮星級南瓜濃湯，再刻成派對用的南瓜燈，大人小孩都適合。在家用 Zoom 上課，0 元免費、無需密碼，全程參與還送 Sunny 老師的萬聖派對私房食譜電子檔。學員請自備南瓜。</p>
+						<p class="mt-3 text-sm leading-7 text-ink/70">Zoom 會議 ID：<a href="https://zoom.us/j/9439439453" target="_blank" rel="noopener" class="news-link">943 943 9453</a>（點擊直接進入）</p>
+					</div>
+				</li>
+				<li class="news-item" data-tab-date="11/14 實體課程" data-tab-title="英式司康手作課">
+					<div class="news-top">
+						<p class="text-xs tracking-[0.15em] text-clay">活動・11/14（六）13:30–17:30</p>
+						<h3 class="mt-2 font-display text-2xl font-medium leading-snug">英式司康手作課＋甜點不胖講座</h3>
+						<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="btn btn-amber mt-5 w-full !py-[1.15rem] !text-base">立即報名 <span class="arrow" aria-hidden="true"></span></a>
+					</div>
+					<a href="https://luma.com/d510l35l" target="_blank" rel="noopener" class="news-poster"><img src="news-scone-1114.jpg?v=2" alt="司康手作課活動封面，報名費 NT$880／人" width="520" height="520" loading="lazy"></a>
+					<div class="news-more">
+						<p class="text-sm leading-7 text-ink/70">親手烤出外酥內軟的英式司康，等出爐時還有健康分享上下場。這次一個人就能報名，限額 20 人。</p>
+					</div>
 				</li>
 			</ul>
 			<p id="newsEmpty" class="text-sm leading-7 text-ink/55">目前尚無最新消息，敬請期待。</p>
@@ -698,7 +763,31 @@
 
 		// 最新消息彈窗
 		const newsDialog = document.querySelector('#newsDialog');
+		// 活動到期後自動隱藏的按鈕與消息
+		document.querySelectorAll('[data-until]').forEach((el) => { if (Date.now() >= new Date(el.dataset.until).getTime()) el.remove(); });
 		document.querySelector('#newsEmpty').hidden = document.querySelector('#newsList').children.length > 0;
+		// 最新消息切換欄位：依 #newsList 的每則消息產生
+		const newsItems = [...document.querySelectorAll('#newsList > li')];
+		const newsTabs = document.querySelector('#newsTabs');
+		const showNews = (index) => newsItems.forEach((item, i) => {
+			item.hidden = i !== index;
+			newsTabs.children[i].setAttribute('aria-selected', String(i === index));
+			newsTabs.children[i].tabIndex = i === index ? 0 : -1;
+		});
+		newsItems.forEach((item, i) => {
+			item.id = `news-${i}`;
+			item.setAttribute('role', 'tabpanel');
+			const tab = document.createElement('button');
+			tab.type = 'button';
+			tab.className = 'news-tab';
+			tab.setAttribute('role', 'tab');
+			tab.setAttribute('aria-controls', item.id);
+			tab.innerHTML = `<span class="d">${item.dataset.tabDate}</span><span class="t">${item.dataset.tabTitle}</span>`;
+			tab.addEventListener('click', () => { showNews(i); document.querySelector('#newsDialog').scrollTop = 0; });
+			newsTabs.append(tab);
+		});
+		newsTabs.hidden = newsItems.length < 2;
+		if (newsItems.length) showNews(0);
 		document.querySelectorAll('[data-news-open]').forEach((button) => button.addEventListener('click', () => {
 			setMenu(false);
 			newsDialog.showModal();
@@ -706,8 +795,6 @@
 		newsDialog.addEventListener('click', (event) => {
 			if (event.target === newsDialog || event.target.closest('[data-news-close]')) newsDialog.close();
 		});
-		// 活動到期後自動隱藏的按鈕
-		document.querySelectorAll('[data-until]').forEach((el) => { if (Date.now() >= new Date(el.dataset.until).getTime()) el.remove(); });
 		// 進站自動彈出最新消息：每次造訪只跳一次，活動結束後自動停止
 		const NEWS_AUTO_KEY = 'newsAutoShown:scone-1114';
 		const NEWS_AUTO_UNTIL = new Date('2026-11-14T17:30:00+08:00');
